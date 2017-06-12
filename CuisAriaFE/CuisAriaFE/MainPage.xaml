@@ -4,9 +4,10 @@
              xmlns:local="clr-namespace:CuisAriaFE" Title="Home"
              xmlns:pages="clr-namespace:CuisAriaFE.Pages"
              x:Class="CuisAriaFE.MainPage">
-
+    
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Settings" Icon="icon_settings.png" Order="Primary" Clicked="OnSettingsClicked"/>
+        
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>
