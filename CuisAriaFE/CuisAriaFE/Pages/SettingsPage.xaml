@@ -4,7 +4,15 @@
              x:Class="CuisAriaFE.Pages.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Settings get fleshed out here" />
+            <Label Text="Select an option for Unit of Measure:"/>
+            <Picker x:Name="uomPicker">
+                <Picker.Items>
+                    <x:String>US Standard</x:String>
+                    <x:String>Metric</x:String>
+                    <x:String>Recipe Default</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Save" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
