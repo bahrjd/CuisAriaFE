@@ -13,8 +13,11 @@ namespace CuisAriaFE
         {
             InitializeComponent();
 
-            MainPage = new CuisAriaFE.MainPage();
+            MainPage = new NavigationPage(new CuisAriaFE.MainPage());
+
         }
+
+        
 
         protected override void OnStart()
         {
