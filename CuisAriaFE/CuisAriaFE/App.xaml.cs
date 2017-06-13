@@ -14,10 +14,7 @@ namespace CuisAriaFE
             InitializeComponent();
 
             MainPage = new NavigationPage(new CuisAriaFE.MainPage());
-<<<<<<< HEAD
 
-=======
->>>>>>> master
         }
 
         
