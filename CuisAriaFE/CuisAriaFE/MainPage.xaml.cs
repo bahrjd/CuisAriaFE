@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Net;
 
 namespace CuisAriaFE
 {
@@ -13,6 +14,8 @@ namespace CuisAriaFE
         {
             InitializeComponent();
         }
+
+       
 
         private async void OnSettingsClicked(object sender, EventArgs e)
         {
