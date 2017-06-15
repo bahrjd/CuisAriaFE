@@ -8,8 +8,7 @@
             <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="Data Binding goes here" 
-                                  Detail="Data Binding Also Goes Here"  />
+                        <TextCell Text="{Binding UserRecipeFavorite.Recipe}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

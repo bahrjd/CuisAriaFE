@@ -5,6 +5,15 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="My Recipes ListView goes here" />
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="{Binding Recipe.Name}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
