@@ -86,6 +86,7 @@
                 <x:Int32>22</x:Int32>
                 <x:Int32>23</x:Int32>
                 <x:Int32>24</x:Int32>
+                <x:Int32>25</x:Int32>
             </Picker.Items>
         </Picker>
         <TextCell Text="{Binding}" />
