@@ -16,5 +16,14 @@ namespace CuisAriaFE.Pages
         {
             InitializeComponent();
         }
+
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+
+        }
+        private void Photo_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
