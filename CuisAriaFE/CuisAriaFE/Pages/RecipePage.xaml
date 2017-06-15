@@ -1,40 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Recipe"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.Pages.RecipePage">
     <ContentPage.Content>
-        <StackLayout>
-            <ContentPage.ToolbarItems>
+        <ContentPage.ToolbarItems>
                 <ToolbarItem Icon="ic_favorite_border_24dp.png" Order="Primary" Priority="1"/>
                 <ToolbarItem Icon="ic_people_outline_black_24dp.png" Order="Primary" Priority="2"/>
                 <ToolbarItem Text="Edit" Icon="ic_create_black_24dp.png" Order="Primary" Priority="3" Clicked="EditRecipeClicked"/>
                 <ToolbarItem Text="Menu Add" Icon="ic_library_add_black_24dp.png" Order="Primary" Priority="4"  />
             </ContentPage.ToolbarItems>
-            <Picker x:Name="servingsPicker">
-                <Picker.Items>
-                    <x:String>1 Servings</x:String>
-                    <x:String>2 Servings</x:String>
-                    <x:String>3 Servings</x:String>
-                    <x:String>4 Servings</x:String>
-                    <x:String>5 Servings</x:String>
-                    <x:String>6 Servings</x:String>
-                    <x:String>7 Servings</x:String>
-                    <x:String>8 Servings</x:String>
-                    <x:String>9 Servings</x:String>
-                    <x:String>10 Servings</x:String>
-                    <x:String>11 Servings</x:String>
-                    <x:String>12 Servings</x:String>
-                    <x:String>No....</x:String>
-                </Picker.Items>
-            </Picker>
-            <!--<Label Text="{Binding Recipe.Name}" />-->
-            <!--<Label Text="{Binding Recipe.Description}" />-->
+
+        <Label Text="{Binding Recipe.Name}" />
+        <StackLayout Orientation="Horizontal">
+                <Label Text="Servings"/>
+                <Picker x:Name="srvngPicker" Scale="60dp">
+                    <Picker.Items>
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>6</x:String>
+                        <x:String>7</x:String>
+                        <x:String>8</x:String>
+                        <x:String>9</x:String>
+                        <x:String>10</x:String>
+                        <x:String>11</x:String>
+                        <x:String>12</x:String>
+                        <x:String>No....</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Prep Time" />
+                <TextCell Text="{Binding}" />
+        </StackLayout>
+        <StackLayout Orientation="Vertical">
+            <Label Text="{Binding Recipe.Description}" />
             <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />-->
-
-                        <TextCell Text="Binding for Instructions goes here" Detail="Data binding for instruction details goes here" />
+                        <TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />
+                        <TextCell Text="{Binding Step.Instruction}" Detail="Data binding for instruction details goes here" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

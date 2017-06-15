@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.Pages.MyRecipesPage">
@@ -7,13 +7,14 @@
             <Label Text="My Recipes ListView goes here" />
 
             <ListView>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                
-                <ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="{Binding Recipe.Name}"/>
-            
-                </DataTemplate>
-            </ListView.ItemTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="{Binding Recipe.Name}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
             </ListView>
         </StackLayout>
     </ContentPage.Content>
