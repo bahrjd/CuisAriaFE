@@ -10,7 +10,7 @@
                 <ToolbarItem Text="Edit" Icon="ic_create_black_24dp.png" Order="Primary" Priority="3" Clicked="EditRecipeClicked"/>
                 <ToolbarItem Text="Menu Add" Icon="ic_library_add_black_24dp.png" Order="Primary" Priority="4"  />
             </ContentPage.ToolbarItems>
-            <Picker x:Name="uomPicker" Scale="60dp">
+            <Picker x:Name="servingsPicker">
                 <Picker.Items>
                     <x:String>1 Servings</x:String>
                     <x:String>2 Servings</x:String>
@@ -27,12 +27,12 @@
                     <x:String>No....</x:String>
                 </Picker.Items>
             </Picker>
-            <Label Text="{Binding Recipe.Name}" />
-            <Label Text="{Binding Recipe.Description}" />
+            <!--<Label Text="{Binding Recipe.Name}" />-->
+            <!--<Label Text="{Binding Recipe.Description}" />-->
             <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />
+                        <!--<TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />-->
 
                         <TextCell Text="Binding for Instructions goes here" Detail="Data binding for instruction details goes here" />
                     </DataTemplate>

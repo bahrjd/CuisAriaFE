@@ -35,7 +35,7 @@ namespace CuisAriaFE
         }
         private async void OnLogOutClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pages.SplashPage());
+            await Navigation.PushAsync(new Pages.LoginPage());
         }
         private async void OnShoppingClicked(object sender, EventArgs e)
         {

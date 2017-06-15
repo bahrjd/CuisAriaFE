@@ -19,13 +19,5 @@
         <pages:SharedPage Title="Shared"/>
         <pages:FavoritesPage Title="Favorites"/>
     </TabbedPage.Children>
-
-    <ListView>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="{Binding Recipe.Name}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
     
 </TabbedPage>
