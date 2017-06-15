@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CuisAriaFE.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InstructonsPage : ContentPage
+    public partial class InstructionsPage : ContentPage
     {
-        public InstructonsPage()
+        public InstructionsPage()
         {
             InitializeComponent();
         }
