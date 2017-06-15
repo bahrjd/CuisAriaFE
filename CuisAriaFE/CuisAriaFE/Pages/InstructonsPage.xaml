@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.Pages.InstructonsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+        <StackLayout Orientation="Horizontal">
+            
+            <Label Text="Instructions" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

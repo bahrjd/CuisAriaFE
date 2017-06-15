@@ -16,6 +16,8 @@ namespace CuisAriaFE.Pages
         {
             InitializeComponent();
         }
+
+        
         private async void EditRecipeClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());
