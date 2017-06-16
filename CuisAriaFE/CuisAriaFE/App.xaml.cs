@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuisAriaFE.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,14 @@ namespace CuisAriaFE
 {
     public partial class App : Application
     {
+        public static UserMgr userMgr { get; private set; }
+
         public App()
-        {
+        {            
+
             InitializeComponent();
 
+            userMgr = new UserMgr(new UserREST());
             MainPage = new NavigationPage(new CuisAriaFE.MainPage());
 
         }

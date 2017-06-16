@@ -5,13 +5,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Favorites Recipes ListView goes here" />
-            <ListView>
+            <!--<ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding UserRecipeFavorite.Recipe}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

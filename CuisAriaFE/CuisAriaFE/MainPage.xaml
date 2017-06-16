@@ -6,8 +6,8 @@
              x:Class="CuisAriaFE.MainPage">
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Icon="{Binding User.Icon}" />
-        <SearchBar x:Name="MainSearchBar" SearchButtonPressed="MainSearchBar_SearchButtonPressed"/>
+        <!--<ToolbarItem Icon="{Binding User.Icon}" />
+        <SearchBar x:Name="MainSearchBar" SearchButtonPressed="MainSearchBar_SearchButtonPressed"/>-->
         <ToolbarItem Text="Settings" Icon="icon_settings.png" Order="Secondary" Clicked="OnSettingsClicked"/>
         <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="OnAdvancedClicked"/>
         <ToolbarItem Text="Menu" Order="Secondary" Clicked="OnMenuClicked"/>
