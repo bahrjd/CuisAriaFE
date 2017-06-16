@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Shared Recipes ListView goes here" />
-            <ListView>
+            <!--<ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
@@ -13,7 +13,7 @@
                         </StackLayout>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

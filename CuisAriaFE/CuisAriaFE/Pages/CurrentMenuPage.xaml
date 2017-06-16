@@ -4,7 +4,8 @@
              x:Class="CuisAriaFE.Pages.CurrentMenuPage">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">
-            <Button Image="" Clicked="Button_Clicked"/>
+            <Label Text="Welcome to Xamarin Forms!" />
+            <!--<Button Image="" Clicked="Button_Clicked"/>
             <Label Text="{Binding Menu.Name}"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
@@ -19,7 +20,7 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Entry HorizontalTextAlignment="Center"/>
-            <Button Text="Save Menu" Clicked="Save_Clicked"/>
+            <Button Text="Save Menu" Clicked="Save_Clicked"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

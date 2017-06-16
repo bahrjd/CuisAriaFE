@@ -42,11 +42,11 @@ namespace CuisAriaFE
             await Navigation.PushAsync(new Pages.ShoppingListPage());
         }
 
-        private void MainSearchBar_SearchButtonPressed(object sender, EventArgs e)
-        {
-            string RecipeKeyWords = MainSearchBar.Text;
+        //private void MainSearchBar_SearchButtonPressed(object sender, EventArgs e)
+        //{
+        //    string RecipeKeyWords = MainSearchBar.Text;
 
 
-        }
+        //}
     }
 }

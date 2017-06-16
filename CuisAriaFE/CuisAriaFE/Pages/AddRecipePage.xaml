@@ -4,15 +4,15 @@
              x:Class="CuisAriaFE.Pages.AddRecipePage">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">
-            <Button Image="" Clicked="Photo_Clicked"/>
+            <!--<Button Image="" Clicked="Photo_Clicked"/>-->
             <Label Text="Make your recipe here!" />
         </StackLayout>
-        <Label HorizontalOptions="Center" Text="Recipe Name"/>
-        <Entry Text="Recipe Name" Placeholder="RecipeName"/>
+        <!--<Label HorizontalOptions="Center" Text="Recipe Name"/>-->
+        <!--<Entry Text="Recipe Name" Placeholder="RecipeName"/>-->
     </ContentPage.Content>
-    <StackLayout Orientation="Horizontal">
-        <Label Text="Servings"/>
-        <Picker x:Name="srvngPicker" Scale="60dp">
+    <!--<StackLayout Orientation="Horizontal">
+        <Label Text="Servings"/>-->
+        <!--<Picker x:Name="srvngPicker">
             <Picker.Items >
                 <x:Int32>1</x:Int32>
                 <x:Int32>2</x:Int32>
@@ -26,12 +26,12 @@
                 <x:Int32>10</x:Int32>
                 <x:Int32>11</x:Int32>
                 <x:Int32>12</x:Int32>
-                <x:String>No....</x:String>
+                --><!--<x:String>No....</x:String>--><!--
             </Picker.Items>
-        </Picker>
-        <Label Text="Prep Time" />
-        <Label Text="Hours" />
-        <Picker x:Name="prephrPicker" Scale="60dp">
+        </Picker>-->
+        <!--<Label Text="Prep Time" />
+        <Label Text="Hours" />-->
+        <!--<Picker x:Name="prephrPicker">
             <Picker.Items>
                 <x:Int32>1</x:Int32>
                 <x:Int32>2</x:Int32>
@@ -58,103 +58,9 @@
                 <x:Int32>23</x:Int32>
                 <x:Int32>24</x:Int32>
             </Picker.Items>
-        </Picker>
-        <Label Text="Mins" />
-        <Picker x:Name="prepmnPicker" Scale="60dp">
-            <Picker.Items>
-                <x:Int32>1</x:Int32>
-                <x:Int32>2</x:Int32>
-                <x:Int32>3</x:Int32>
-                <x:Int32>4</x:Int32>
-                <x:Int32>5</x:Int32>
-                <x:Int32>6</x:Int32>
-                <x:Int32>7</x:Int32>
-                <x:Int32>8</x:Int32>
-                <x:Int32>9</x:Int32>
-                <x:Int32>10</x:Int32>
-                <x:Int32>11</x:Int32>
-                <x:Int32>12</x:Int32>
-                <x:Int32>13</x:Int32>
-                <x:Int32>14</x:Int32>
-                <x:Int32>15</x:Int32>
-                <x:Int32>16</x:Int32>
-                <x:Int32>17</x:Int32>
-                <x:Int32>18</x:Int32>
-                <x:Int32>19</x:Int32>
-                <x:Int32>20</x:Int32>
-                <x:Int32>21</x:Int32>
-                <x:Int32>22</x:Int32>
-                <x:Int32>23</x:Int32>
-                <x:Int32>24</x:Int32>
-                <x:Int32>25</x:Int32>
-                <x:Int32>26</x:Int32>
-                <x:Int32>27</x:Int32>
-                <x:Int32>28</x:Int32>
-                <x:Int32>29</x:Int32>
-                <x:Int32>30</x:Int32>
-                <x:Int32>31</x:Int32>
-                <x:Int32>32</x:Int32>
-                <x:Int32>33</x:Int32>
-                <x:Int32>34</x:Int32>
-                <x:Int32>35</x:Int32>
-                <x:Int32>36</x:Int32>
-                <x:Int32>37</x:Int32>
-                <x:Int32>38</x:Int32>
-                <x:Int32>39</x:Int32>
-                <x:Int32>40</x:Int32>
-                <x:Int32>41</x:Int32>
-                <x:Int32>42</x:Int32>
-                <x:Int32>43</x:Int32>
-                <x:Int32>44</x:Int32>
-                <x:Int32>45</x:Int32>
-                <x:Int32>46</x:Int32>
-                <x:Int32>47</x:Int32>
-                <x:Int32>48</x:Int32>
-                <x:Int32>49</x:Int32>
-                <x:Int32>50</x:Int32>
-                <x:Int32>51</x:Int32>
-                <x:Int32>52</x:Int32>
-                <x:Int32>53</x:Int32>
-                <x:Int32>54</x:Int32>
-                <x:Int32>55</x:Int32>
-                <x:Int32>56</x:Int32>
-                <x:Int32>57</x:Int32>
-                <x:Int32>58</x:Int32>
-                <x:Int32>59</x:Int32>
-            </Picker.Items>
-        </Picker>
-        <Label Text="Cook Time"/>
-        <Label Text="Hours" />
-        <Picker x:Name="cookhrPicker" Scale="60dp">
-            <Picker.Items>
-                <x:Int32>1</x:Int32>
-                <x:Int32>2</x:Int32>
-                <x:Int32>3</x:Int32>
-                <x:Int32>4</x:Int32>
-                <x:Int32>5</x:Int32>
-                <x:Int32>6</x:Int32>
-                <x:Int32>7</x:Int32>
-                <x:Int32>8</x:Int32>
-                <x:Int32>9</x:Int32>
-                <x:Int32>10</x:Int32>
-                <x:Int32>11</x:Int32>
-                <x:Int32>12</x:Int32>
-                <x:Int32>13</x:Int32>
-                <x:Int32>14</x:Int32>
-                <x:Int32>15</x:Int32>
-                <x:Int32>16</x:Int32>
-                <x:Int32>17</x:Int32>
-                <x:Int32>18</x:Int32>
-                <x:Int32>19</x:Int32>
-                <x:Int32>20</x:Int32>
-                <x:Int32>21</x:Int32>
-                <x:Int32>22</x:Int32>
-                <x:Int32>23</x:Int32>
-                <x:Int32>24</x:Int32>
-            </Picker.Items>
-        </Picker>
-        <Label Text="Mins" />
-        <Picker x:Name="cookmnPicker" Scale="60dp">
+        </Picker>-->
+        <!--<Label Text="Mins" />-->
+        <!--<Picker x:Name="prepmnPicker">
             <Picker.Items>
                 <x:Int32>1</x:Int32>
                 <x:Int32>2</x:Int32>
@@ -216,11 +122,105 @@
                 <x:Int32>58</x:Int32>
                 <x:Int32>59</x:Int32>
             </Picker.Items>
-        </Picker>
-    </StackLayout>
+        </Picker>-->
+        <!--<Label Text="Cook Time"/>
+        <Label Text="Hours" />-->
+        <!--<Picker x:Name="cookhrPicker">
+            <Picker.Items>
+                <x:Int32>1</x:Int32>
+                <x:Int32>2</x:Int32>
+                <x:Int32>3</x:Int32>
+                <x:Int32>4</x:Int32>
+                <x:Int32>5</x:Int32>
+                <x:Int32>6</x:Int32>
+                <x:Int32>7</x:Int32>
+                <x:Int32>8</x:Int32>
+                <x:Int32>9</x:Int32>
+                <x:Int32>10</x:Int32>
+                <x:Int32>11</x:Int32>
+                <x:Int32>12</x:Int32>
+                <x:Int32>13</x:Int32>
+                <x:Int32>14</x:Int32>
+                <x:Int32>15</x:Int32>
+                <x:Int32>16</x:Int32>
+                <x:Int32>17</x:Int32>
+                <x:Int32>18</x:Int32>
+                <x:Int32>19</x:Int32>
+                <x:Int32>20</x:Int32>
+                <x:Int32>21</x:Int32>
+                <x:Int32>22</x:Int32>
+                <x:Int32>23</x:Int32>
+                <x:Int32>24</x:Int32>
+            </Picker.Items>
+        </Picker>-->
+        <!--<Label Text="Mins" />-->
+        <!--<Picker x:Name="cookmnPicker">
+            <Picker.Items>
+                <x:Int32>1</x:Int32>
+                <x:Int32>2</x:Int32>
+                <x:Int32>3</x:Int32>
+                <x:Int32>4</x:Int32>
+                <x:Int32>5</x:Int32>
+                <x:Int32>6</x:Int32>
+                <x:Int32>7</x:Int32>
+                <x:Int32>8</x:Int32>
+                <x:Int32>9</x:Int32>
+                <x:Int32>10</x:Int32>
+                <x:Int32>11</x:Int32>
+                <x:Int32>12</x:Int32>
+                <x:Int32>13</x:Int32>
+                <x:Int32>14</x:Int32>
+                <x:Int32>15</x:Int32>
+                <x:Int32>16</x:Int32>
+                <x:Int32>17</x:Int32>
+                <x:Int32>18</x:Int32>
+                <x:Int32>19</x:Int32>
+                <x:Int32>20</x:Int32>
+                <x:Int32>21</x:Int32>
+                <x:Int32>22</x:Int32>
+                <x:Int32>23</x:Int32>
+                <x:Int32>24</x:Int32>
+                <x:Int32>25</x:Int32>
+                <x:Int32>26</x:Int32>
+                <x:Int32>27</x:Int32>
+                <x:Int32>28</x:Int32>
+                <x:Int32>29</x:Int32>
+                <x:Int32>30</x:Int32>
+                <x:Int32>31</x:Int32>
+                <x:Int32>32</x:Int32>
+                <x:Int32>33</x:Int32>
+                <x:Int32>34</x:Int32>
+                <x:Int32>35</x:Int32>
+                <x:Int32>36</x:Int32>
+                <x:Int32>37</x:Int32>
+                <x:Int32>38</x:Int32>
+                <x:Int32>39</x:Int32>
+                <x:Int32>40</x:Int32>
+                <x:Int32>41</x:Int32>
+                <x:Int32>42</x:Int32>
+                <x:Int32>43</x:Int32>
+                <x:Int32>44</x:Int32>
+                <x:Int32>45</x:Int32>
+                <x:Int32>46</x:Int32>
+                <x:Int32>47</x:Int32>
+                <x:Int32>48</x:Int32>
+                <x:Int32>49</x:Int32>
+                <x:Int32>50</x:Int32>
+                <x:Int32>51</x:Int32>
+                <x:Int32>52</x:Int32>
+                <x:Int32>53</x:Int32>
+                <x:Int32>54</x:Int32>
+                <x:Int32>55</x:Int32>
+                <x:Int32>56</x:Int32>
+                <x:Int32>57</x:Int32>
+                <x:Int32>58</x:Int32>
+                <x:Int32>59</x:Int32>
+            </Picker.Items>
+        </Picker>-->
+    <!--</StackLayout>
     <Label HorizontalOptions="Center" Text="Ingredients"/>
-    <StackLayout Orientation="Horizontal">
-        <Picker x:Name="quantPicker" Scale="60dp">
+    <StackLayout Orientation="Horizontal">-->
+        <!--<Picker x:Name="quantPicker">
             <Picker.Items >
                 <x:Int32>1</x:Int32>
                 <x:Int32>2</x:Int32>
@@ -236,7 +236,7 @@
                 <x:Int32>12</x:Int32>
             </Picker.Items>
         </Picker>
-        <Picker x:Name="fractPicker" Scale="60dp">
+        <Picker x:Name="fractPicker">
             <Picker.Items >
                 <x:Int32>1/2</x:Int32>
                 <x:Int32>1/3</x:Int32>
@@ -247,7 +247,7 @@
                 <x:Int32>1/8</x:Int32>
             </Picker.Items>
         </Picker>
-        <Picker x:Name="unitPicker" Scale="60dp">
+        <Picker x:Name="unitPicker">
             <Picker.Items >
                 <x:String>Tsp</x:String>
                 <x:String>Tbsp</x:String>
@@ -259,10 +259,10 @@
                 <x:String>Gallon</x:String>
             </Picker.Items>
         </Picker>
-        <Entry/>
-        <Button Image="" Clicked="Delete_Clicked"/>
-    </StackLayout>
-    <Button Image="" Text="More Ingredients" />
+        <Entry/>-->
+        <!--<Button Image="" Clicked="Delete_Clicked"/>-->
+    <!--</StackLayout>-->
+    <!--<Button Image="" Text="More Ingredients" />
     <Label Text="Instructions" />
     <Editor>
         
@@ -276,5 +276,5 @@
     <Label HorizontalOptions="Center" Text="KeyWords"/>
     <Entry />
     <Button HorizontalOptions="Center"
-    Text="Save" Clicked="Saved_Clicked" />
+    Text="Save" Clicked="Saved_Clicked" />-->
 </ContentPage>

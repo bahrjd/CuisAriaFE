@@ -4,11 +4,12 @@
              x:Class="CuisAriaFE.Pages.ShoppingListPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="{Binding Recipe.Description}" />
+            <Label Text="Welcome to Xamarin Forms!" />
+            <Label Text="Binding Recipe.Description" />
             <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding ShoppingList.Items}" TextColor="DarkKhaki" />
+                        <TextCell Text="Binding ShoppingList.Items" TextColor="DarkKhaki" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
