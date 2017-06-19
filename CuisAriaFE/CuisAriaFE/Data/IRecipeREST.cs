@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Data
 {
-    public interface IUserREST
+    public interface IRecipeREST
     {
-        Task<List<User>> RefreshDataAsync();
+        Task<List<Recipe>> RefreshDataAsync();
 
-        Task SaveUserAsync(User item, bool isNewItem);
+        Task SaveRecipeAsync(Recipe item, bool isNewItem);
 
-        Task DeleteUserAsync(int id);
+        Task DeleteRecipeAsync(string id);
     }
 }

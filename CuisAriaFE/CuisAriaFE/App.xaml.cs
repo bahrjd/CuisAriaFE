@@ -11,6 +11,7 @@ namespace CuisAriaFE
     public partial class App : Application
     {
         public static UserMgr userMgr { get; private set; }
+        public static RecipeMgr recipeMgr { get; private set; }
 
         public App()
         {            
@@ -18,6 +19,7 @@ namespace CuisAriaFE
             InitializeComponent();
 
             userMgr = new UserMgr(new UserREST());
+            recipeMgr = new RecipeMgr(new RecipeREST());
             MainPage = new NavigationPage(new CuisAriaFE.MainPage());
 
         }

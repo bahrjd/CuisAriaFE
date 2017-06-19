@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Data
 {
-	public class UserREST : IUserREST
+	public class RecipeREST : IRecipeREST
 {
     HttpClient client;
 
-    public List<User> Items { get; private set; }
+    public List<Recipe> Items { get; private set; }
 
-    public UserREST()
+    public RecipeREST()
     {
         // var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
         // var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
@@ -26,12 +26,12 @@ namespace CuisAriaFE.Data
         // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
     }
 
-    public async Task<List<User>> RefreshDataAsync()
+    public async Task<List<Recipe>> RefreshDataAsync()
     {
-        Items = new List<User>();
+        Items = new List<Recipe>();
 
-            // RestUrl = http://cuisariabe.azurewebsites.net/api/users
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
+            var uri = new Uri(string.Format(Constants.RecipeUrl, string.Empty));
 
         try
         {
@@ -39,7 +39,7 @@ namespace CuisAriaFE.Data
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                Items = JsonConvert.DeserializeObject<List<User>>(content);
+                Items = JsonConvert.DeserializeObject<List<Recipe>>(content);
             }
         }
         catch (Exception ex)
@@ -50,10 +50,10 @@ namespace CuisAriaFE.Data
         return Items;
     }
 
-    public async Task SaveUserAsync(User item, bool isNewItem = false)
+    public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
     {
-            // RestUrl = http://cuisariabe.azurewebsites.net/api/users
-            var uri = new Uri(string.Format(Constants.RestUrl, item.id));
+            // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
+            var uri = new Uri(string.Format(Constants.RecipeUrl, item.ID));
 
         try
         {
@@ -82,10 +82,10 @@ namespace CuisAriaFE.Data
         }
     }
 
-    public async Task DeleteUserAsync(int id)
+    public async Task DeleteRecipeAsync(string ID)
     {
-            // RestUrl = http://cuisariabe.azurewebsites.net/api/users
-            var uri = new Uri(string.Format(Constants.RestUrl, id.ToString()));
+            // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
+            var uri = new Uri(string.Format(Constants.RecipeUrl, ID));
 
         try
         {
