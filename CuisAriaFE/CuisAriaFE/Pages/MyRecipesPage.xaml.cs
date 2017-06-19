@@ -15,7 +15,7 @@ namespace CuisAriaFE.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyRecipesPage : ContentPage
     {
-    bool alertShown = false;
+    //bool alertShown = false;
 
     public MyRecipesPage()
     {
@@ -26,19 +26,19 @@ namespace CuisAriaFE.Pages
     {
         base.OnAppearing();
 
-        if (Constants.RestUrl.Contains("developer.xamarin.com"))
-        {
-            if (!alertShown)
-            {
-                await DisplayAlert(
-                    "Hosted Back-End",
-                    "This app is running against Xamarin's read-only REST service. To create, edit, and delete data you must update the service endpoint to point to your own hosted REST service.",
-                    "OK");
-                alertShown = true;
-            }
-        }
+        //if (Constants.RestUrl.Contains("developer.xamarin.com"))
+        //{
+        //    if (!alertShown)
+        //    {
+        //        await DisplayAlert(
+        //            "Hosted Back-End",
+        //            "This app is running against Xamarin's read-only REST service. To create, edit, and delete data you must update the service endpoint to point to your own hosted REST service.",
+        //            "OK");
+        //        alertShown = true;
+        //    }
+        //}
 
-        myRcpListView.ItemsSource = await App.userMgr.GetTasksAsync();
+        myRcpListView.ItemsSource = await App.recipeMgr.GetTasksAsync();
     }
 
     //void OnAddItemClicked(object sender, EventArgs e)

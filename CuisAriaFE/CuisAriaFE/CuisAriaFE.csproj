@@ -42,12 +42,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Data\IRecipeREST.cs" />
     <Compile Include="Data\IUserREST.cs" />
+    <Compile Include="Data\RecipeMgr.cs" />
     <Compile Include="Data\UserMgr.cs" />
+    <Compile Include="Data\RecipeREST.cs" />
     <Compile Include="Data\UserREST.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AddRecipePage.xaml.cs">
       <DependentUpon>AddRecipePage.xaml</DependentUpon>
