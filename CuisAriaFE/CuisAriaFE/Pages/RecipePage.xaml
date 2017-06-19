@@ -9,11 +9,13 @@
             <ToolbarItem Text="Edit" Icon="ic_create_black_24dp.png" Order="Primary" Priority="3" Clicked="EditRecipeClicked"/>
             <ToolbarItem Text="Menu Add" Icon="ic_library_add_black_24dp.png" Order="Primary" Priority="4"  />
         </ContentPage.ToolbarItems>-->
-
-        <!--<Label Text="{Binding Recipe.Name}" />-->
-        <StackLayout Orientation="Horizontal">
+        <StackLayout>
+        <Label Text="{Binding RecipeName}" />
+        <Label Text="{Binding Description}" />
+        </StackLayout>
+        <!--<StackLayout Orientation="Horizontal">
                 <Label Text="Servings"/>
-                <!--<Picker x:Name="srvngsPicker">
+                --><!--<Picker x:Name="srvngsPicker">
                     <Picker.Items>
                         <x:String>1</x:String>
                         <x:String>2</x:String>
@@ -31,8 +33,8 @@
                     </Picker.Items>
                 </Picker>-->
                 <!--<Label Text="Prep Time" />-->
-                <!--<TextCell Text="{Binding}" />-->
-        </StackLayout>
+                <!--<TextCell Text="{Binding}" />--><!--
+        </StackLayout>-->
         <!--<StackLayout Orientation="Vertical">
             --><!--<Label Text="{Binding Recipe.Description}" />--><!--
             <ListView>

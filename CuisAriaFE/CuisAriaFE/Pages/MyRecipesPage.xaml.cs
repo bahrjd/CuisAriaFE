@@ -41,23 +41,23 @@ namespace CuisAriaFE.Pages
         myRcpListView.ItemsSource = await App.recipeMgr.GetTasksAsync();
     }
 
-    //void OnAddItemClicked(object sender, EventArgs e)
-    //{
-    //    var user = new User()
-    //    {
-    //        id = Guid.NewGuid().ToString()
-    //    };
-    //    var recipePage = new RecipePage(true);
-    //    recipePage.BindingContext = user;
-    //    Navigation.PushAsync(recipePage);
-    //}
+        //void OnAddItemClicked(object sender, EventArgs e)
+        //{
+        //    var user = new User()
+        //    {
+        //        id = Guid.NewGuid().ToString()
+        //    };
+        //    var recipePage = new RecipePage(true);
+        //    recipePage.BindingContext = user;
+        //    Navigation.PushAsync(recipePage);
+        //}
 
-    //void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-    //{
-    //    var recipeItem = e.SelectedItem as Recipe;
-    //    var recipePage = new RecipePage();
-    //    recipePage.BindingContext = recipeItem;
-    //    Navigation.PushAsync(recipePage);
-    //}
-	    }
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var recipeItem = e.SelectedItem as Recipe;
+            var recipePage = new RecipePage();
+            recipePage.BindingContext = recipeItem;
+            Navigation.PushAsync(recipePage);
+        }
+    }
 }
