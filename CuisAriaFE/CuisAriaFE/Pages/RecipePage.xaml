@@ -11,7 +11,27 @@
         </ContentPage.ToolbarItems>-->
         <StackLayout>
         <Label Text="{Binding RecipeName}" />
-        <Label Text="{Binding Description}" />
+            <Label Text="{Binding Description}" />
+            <Picker x:Name="srvgPicker" Title="Servings" />
+            <Picker.Items>
+                <x:String>One</x:String>
+                <x:String>Two</x:String>
+                <x:String>Three</x:String>
+                <x:String>Four</x:String>
+                <x:String>Five</x:String>
+                <x:String>Six</x:String>
+                <x:String>Seven</x:String>
+                <x:String>Eight</x:String>
+                <x:String>Nine</x:String>
+                <x:String>Ten</x:String>
+                <x:String>Eleven</x:String>
+                <x:String>Twelve</x:String>
+            </Picker.Items>
+
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="{Binding prepTime}" />
+                <Label Text="{Binding cookTime}" />
+            </StackLayout>
         </StackLayout>
         <!--<StackLayout Orientation="Horizontal">
                 <Label Text="Servings"/>
@@ -33,15 +53,15 @@
                     </Picker.Items>
                 </Picker>-->
                 <!--<Label Text="Prep Time" />-->
-                <!--<TextCell Text="{Binding}" />--><!--
-        </StackLayout>-->
-        <!--<StackLayout Orientation="Vertical">
-            --><!--<Label Text="{Binding Recipe.Description}" />--><!--
+                <!--<TextCell Text="{Binding}" />-->
+        <!--</StackLayout>
+        <StackLayout Orientation="Vertical">
+            <Label Text="{Binding Recipe.Description}" />
             <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        --><!--<TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />-->
-                        <!--<TextCell Text="{Binding Step.Instruction}" Detail="Data binding for instruction details goes here" />--><!--
+                        <TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />
+                        <TextCell Text="{Binding Step.Instruction}" Detail="Data binding for instruction details goes here" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
