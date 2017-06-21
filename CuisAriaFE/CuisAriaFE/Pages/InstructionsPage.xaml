@@ -5,22 +5,22 @@
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">            
             <Label Text="Instructions" />
-            <ListView>
+            <ListView x:Name="instructionsListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding StepNumber}" />
-                            <Label Text="{Binding Instruction}" />
+                            <Label Text="{Binding ID}" />
+                            <Label Text="{Binding Description}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>   
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
+        <!--<StackLayout Orientation="Horizontal">
             <Button Image="" Clicked="On_Pause"/>
             <Button Image="" Clicked="On_Backup"/>
             <Button Image="" Clicked="On_Play"/>
             <Button Image="" Clicked="On_Forward"/>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content> 
 </ContentPage>

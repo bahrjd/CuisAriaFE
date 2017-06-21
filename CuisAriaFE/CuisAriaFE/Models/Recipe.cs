@@ -17,31 +17,31 @@ namespace CuisAriaFE.Models
 
         public int OwnerId { get; set; }
 
-        public bool shared { get; set; }
+        public bool Shared { get; set; }
 
-        public string notes { get; set; }
+        public string Notes { get; set; }
 
-        public int myRating { get; set; }
+        public int MyRating { get; set; }
 
-        public int shareRating { get; set; }
+        public int ShareRating { get; set; }
 
-        public int numShareRatings { get; set; }
+        public int NumShareRatings { get; set; }
 
-        public string recipePics { get; set; }
+        public string RecipePic { get; set; }
 
-        public int prepTime { get; set; }
+        public int PrepTime { get; set; }
 
-        public int cookTime { get; set; }
+        public int CookTime { get; set; }
 
-        public int recipeServings { get; set; }
+        public int RecipeServings { get; set; }
 
-        public string servingSize { get; set; }
+        public string ServingSize { get; set; }
 
-        //public ICollection userRecipeFavorites { get; set; }
+        //public string userRecipeFavorites { get; set; }
 
-        //public ICollection steps { get; set; }
+        //public string steps { get; set; }
 
-        //public ICollection recipeKeywords { get; set; }
+        //public string recipeKeywords { get; set; }
 
     }
 }
