@@ -22,5 +22,10 @@ namespace CuisAriaFE.Pages
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
+
+        private async void OnInstructionsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.InstructionsPage());
+        }
     }
 }

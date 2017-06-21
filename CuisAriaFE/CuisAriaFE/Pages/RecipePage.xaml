@@ -12,25 +12,26 @@
         <StackLayout>
         <Label Text="{Binding RecipeName}" />
             <Label Text="{Binding Description}" />
-            <Picker x:Name="srvgPicker" Title="Servings" />
-            <Picker.Items>
-                <x:String>One</x:String>
-                <x:String>Two</x:String>
-                <x:String>Three</x:String>
-                <x:String>Four</x:String>
-                <x:String>Five</x:String>
-                <x:String>Six</x:String>
-                <x:String>Seven</x:String>
-                <x:String>Eight</x:String>
-                <x:String>Nine</x:String>
-                <x:String>Ten</x:String>
-                <x:String>Eleven</x:String>
-                <x:String>Twelve</x:String>
-            </Picker.Items>
-
+            <Picker x:Name="srvgpicker">
+                <Picker.Items>
+                    <x:String>one</x:String>
+                    <x:String>two</x:String>
+                    <x:String>three</x:String>
+                    <x:String>four</x:String>
+                    <x:String>five</x:String>
+                    <x:String>six</x:String>
+                    <x:String>seven</x:String>
+                    <x:String>eight</x:String>
+                    <x:String>nine</x:String>
+                    <x:String>ten</x:String>
+                    <x:String>eleven</x:String>
+                    <x:String>twelve</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
             <StackLayout Orientation="Horizontal" >
-                <Label Text="{Binding prepTime}" />
-                <Label Text="{Binding cookTime}" />
+                <Label Text="{Binding PrepTime}" />
+                <Label Text="{Binding CookTime}" />
             </StackLayout>
         </StackLayout>
         <!--<StackLayout Orientation="Horizontal">

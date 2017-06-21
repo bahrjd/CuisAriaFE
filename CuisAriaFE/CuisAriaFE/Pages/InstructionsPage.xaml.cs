@@ -16,5 +16,12 @@ namespace CuisAriaFE.Pages
         {
             InitializeComponent();
         }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            instructionsListView.ItemsSource = await App.recipeMgr.GetTasksAsync();
+        }
     }
 }
