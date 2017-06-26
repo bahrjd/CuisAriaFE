@@ -21,6 +21,11 @@ namespace CuisAriaFE.Data
             return restService.RefreshDataAsync();
         }
 
+        public Task<List<GetRecipeSteps>> GetStepsAsync(string recipeID)
+        {
+            return restService.RefreshStepsAsync(recipeID);
+        }
+
         public Task SaveTaskAsync(Recipe item, bool isNewItem = false)
         {
             return restService.SaveRecipeAsync(item, isNewItem);

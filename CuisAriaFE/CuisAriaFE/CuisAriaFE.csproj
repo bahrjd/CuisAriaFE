@@ -48,9 +48,11 @@
     <Compile Include="Data\UserMgr.cs" />
     <Compile Include="Data\RecipeREST.cs" />
     <Compile Include="Data\UserREST.cs" />
+    <Compile Include="Interfaces\ITTSpeech.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetRecipeSteps.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AddRecipePage.xaml.cs">
@@ -96,6 +98,7 @@
       <DependentUpon>ShoppingListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TTSpeech.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

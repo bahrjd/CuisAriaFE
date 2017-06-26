@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CuisAriaFE.Models;
+using CuisAriaFE.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ namespace CuisAriaFE.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InstructionsPage : ContentPage
     {
+
         public InstructionsPage()
         {
             InitializeComponent();
@@ -20,8 +23,15 @@ namespace CuisAriaFE.Pages
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            
+            instructionsListView.ItemsSource = await App.recipeMgr.GetStepsAsync(Constants.RecipeTestID);
+        }
 
-            instructionsListView.ItemsSource = await App.recipeMgr.GetTasksAsync();
+        private void OnInstructionSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var instructionItem = e.SelectedItem as GetRecipeSteps;
+            var toSpeak = instructionItem.Instruction;
+            TTSpeech.Speak(toSpeak);
         }
     }
 }

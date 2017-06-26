@@ -16,6 +16,10 @@ namespace CuisAriaFE.Data
 
     public List<Recipe> Items { get; private set; }
 
+    public List<GetRecipeSteps> RecipeSteps { get; private set; }
+
+    
+
     public RecipeREST()
     {
         // var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
@@ -50,7 +54,33 @@ namespace CuisAriaFE.Data
         return Items;
     }
 
-    public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
+
+    public async Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID)
+    {
+        RecipeSteps = new List<GetRecipeSteps>();
+
+            // RestUrl = http://cuisariabe.azurewebsites.net/GetRecipeSteps/{0}
+            var uri = new Uri(string.Format(Constants.GetRecipeStepsUrl, recipeID));
+
+        try
+        {
+            var response = await client.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                RecipeSteps = JsonConvert.DeserializeObject<List<GetRecipeSteps>>(content);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(@"				ERROR {0}", ex.Message);
+        }
+
+        return RecipeSteps;
+    }
+
+
+        public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
     {
             // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
             var uri = new Uri(string.Format(Constants.RecipeUrl, item.ID));
