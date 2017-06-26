@@ -14,5 +14,7 @@ namespace CuisAriaFE.Data
         Task SaveRecipeAsync(Recipe item, bool isNewItem);
 
         Task DeleteRecipeAsync(string id);
+
+        Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID);
     }
 }

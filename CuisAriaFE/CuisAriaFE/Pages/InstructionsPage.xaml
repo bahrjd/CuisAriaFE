@@ -3,18 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.Pages.InstructionsPage">
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">            
-            <Label Text="Instructions" />
-            <ListView x:Name="instructionsListView">
+        <StackLayout>
+            <Label Text="Instructions"/>
+            <ListView x:Name="instructionsListView" ItemSelected="OnInstructionSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding ID}" />
-                            <Label Text="{Binding Description}" />
+                            <Label Text="{Binding RecipeID}" />                            
+                            <Label Text="{Binding StepID}" />
+                            <Label Text="{Binding Instruction}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>   
+            </ListView>
+            
         </StackLayout>
         <!--<StackLayout Orientation="Horizontal">
             <Button Image="" Clicked="On_Pause"/>

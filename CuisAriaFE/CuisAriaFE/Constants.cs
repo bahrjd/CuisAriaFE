@@ -12,6 +12,8 @@ namespace CuisAriaFE
         // public static string RestUrl = "http://developer.xamarin.com:8081/api/todoitems/{0}";
         public static string RestUrl = "http://cuisariabe.azurewebsites.net/api/users";
         public static string RecipeUrl = "http://cuisariabe.azurewebsites.net/GetSharedRecipes";
+        public static string GetRecipeStepsUrl = "http://cuisariabe.azurewebsites.net/GetRecipeSteps/{0}";
+        public static string RecipeTestID = "42";
         // Credentials that are hard coded into the REST service
         // public static string Username = "Xamarin";
         // public static string Username = "Xamarin";
