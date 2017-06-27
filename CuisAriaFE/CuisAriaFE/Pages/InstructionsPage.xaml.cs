@@ -31,7 +31,8 @@ namespace CuisAriaFE.Pages
         {
             var instructionItem = e.SelectedItem as GetRecipeSteps;
             var toSpeak = instructionItem.Instruction;
-            TTSpeech.Speak(toSpeak);
+            var ts = new TTSpeech();
+            ts.Speak(toSpeak);
         }
     }
 }

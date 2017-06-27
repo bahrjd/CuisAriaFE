@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE
 {
-    public static class TTSpeech
+    public class TTSpeech : ITextToSpeech
     {
-        public static void Speak(string text)
+        public void Speak(string text)
         {
             Xamarin.Forms.DependencyService.Get<ITextToSpeech>().Speak(text);
         }
