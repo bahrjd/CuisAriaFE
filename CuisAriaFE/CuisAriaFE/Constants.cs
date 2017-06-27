@@ -8,16 +8,32 @@ namespace CuisAriaFE
 {
 	public static class Constants
     {
-        // URL of REST service
-        // public static string RestUrl = "http://developer.xamarin.com:8081/api/todoitems/{0}";
-        public static string RestUrl = "http://cuisariabe.azurewebsites.net/api/users";
-        public static string RecipeUrl = "http://cuisariabe.azurewebsites.net/GetSharedRecipes";
-        public static string GetRecipeStepsUrl = "http://cuisariabe.azurewebsites.net/GetRecipeSteps/{0}";
-        public static string RecipeTestID = "42";
+        private static string BaseUrl = "http://cuisariabe.azurewebsites.net/";
+
+        // URL of Recipe Services
+        public static string SharedRcpUrl = BaseUrl + "GetSharedRecipes/{0}";
+        public static string MyRcpUrl = BaseUrl + "GetMyRecipes/{0}";
+        public static string FavRcpUrl = BaseUrl + "GetFavRecipes/{0}";
+        public static string RcpUrl = BaseUrl + "GetRecipe/{0}";
+        public static string RcpStepsUrl = BaseUrl + "GetRecipeSteps/{0}";
+        public static string RcpAddEditUrl = BaseUrl + "AddEditRecipe/{0}";
+
+        public static string UserByNameUrl = BaseUrl + "GetUserByName/{0}";
+
+        // URL for Add/Edit User // USAGE: Set Id = 0 to add a user // Set Id = userID to edit user data
+        public static string UserAddEditUrl = BaseUrl + "AddEditUser/{0}";
+
+        // URL to toggle shared recipes // USAGE: Passing a recipeID toggles bit
+        public static string ToggleShareUrl = BaseUrl + "ShareRecipeToggle/{0}";
+
+        // URL to toggle user favorite recipes // USAGE: Passing a userID and recipeID toggles bit
+        public static string ToggleFavUrl = BaseUrl + "FavRecipeToggle/{0}/{1}";
+
         // Credentials that are hard coded into the REST service
+        public static string RecipeTestID = "47";
+        public static string UserTestID = "48";
+        public static string OwnerTestID = "48";
         // public static string Username = "Xamarin";
-        // public static string Username = "Xamarin";
-        // public static string Password = "Pa$$w0rd";
         // public static string Password = "Pa$$w0rd";
     }
 }

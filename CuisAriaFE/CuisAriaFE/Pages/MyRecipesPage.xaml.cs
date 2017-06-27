@@ -38,7 +38,8 @@ namespace CuisAriaFE.Pages
         //    }
         //}
 
-        myRcpListView.ItemsSource = await App.recipeMgr.GetTasksAsync();
+        myRcpListView.ItemsSource = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
+
     }
 
         //void OnAddItemClicked(object sender, EventArgs e)

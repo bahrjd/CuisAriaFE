@@ -11,8 +11,12 @@ namespace CuisAriaFE.Models
     {
         public string ID { get; set; }
 
-        public string RecipeName { get; set; }
+        public bool Favorite { get; set; }
 
+        public string RecipeID { get; set; }
+
+        public string RecipeName { get; set; }
+        
         public string Description { get; set; }
 
         public int OwnerId { get; set; }
