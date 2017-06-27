@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Data
 {
-    public interface IRecipeREST
+    public interface ICABEServices
     {
-        Task<List<Recipe>> RefreshDataAsync();
+        Task<List<Recipe>> GetRcpAsync(string recipeID);
+
+        Task<List<Recipe>> RefreshMyRcpAsync(string userID);
+
+        Task<List<Recipe>> RefreshSharedRcpAsync(string userID);
+
+        Task<List<Recipe>> RefreshFavRcpAsync(string userID);
 
         Task SaveRecipeAsync(Recipe item, bool isNewItem);
 

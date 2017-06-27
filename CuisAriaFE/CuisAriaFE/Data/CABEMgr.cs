@@ -7,24 +7,30 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Data
 {
-    public class RecipeMgr
+    public class CABEMgr
     {
-        IRecipeREST restService;
+        ICABEServices restService;
 
-        public RecipeMgr(IRecipeREST service)
+        public CABEMgr(ICABEServices service)
         {
             restService = service;
         }
 
-        public Task<List<Recipe>> GetTasksAsync()
+        public Task<List<Recipe>> GetTasksAsync(string userID)
         {
-            return restService.RefreshDataAsync();
+            return restService.RefreshDataAsync(userID);
         }
 
         public Task<List<GetRecipeSteps>> GetStepsAsync(string recipeID)
         {
             return restService.RefreshStepsAsync(recipeID);
         }
+
+
+
+
+
+
 
         public Task SaveTaskAsync(Recipe item, bool isNewItem = false)
         {
