@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE
 {
-    public class TTSpeech
+    public class TTSpeech : ITextToSpeech
     {
         public void Speak(string text)
         {

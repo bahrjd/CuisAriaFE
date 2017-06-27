@@ -17,10 +17,10 @@ namespace CuisAriaFE
         {            
 
             InitializeComponent();
-
+            MainPage = new NavigationPage(new CuisAriaFE.MainPage());
             userMgr = new UserMgr(new UserREST());
             recipeMgr = new RecipeMgr(new RecipeREST());
-            MainPage = new NavigationPage(new CuisAriaFE.MainPage());
+           
 
         }
 

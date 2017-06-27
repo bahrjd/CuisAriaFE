@@ -163,12 +163,6 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CuisAriaFE\CuisAriaFE.csproj">
-      <Project>{d8087289-cc8d-4242-9e18-438ac67b6875}</Project>
-      <Name>CuisAriaFE</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon_settings.png" />
   </ItemGroup>
   <ItemGroup>
@@ -183,7 +177,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_people_outline_black_24dp.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CuisAriaFE\CuisAriaFE.csproj">
+      <Project>{2b0ecc9b-7203-4046-abee-2d010fd8e44a}</Project>
+      <Name>CuisAriaFE</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
