@@ -9,14 +9,16 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding RecipeID}" />                            
-                            <Label Text="{Binding StepID}" />
-                            <Label Text="{Binding Instruction}" />
+                            
+                                <Label Text="{Binding RecipeID}" />
+                                <Label Text="{Binding StepID}" />
+                                <Label Text="{Binding Instruction}" />
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
         </StackLayout>
         <!--<StackLayout Orientation="Horizontal">
             <Button Image="" Clicked="On_Pause"/>
@@ -24,5 +26,5 @@
             <Button Image="" Clicked="On_Play"/>
             <Button Image="" Clicked="On_Forward"/>
         </StackLayout>-->
-    </ContentPage.Content> 
+    </ContentPage.Content>
 </ContentPage>
