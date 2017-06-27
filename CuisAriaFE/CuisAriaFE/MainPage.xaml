@@ -17,6 +17,7 @@
     </TabbedPage.ToolbarItems>
     
     <TabbedPage.Children>
+        <pages:TestRecipesPage Title="Test"/>
         <pages:MyRecipesPage Title="My Recipes"/>
         <pages:SharedPage Title="Shared"/>
         <pages:FavoritesPage Title="Favorites"/>

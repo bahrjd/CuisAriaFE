@@ -11,7 +11,7 @@ namespace CuisAriaFE
         private static string BaseUrl = "http://cuisariabe.azurewebsites.net/";
 
         // URL of Recipe Services
-        public static string SharedRcpUrl = BaseUrl + "GetSharedRecipes";
+        public static string SharedRcpUrl = BaseUrl + "GetSharedRecipes/{0}";
         public static string MyRcpUrl = BaseUrl + "GetMyRecipes/{0}";
         public static string FavRcpUrl = BaseUrl + "GetFavRecipes/{0}";
         public static string RcpUrl = BaseUrl + "GetRecipe/{0}";
@@ -30,8 +30,9 @@ namespace CuisAriaFE
         public static string ToggleFavUrl = BaseUrl + "FavRecipeToggle/{0}/{1}";
 
         // Credentials that are hard coded into the REST service
-        public static string RecipeTestID = "42";
-        public static string UserTestID = "42";
+        public static string RecipeTestID = "47";
+        public static string UserTestID = "48";
+        public static string OwnerTestID = "48";
         // public static string Username = "Xamarin";
         // public static string Password = "Pa$$w0rd";
     }

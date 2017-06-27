@@ -11,7 +11,7 @@ namespace CuisAriaFE.Data
     {
         Task<List<Recipe>> GetRcpAsync(string recipeID);
 
-        Task<List<Recipe>> RefreshMyRcpAsync(string userID);
+        Task<List<Recipe>> RefreshMyRcpAsync(string ownerID);
 
         Task<List<Recipe>> RefreshSharedRcpAsync(string userID);
 

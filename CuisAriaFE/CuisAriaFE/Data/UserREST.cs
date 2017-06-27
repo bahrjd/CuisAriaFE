@@ -31,7 +31,7 @@ namespace CuisAriaFE.Data
         Items = new List<User>();
 
             // RestUrl = http://cuisariabe.azurewebsites.net/api/users
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.UserByNameUrl, string.Empty));
 
         try
         {
@@ -53,7 +53,7 @@ namespace CuisAriaFE.Data
     public async Task SaveUserAsync(User item, bool isNewItem = false)
     {
             // RestUrl = http://cuisariabe.azurewebsites.net/api/users
-            var uri = new Uri(string.Format(Constants.RestUrl, item.id));
+            var uri = new Uri(string.Format(Constants.UserByNameUrl, item.id));
 
         try
         {
@@ -85,7 +85,7 @@ namespace CuisAriaFE.Data
     public async Task DeleteUserAsync(int id)
     {
             // RestUrl = http://cuisariabe.azurewebsites.net/api/users
-            var uri = new Uri(string.Format(Constants.RestUrl, id.ToString()));
+            var uri = new Uri(string.Format(Constants.UserByNameUrl, id.ToString()));
 
         try
         {

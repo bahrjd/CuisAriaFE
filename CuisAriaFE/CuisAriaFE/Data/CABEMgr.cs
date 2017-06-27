@@ -16,11 +16,26 @@ namespace CuisAriaFE.Data
             restService = service;
         }
 
-        public Task<List<Recipe>> GetTasksAsync(string userID)
+        public Task<List<Recipe>> RefreshMyRcpAsync(string ownerID)
         {
-            return restService.RefreshDataAsync(userID);
+            return restService.RefreshMyRcpAsync(ownerID);
         }
 
+        public Task<List<Recipe>> RefreshSharedRcpAsync(string userID)
+        {
+            return restService.RefreshSharedRcpAsync(userID);
+        }
+
+        public Task<List<Recipe>> RefreshFavRcpAsync(string userID)
+        {
+            return restService.RefreshFavRcpAsync(userID);
+        }
+
+        public Task<List<Recipe>> GetRcpAsync(string userID)
+        {
+            return restService.GetRcpAsync(userID);
+        }
+        
         public Task<List<GetRecipeSteps>> GetStepsAsync(string recipeID)
         {
             return restService.RefreshStepsAsync(recipeID);

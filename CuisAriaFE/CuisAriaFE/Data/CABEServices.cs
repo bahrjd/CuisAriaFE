@@ -61,11 +61,11 @@ namespace CuisAriaFE.Data
             return ItemRcp;
         }
         
-        public async Task<List<Recipe>> RefreshMyRcpAsync(string userID)
+        public async Task<List<Recipe>> RefreshMyRcpAsync(string ownerID)
     {
             ItemsMyRcp = new List<Recipe>();
 
-            var uri = new Uri(string.Format(Constants.MyRcpUrl, userID));
+            var uri = new Uri(string.Format(Constants.MyRcpUrl, ownerID));
 
         try
         {
@@ -111,7 +111,7 @@ namespace CuisAriaFE.Data
         {
             ItemsFavRcp = new List<Recipe>();
 
-            var uri = new Uri(string.Format(Constants.MyRcpUrl, userID));
+            var uri = new Uri(string.Format(Constants.FavRcpUrl, userID));
 
             try
             {
