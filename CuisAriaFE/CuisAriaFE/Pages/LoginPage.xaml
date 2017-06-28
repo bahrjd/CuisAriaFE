@@ -4,7 +4,9 @@
              x:Class="CuisAriaFE.Pages.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+            <Label Text="CuisAria" Font="Arial"/>
+            <Entry x:Name="userNameEntry" Placeholder="Enter User Name Here"/>
+            <Button Text="Login" Clicked="OnLoginClicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

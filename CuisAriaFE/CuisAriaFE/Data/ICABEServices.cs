@@ -9,7 +9,7 @@ namespace CuisAriaFE.Data
 {
     public interface ICABEServices
     {
-        Task<List<Recipe>> GetRcpAsync(string recipeID);
+        Task<Recipe> GetRcpAsync(string recipeID);
 
         Task<List<Recipe>> RefreshMyRcpAsync(string ownerID);
 
@@ -22,5 +22,7 @@ namespace CuisAriaFE.Data
         Task DeleteRecipeAsync(string id);
 
         Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID);
+
+        Task<User> GetUserByNameAsync(string userName);
     }
 }

@@ -16,5 +16,13 @@ namespace CuisAriaFE.Pages
         {
             InitializeComponent();
         }
+
+        private void OnLoginClicked(object sender, EventArgs e)
+        {
+            var userName = userNameEntry.Text;
+            var mainPage = new MainPage();
+            App.cabeMgr.GetUserByNameAsync(userName);
+            Navigation.PushAsync(mainPage);
+        }
     }
 }

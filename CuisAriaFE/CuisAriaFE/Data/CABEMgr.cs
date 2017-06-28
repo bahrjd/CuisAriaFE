@@ -31,7 +31,7 @@ namespace CuisAriaFE.Data
             return restService.RefreshFavRcpAsync(userID);
         }
 
-        public Task<List<Recipe>> GetRcpAsync(string userID)
+        public Task<Recipe> GetRcpAsync(string userID)
         {
             return restService.GetRcpAsync(userID);
         }
@@ -55,6 +55,11 @@ namespace CuisAriaFE.Data
         public Task DeleteRecipeAsync(Recipe item)
         {
             return restService.DeleteRecipeAsync(item.ID);
+        }
+
+        public Task GetUserByNameAsync(string userName)
+        {
+            return restService.GetUserByNameAsync(userName);
         }
     }
 }
