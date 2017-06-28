@@ -21,7 +21,11 @@ namespace CuisAriaFE.Pages
         {
 
         }
-        private void Photo_Clicked(object sender, EventArgs e)
+        private void On_Saved(object sender, EventArgs e)
+        {
+
+        }
+        private void Button_Clicked(object sender, EventArgs e)
         {
 
         }
