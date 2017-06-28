@@ -29,43 +29,14 @@
                 </Picker.Items>
             </Picker>
             <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
+            <Button Text="Add Recipe" Clicked="OnAddRecipeClicked"></Button>
             <StackLayout Orientation="Horizontal" >
+                <Label Text="PrepTime:"/>
                 <Label Text="{Binding PrepTime}" />
+                <Label Text="CookTime:"/>
                 <Label Text="{Binding CookTime}" />
             </StackLayout>
         </StackLayout>
-        <!--<StackLayout Orientation="Horizontal">
-                <Label Text="Servings"/>
-                --><!--<Picker x:Name="srvngsPicker">
-                    <Picker.Items>
-                        <x:String>1</x:String>
-                        <x:String>2</x:String>
-                        <x:String>3</x:String>
-                        <x:String>4</x:String>
-                        <x:String>5</x:String>
-                        <x:String>6</x:String>
-                        <x:String>7</x:String>
-                        <x:String>8</x:String>
-                        <x:String>9</x:String>
-                        <x:String>10</x:String>
-                        <x:String>11</x:String>
-                        <x:String>12</x:String>
-                        <x:String>No....</x:String>
-                    </Picker.Items>
-                </Picker>-->
-                <!--<Label Text="Prep Time" />-->
-                <!--<TextCell Text="{Binding}" />-->
-        <!--</StackLayout>
-        <StackLayout Orientation="Vertical">
-            <Label Text="{Binding Recipe.Description}" />
-            <ListView>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Ingredient.IngredName}" TextColor="DarkKhaki" />
-                        <TextCell Text="{Binding Step.Instruction}" Detail="Data binding for instruction details goes here" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>-->
+    
     </ContentPage.Content>
 </ContentPage>
