@@ -41,6 +41,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\ObservableBase.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Data\ICABEServices.cs" />
     <Compile Include="Data\CABEMgr.cs" />
@@ -99,6 +100,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TTSpeech.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
