@@ -17,13 +17,10 @@ namespace CuisAriaFE
 
         protected override void OnAppearing()
         {
-            if (App.TestRecipesViewModel == null)
-            {
-
-                // TODO: remember to change this for populating all three home view models
-                App.TestRecipesViewModel = new ViewModels.TestRecipesViewModel();
-
-                App.TestRecipesViewModel.RefreshRcpAsync();
+            if (App.MainViewModel == null)
+            {                               
+                App.MainViewModel = new ViewModels.MainViewModel();
+                App.MainViewModel.RefreshRcpAsync();
             }
         }
 

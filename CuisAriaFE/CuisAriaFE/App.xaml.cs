@@ -11,7 +11,7 @@ namespace CuisAriaFE
     public partial class App : Application
     {
         public static CABEMgr cabeMgr { get; private set; }
-        public static ViewModels.TestRecipesViewModel TestRecipesViewModel { get; set; }
+        public static ViewModels.MainViewModel MainViewModel { get; set; }
 
         public App()
         {            
