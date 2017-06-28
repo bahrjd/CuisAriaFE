@@ -15,9 +15,19 @@ namespace CuisAriaFE
             InitializeComponent();
         }
 
-       
+        protected override void OnAppearing()
+        {
+            if (App.TestRecipesViewModel == null)
+            {
 
-        private async void OnSettingsClicked(object sender, EventArgs e)
+                // TODO: remember to change this for populating all three home view models
+                App.TestRecipesViewModel = new ViewModels.TestRecipesViewModel();
+
+                App.TestRecipesViewModel.RefreshRcpAsync();
+            }
+        }
+
+    private async void OnSettingsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.SettingsPage());
         }

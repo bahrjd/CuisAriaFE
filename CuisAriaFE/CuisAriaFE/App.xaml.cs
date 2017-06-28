@@ -11,18 +11,16 @@ namespace CuisAriaFE
     public partial class App : Application
     {
         public static CABEMgr cabeMgr { get; private set; }
+        public static ViewModels.TestRecipesViewModel TestRecipesViewModel { get; set; }
 
         public App()
         {            
-
             InitializeComponent();
+
             MainPage = new NavigationPage(new Pages.LoginPage());
-            cabeMgr = new CABEMgr(new CABEServices());           
-
+            cabeMgr = new CABEMgr(new CABEServices());
         }
-
         
-
         protected override void OnStart()
         {
             // Handle when your app starts

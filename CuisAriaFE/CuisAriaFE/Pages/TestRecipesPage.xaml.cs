@@ -22,8 +22,12 @@ namespace CuisAriaFE.Pages
             InitializeComponent();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
+        //protected async override void OnAppearing()
         {
+
+            this.BindingContext = App.TestRecipesViewModel;
+
             base.OnAppearing();
 
             //if (Constants.RestUrl.Contains("developer.xamarin.com"))
@@ -38,7 +42,7 @@ namespace CuisAriaFE.Pages
             //    }
             //}
 
-            testRcpListView.ItemsSource = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
+            //testRcpListView.ItemsSource = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
             //testRcpListView.ItemsSource = await App.cabeMgr.RefreshSharedRcpAsync(Constants.UserTestID);
             //testRcpListView.ItemsSource = await App.cabeMgr.RefreshFavRcpAsync(Constants.UserTestID);
 

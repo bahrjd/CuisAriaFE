@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="My Recipes ListView goes here" />
-            <ListView x:Name="testRcpListView" ItemSelected="OnItemSelected">
+            <ListView  ItemsSource="{Binding TestRcp}" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <!--<ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="Binding Recipe.Name"/>-->
