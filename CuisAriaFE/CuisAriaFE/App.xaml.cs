@@ -10,17 +10,14 @@ namespace CuisAriaFE
 {
     public partial class App : Application
     {
-        public static UserMgr userMgr { get; private set; }
         public static CABEMgr cabeMgr { get; private set; }
 
         public App()
         {            
 
             InitializeComponent();
-            MainPage = new NavigationPage(new CuisAriaFE.MainPage());
-            userMgr = new UserMgr(new UserREST());
-            cabeMgr = new CABEMgr(new CABEServices());
-           
+            MainPage = new NavigationPage(new Pages.LoginPage());
+            cabeMgr = new CABEMgr(new CABEServices());           
 
         }
 

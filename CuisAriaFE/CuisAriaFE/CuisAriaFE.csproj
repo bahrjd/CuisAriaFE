@@ -43,11 +43,8 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\ICABEServices.cs" />
-    <Compile Include="Data\IUserREST.cs" />
     <Compile Include="Data\CABEMgr.cs" />
     <Compile Include="Data\CABEServices.cs" />
-    <Compile Include="Data\UserMgr.cs" />
-    <Compile Include="Data\UserREST.cs" />
     <Compile Include="Interfaces\ITTSpeech.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

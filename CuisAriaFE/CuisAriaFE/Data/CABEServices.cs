@@ -14,7 +14,7 @@ namespace CuisAriaFE.Data
     {
         HttpClient client;
 
-        public List<Recipe> ItemRcp { get; private set; }
+        public Recipe ItemRcp { get; private set; }
 
         public List<Recipe> ItemsMyRcp { get; private set; }
 
@@ -24,6 +24,7 @@ namespace CuisAriaFE.Data
 
         public List<GetRecipeSteps> RecipeSteps { get; private set; }
 
+        public User UserDetails { get; private set; }
 
 
         // Connection Service
@@ -36,11 +37,11 @@ namespace CuisAriaFE.Data
         client = new HttpClient();
         client.MaxResponseContentBufferSize = 256000;
         // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
-    }
+        }
 
-        public async Task<List<Recipe>> GetRcpAsync(string recipeID)
+        public async Task<Recipe> GetRcpAsync(string recipeID)
         {
-            ItemRcp = new List<Recipe>();
+            ItemRcp = new Recipe();
 
             var uri = new Uri(string.Format(Constants.RcpUrl, recipeID));
 
@@ -50,7 +51,7 @@ namespace CuisAriaFE.Data
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    ItemRcp = JsonConvert.DeserializeObject<List<Recipe>>(content);
+                    ItemRcp = JsonConvert.DeserializeObject<Recipe>(content);
                 }
             }
             catch (Exception ex)
@@ -131,7 +132,7 @@ namespace CuisAriaFE.Data
         }
 
         public async Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID)
-    {
+        {
         RecipeSteps = new List<GetRecipeSteps>();
 
             var uri = new Uri(string.Format(Constants.RcpStepsUrl, recipeID));
@@ -151,7 +152,7 @@ namespace CuisAriaFE.Data
         }
 
         return RecipeSteps;
-    }
+        }
 
 
         public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
@@ -191,20 +192,44 @@ namespace CuisAriaFE.Data
             // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
             var uri = new Uri(string.Format(Constants.RcpUrl, ID));
 
-        try
-        {
-            var response = await client.DeleteAsync(uri);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                Debug.WriteLine(@"				TodoItem successfully deleted.");
+                var response = await client.DeleteAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				TodoItem successfully deleted.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+        }
+
+        public async Task<User> GetUserByNameAsync(string userName)
+        {
+            UserDetails = new User();
+
+            var uri = new Uri(string.Format(Constants.UserByNameUrl, userName));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    UserDetails = JsonConvert.DeserializeObject<User>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
 
+            return UserDetails;
         }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(@"				ERROR {0}", ex.Message);
-        }
-    }
+        
 }
 }
