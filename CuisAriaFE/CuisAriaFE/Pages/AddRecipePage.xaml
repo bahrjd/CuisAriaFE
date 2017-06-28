@@ -255,13 +255,13 @@
                         SelectedItem="{Binding ServingSize}" 
                         ItemsSource="{StaticResource servings}"/>
             </StackLayout>
-
+           
             <Grid Grid.Column="1" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <Label Text="Prep Time" Grid.Row="0" />
+                <Label Text="Prep Time" Grid.Row="2" />
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Hours:"/>
                     <Picker x:Name="prephrPicker"
@@ -270,7 +270,7 @@
                         ItemsSource="{StaticResource prepHours}"/>
                 </StackLayout>
             </Grid>
-
+           
 
 
             <!--<Picker Title="Minutes"
@@ -289,7 +289,7 @@
                         ItemsSource="{StaticResource cookMins}"/>-->
 
 
-            <StackLayout Grid.Row="2" Orientation="Horizontal">
+            <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
 
                 <Picker x:Name="quantPicker" 
                         ItemsSource="{StaticResource quantity}"/>
