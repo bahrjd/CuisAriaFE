@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Favorites Recipes ListView shows here" />
-            <ListView ItemsSource="{Binding FavRcp}" ItemSelected="OnItemSelected">
+            <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding FavRcp}" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

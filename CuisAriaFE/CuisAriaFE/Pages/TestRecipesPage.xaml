@@ -4,55 +4,22 @@
              x:Class="CuisAriaFE.Pages.TestRecipesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="My Recipes ListView goes here" />
-            <ListView  ItemsSource="{Binding TestRcp}" ItemSelected="OnItemSelected">
+            <Label FontSize="Large" Text="My Recipes ListView goes here" />
+            <ListView  IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding TestRcp}" ItemSelected="OnItemSelected" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="Binding Recipe.Name"/>-->
-                        <!--<TextCell Text="Binding ShoppingList.Items" TextColor="DarkKhaki" />-->
                         <ViewCell>
-                            <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Label Text="{Binding RecipeName}" VerticalTextAlignment="Center" />
-                                <Label Text="{Binding Description}" VerticalTextAlignment="Start" />
-
+                            <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
+                                <StackLayout>
+                                    <Label FontSize="Large" FontFamily="Verdana"  Text="{Binding RecipeName}"/>
+                                    <Label FontSize="Medium" Text="{Binding Description}"/>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <!--<ListView x:Name="myRcpListView"  Margin="20">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Margin="5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                -->
-        <!--<controls:CircleImage Grid.RowSpan="2"  WidthRequest="100"  HeightRequest="100" Source="{Binding ImageUrl}" Aspect="AspectFill" />-->
-        <!--
-
-                                <Label FontSize="Medium" Grid.Column="" Grid.Row="0" Text="{Binding userName}"/>
-                                <Label VerticalTextAlignment="Start" VerticalOptions="Start" Grid.Column="1" Grid.Row="1" Text="{Binding email}"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
-
-
-
-
-
-
-
-
-
-    </ContentPage.Content>
+     </ContentPage.Content>
 </ContentPage>

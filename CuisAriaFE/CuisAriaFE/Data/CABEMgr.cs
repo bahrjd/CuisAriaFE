@@ -54,7 +54,7 @@ namespace CuisAriaFE.Data
 
         public Task DeleteRecipeAsync(Recipe item)
         {
-            return restService.DeleteRecipeAsync(item.ID);
+            return restService.DeleteRecipeAsync(item.UserID);
         }
 
         public Task GetUserByNameAsync(string userName)
