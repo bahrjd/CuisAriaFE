@@ -42,8 +42,15 @@ namespace CuisAriaFE
         }
         private async void OnLogOutClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pages.LoginPage());
+            Data.CABEServices.UserDetails.Password = "";
+            App.IsUserLoggedIn = false;
+            App.MainViewModel = null;
+            Navigation.InsertPageBefore(new Pages.LoginPage(), this);
+            await Navigation.PopAsync();
         }
+        //{
+        //    await Navigation.PushAsync(new Pages.LoginPage());
+        //}
         private async void OnShoppingClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.ShoppingListPage());

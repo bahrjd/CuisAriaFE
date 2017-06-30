@@ -1,4 +1,5 @@
 ﻿using CuisAriaFE.Common;
+using CuisAriaFE.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,8 @@ namespace CuisAriaFE.ViewModels
 {
     public class MainViewModel : ObservableBase
     {
+        private string userDetailsID = CABEServices.UserDetails.ID.ToString();
+        
         public MainViewModel()
         {
             this.TestRcp = new ObservableCollection<Models.Recipe>();
@@ -69,7 +72,7 @@ namespace CuisAriaFE.ViewModels
         {
             this.TestRcp.Clear();
 
-            var rcpList = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
+            var rcpList = await App.cabeMgr.RefreshMyRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {
@@ -81,7 +84,7 @@ namespace CuisAriaFE.ViewModels
         {
             this.MyRcp.Clear();
 
-            var rcpList = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
+            var rcpList = await App.cabeMgr.RefreshMyRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {
@@ -92,7 +95,7 @@ namespace CuisAriaFE.ViewModels
         {
             this.SharedRcp.Clear();
 
-            var rcpList = await App.cabeMgr.RefreshSharedRcpAsync(Constants.UserTestID);
+            var rcpList = await App.cabeMgr.RefreshSharedRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {
@@ -104,7 +107,7 @@ namespace CuisAriaFE.ViewModels
         {
             this.FavRcp.Clear();
 
-            var rcpList = await App.cabeMgr.RefreshFavRcpAsync(Constants.UserTestID);
+            var rcpList = await App.cabeMgr.RefreshFavRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {

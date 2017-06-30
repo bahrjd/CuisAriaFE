@@ -23,4 +23,11 @@ namespace CuisAriaFE.Models
         //public string ShoppingLists { get; set; }
 
     }
+
+    public class UserLogin
+    {
+        public string UserNameEntered { get; set; }
+
+        public string PasswordEntered { get; set; }
+    }
 }

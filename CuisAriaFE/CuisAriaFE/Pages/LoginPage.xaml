@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="#BF3030"
              x:Class="CuisAriaFE.Pages.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="CuisAria" Font="Arial"/>
-            <Entry x:Name="userNameEntry" Placeholder="Enter User Name Here"/>
+        <StackLayout Orientation="Vertical">
+            <Label Text="CuisAria" Font="Arial" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="userNameEntry" Placeholder="Enter User Name Here" HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="passwordEntry" Placeholder="Enter Password Here" HorizontalOptions="FillAndExpand" IsPassword="true" />
             <Button Text="Login" Clicked="OnLoginClicked"></Button>
+            <Label x:Name="messageLabel" />
+            <Image Source="https://s-media-cache-ak0.pinimg.com/originals/37/98/18/379818443d24af9f2b374fa93485d178.jpg" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
