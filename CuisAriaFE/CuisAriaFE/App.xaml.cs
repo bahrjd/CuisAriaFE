@@ -16,7 +16,7 @@ namespace CuisAriaFE
         {            
 
             InitializeComponent();
-            MainPage = new NavigationPage(new Pages.LoginPage());
+            MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#A60000") };
             cabeMgr = new CABEMgr(new CABEServices());           
 
         }
