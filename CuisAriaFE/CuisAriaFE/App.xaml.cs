@@ -15,21 +15,20 @@ namespace CuisAriaFE
         public static ViewModels.MainViewModel MainViewModel { get; set; }
 
         public App()
-        {            
+        {
             InitializeComponent();
 
             if (!IsUserLoggedIn)
             {
-                MainPage = new NavigationPage(new Pages.LoginPage());
+                MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#A60000") };
             }
             else
             {
                 MainPage = new NavigationPage(new MainPage());
             }
 
-            cabeMgr = new CABEMgr(new CABEServices());
-        }
-        
+            cabeMgr = new CABEMgr(new CABEServices());        }
+
         protected override void OnStart()
         {
             // Handle when your app starts
