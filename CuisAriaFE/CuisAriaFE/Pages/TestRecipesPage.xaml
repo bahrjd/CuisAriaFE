@@ -12,7 +12,7 @@
                             <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                                 <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
                                 <StackLayout>
-                                    <Label FontSize="Medium" FontFamily="Verdana"  Text="{Binding RecipeName}"/>
+                                    <Label FontFamily="Verdana"  Text="{Binding RecipeName}"/>
                                     <Label VerticalTextAlignment="Center" Text="{Binding Description}"/>
                                 </StackLayout>
                             </StackLayout>
