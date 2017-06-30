@@ -10,18 +10,25 @@ namespace CuisAriaFE
 {
     public partial class App : Application
     {
+        public static bool IsUserLoggedIn { get; set; }
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }
 
         public App()
-        {            
+        {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#A60000") };
-            cabeMgr = new CABEMgr(new CABEServices());           
+            if (!IsUserLoggedIn)
+            {
+                MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#A60000") };
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
 
-        }
-        
+            cabeMgr = new CABEMgr(new CABEServices());        }
+
         protected override void OnStart()
         {
             // Handle when your app starts

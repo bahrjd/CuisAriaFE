@@ -24,7 +24,7 @@ namespace CuisAriaFE.Data
 
         public List<GetRecipeSteps> RecipeSteps { get; private set; }
 
-        public User UserDetails { get; private set; }
+        public static User UserDetails { get; private set; }
 
 
         // Connection Service
