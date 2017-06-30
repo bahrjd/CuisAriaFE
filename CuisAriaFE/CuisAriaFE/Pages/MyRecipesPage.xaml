@@ -5,16 +5,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="My Recipes ListView goes here" />
-            <ListView x:Name="myRcpListView" ItemSelected="OnItemSelected">
+            <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MyRcp}" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<ImageCell ImageSource="{Binding Recipe.RecipePic}" Text="Binding Recipe.Name"/>-->
-                        <!--<TextCell Text="Binding ShoppingList.Items" TextColor="DarkKhaki" />-->
                         <ViewCell>
                             <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                                 <Label Text="{Binding RecipeName}" VerticalTextAlignment="Center" />
                                 <Label Text="{Binding Description}" VerticalTextAlignment="Start" />
-
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

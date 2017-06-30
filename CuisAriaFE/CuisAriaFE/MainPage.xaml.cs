@@ -15,9 +15,16 @@ namespace CuisAriaFE
             InitializeComponent();
         }
 
-       
+        protected override void OnAppearing()
+        {
+            if (App.MainViewModel == null)
+            {                               
+                App.MainViewModel = new ViewModels.MainViewModel();
+                App.MainViewModel.RefreshRcpAsync();
+            }
+        }
 
-        private async void OnSettingsClicked(object sender, EventArgs e)
+    private async void OnSettingsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.SettingsPage());
         }
