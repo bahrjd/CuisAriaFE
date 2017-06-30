@@ -10,6 +10,7 @@ namespace CuisAriaFE
 {
     public partial class App : Application
     {
+        public static bool IsUserLoggedIn { get; set; }
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }
 
@@ -17,7 +18,15 @@ namespace CuisAriaFE
         {            
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Pages.LoginPage());
+            if (!IsUserLoggedIn)
+            {
+                MainPage = new NavigationPage(new Pages.LoginPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+
             cabeMgr = new CABEMgr(new CABEServices());
         }
         
