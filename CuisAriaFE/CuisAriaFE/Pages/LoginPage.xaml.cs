@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CuisAriaFE.Models;
+using CuisAriaFE.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +19,39 @@ namespace CuisAriaFE.Pages
             InitializeComponent();
         }
 
-        private void OnLoginClicked(object sender, EventArgs e)
+        async void OnLoginClicked(object sender, EventArgs e)
         {
-            var userName = userNameEntry.Text;
-            var mainPage = new MainPage();
-            App.cabeMgr.GetUserByNameAsync(userName);
-            Navigation.PushAsync(mainPage);
+            var user = new UserLogin
+            {
+                UserNameEntered = userNameEntry.Text,
+                PasswordEntered = passwordEntry.Text
+            };
+
+            await App.cabeMgr.GetUserByNameAsync(user.UserNameEntered);
+
+            var isValid = AreCredentialsCorrect(user);
+            if (isValid)
+            {                
+                App.IsUserLoggedIn = true;
+                Navigation.InsertPageBefore(new MainPage(), this);
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                messageLabel.Text = "Login failed";
+                passwordEntry.Text = string.Empty;
+            }
+
+            //var mainPage = new MainPage();
+            //App.cabeMgr.GetUserByNameAsync(userNameEntered);
+            //Navigation.PushAsync(mainPage);
+
         }
+        
+        bool AreCredentialsCorrect (UserLogin user)
+        {
+            return user.UserNameEntered == Data.CABEServices.UserDetails.UserName && user.PasswordEntered == Data.CABEServices.UserDetails.Password;
+        }
+
     }
 }
