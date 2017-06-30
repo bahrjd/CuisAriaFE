@@ -15,9 +15,16 @@ namespace CuisAriaFE
             InitializeComponent();
         }
 
-       
+        protected override void OnAppearing()
+        {
+            if (App.MainViewModel == null)
+            {                               
+                App.MainViewModel = new ViewModels.MainViewModel();
+                App.MainViewModel.RefreshRcpAsync();
+            }
+        }
 
-        private async void OnSettingsClicked(object sender, EventArgs e)
+    private async void OnSettingsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.SettingsPage());
         }
@@ -33,10 +40,17 @@ namespace CuisAriaFE
         {
             await Navigation.PushAsync(new Pages.FavoritesPage());
         }
-        private async void OnLogOutClicked(object sender, EventArgs e)
+        public async void OnLogOutClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pages.LoginPage());
+            Data.CABEServices.UserDetails.Password = "";
+            App.IsUserLoggedIn = false;
+            App.MainViewModel = null;
+            Navigation.InsertPageBefore(new Pages.LoginPage(), this);
+            await Navigation.PopAsync();
         }
+        //{
+        //    await Navigation.PushAsync(new Pages.LoginPage());
+        //}
         private async void OnShoppingClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.ShoppingListPage());

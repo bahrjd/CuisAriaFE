@@ -27,9 +27,19 @@ namespace CuisAriaFE.Pages
         {
             await Navigation.PushAsync(new Pages.InstructionsPage());
         }
-        private async void OnAddRecipeClicked(object sender, EventArgs e)
+
+        private async void OnSettingsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pages.AddRecipePage());
+            await Navigation.PushAsync(new SettingsPage());
+        }
+
+        private async void OnLogOutClicked(object sender, EventArgs e)
+        {
+            Data.CABEServices.UserDetails.Password = "";
+            App.IsUserLoggedIn = false;
+            App.MainViewModel = null;
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            await Navigation.PopAsync();
         }
     }
 }

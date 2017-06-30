@@ -26,7 +26,7 @@ namespace CuisAriaFE.Models
 
         public string IngredName { get; set; }
 
-        public string IngredQty { get; set; }
+        public decimal IngredQty { get; set; }
 
         public string IngredUnit { get; set; }
     }

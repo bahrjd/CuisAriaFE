@@ -1,6 +1,4 @@
-﻿using CuisAriaFE;
-using CuisAriaFE.Models;
-using CuisAriaFE.Data;
+﻿using CuisAriaFE.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,32 +13,23 @@ namespace CuisAriaFE.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyRecipesPage : ContentPage
     {
-    //bool alertShown = false;
+        public MyRecipesPage()
+        {
+            InitializeComponent();
+        }
 
-    public MyRecipesPage()
-    {
-        InitializeComponent();
-    }
+        protected override void OnAppearing()
+        //protected async override void OnAppearing()
+        {
+            this.BindingContext = App.MainViewModel;
 
-    protected async override void OnAppearing()
-    {
-        base.OnAppearing();
+            base.OnAppearing();
 
-        //if (Constants.RestUrl.Contains("developer.xamarin.com"))
-        //{
-        //    if (!alertShown)
-        //    {
-        //        await DisplayAlert(
-        //            "Hosted Back-End",
-        //            "This app is running against Xamarin's read-only REST service. To create, edit, and delete data you must update the service endpoint to point to your own hosted REST service.",
-        //            "OK");
-        //        alertShown = true;
-        //    }
-        //}
 
-        myRcpListView.ItemsSource = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
+            //Direct Model usage to ItemSource, needs x:name="myRcpListView" in ListView control if active//
+            //myRcpListView.ItemsSource = await App.cabeMgr.RefreshMyRcpAsync(Constants.OwnerTestID);
 
-    }
+        }
 
         //void OnAddItemClicked(object sender, EventArgs e)
         //{

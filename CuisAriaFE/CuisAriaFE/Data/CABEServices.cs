@@ -24,7 +24,7 @@ namespace CuisAriaFE.Data
 
         public List<GetRecipeSteps> RecipeSteps { get; private set; }
 
-        public User UserDetails { get; private set; }
+        public static User UserDetails { get; private set; }
 
 
         // Connection Service
@@ -74,7 +74,7 @@ namespace CuisAriaFE.Data
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                    ItemsMyRcp = JsonConvert.DeserializeObject<List<Recipe>>(content);
+                ItemsMyRcp = JsonConvert.DeserializeObject<List<Recipe>>(content);
             }
         }
         catch (Exception ex)
@@ -158,7 +158,7 @@ namespace CuisAriaFE.Data
         public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
     {
             // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
-            var uri = new Uri(string.Format(Constants.RcpUrl, item.ID));
+            var uri = new Uri(string.Format(Constants.RcpUrl, item.UserID));
 
         try
         {

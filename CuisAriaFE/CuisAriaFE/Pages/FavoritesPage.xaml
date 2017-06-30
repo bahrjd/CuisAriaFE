@@ -4,14 +4,22 @@
              x:Class="CuisAriaFE.Pages.FavoritesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Favorites Recipes ListView goes here" />
-            <!--<ListView>
+            <Label Text="Favorites Recipes ListView shows here" />
+            <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding FavRcp}" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding UserRecipeFavorite.Recipe}" />
+                        <ViewCell>
+                            <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
+                                <StackLayout>
+                                    <Label FontFamily="Verdana"  Text="{Binding RecipeName}"/>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Description}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>-->
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
