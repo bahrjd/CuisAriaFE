@@ -29,11 +29,11 @@ namespace CuisAriaFE
         // URL to toggle user favorite recipes // USAGE: Passing a userID and recipeID toggles bit
         public static string ToggleFavUrl = BaseUrl + "FavRecipeToggle/{0}/{1}";
 
-        // Credentials that are hard coded into the REST service
+        // Credentials that are hard coded //
         public static string RecipeTestID = "47";
         public static string UserTestID = "48";
+        // public static string UserTestID = Data.CABEServices.UserDetails.ID.ToString();
         public static string OwnerTestID = "48";
-        // public static string Username = "Xamarin";
-        // public static string Password = "Pa$$w0rd";
+        // public static string OwnerTestID = Data.CABEServices.UserDetails.ID.ToString();
     }
 }

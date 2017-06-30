@@ -24,7 +24,7 @@ namespace CuisAriaFE
             }
             else
             {
-                MainPage = new NavigationPage(new MainPage());
+                MainPage = new NavigationPage(new MainPage()) { BackgroundColor = Color.FromHex("#A60000") };
             }
 
             cabeMgr = new CABEMgr(new CABEServices());        }
