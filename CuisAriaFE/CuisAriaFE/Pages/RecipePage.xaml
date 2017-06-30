@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Recipe"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CuisAriaFE.Pages.RecipePage">
-    <ContentPage.Content>
-        <!--<ContentPage.ToolbarItems>
-            <ToolbarItem Icon="ic_favorite_border_24dp.png" Order="Primary" Priority="1"/>
-            <ToolbarItem Icon="ic_people_outline_black_24dp.png" Order="Primary" Priority="2"/>
-            <ToolbarItem Text="Edit" Icon="ic_create_black_24dp.png" Order="Primary" Priority="3" Clicked="EditRecipeClicked"/>
-            <ToolbarItem Text="Menu Add" Icon="ic_library_add_black_24dp.png" Order="Primary" Priority="4"  />
-        </ContentPage.ToolbarItems>-->
-        <StackLayout>
-        <Label Text="{Binding RecipeName}" />
-            <Label Text="{Binding Description}" />
-            <Picker x:Name="srvgpicker">
-                <Picker.Items>
-                    <x:String>one</x:String>
-                    <x:String>two</x:String>
-                    <x:String>three</x:String>
-                    <x:String>four</x:String>
-                    <x:String>five</x:String>
-                    <x:String>six</x:String>
-                    <x:String>seven</x:String>
-                    <x:String>eight</x:String>
-                    <x:String>nine</x:String>
-                    <x:String>ten</x:String>
-                    <x:String>eleven</x:String>
-                    <x:String>twelve</x:String>
-                </Picker.Items>
-            </Picker>
-            <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
-            <Button Text="Add Recipe" Clicked="OnAddRecipeClicked"></Button>
-            <StackLayout Orientation="Horizontal" >
-                <Label Text="PrepTime:"/>
-                <Label Text="{Binding PrepTime}" />
-                <Label Text="CookTime:"/>
-                <Label Text="{Binding CookTime}" />
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:CuisAriaFE.Pages"
+                x:Class="CuisAriaFE.Pages.RecipePage">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="icon_addFavorite.png" Order="Primary"/>
+        <ToolbarItem Icon="icon_addShared.png" Order="Primary"/>
+        <ToolbarItem Icon="icon_edit.png" Order="Primary" Clicked="EditRecipeClicked"/>
+        <ToolbarItem Icon="icon_addToMenu.png" Order="Primary"/>
+        <ToolbarItem Icon="icon_blankSpace.png" Order="Primary"/>
+        <ToolbarItem Text="Settings" Order="Secondary" Clicked="OnSettingsClicked"/>
+        <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
+    </ContentPage.ToolbarItems>
+
+
+
+<ContentPage.Content>
+            <StackLayout>
+                <Label Text="{Binding RecipeName}" />
+                <Label Text="{Binding Description}" />
+                <Picker x:Name="srvgpicker">
+                    <Picker.Items>
+                        <x:String>one</x:String>
+                        <x:String>two</x:String>
+                        <x:String>three</x:String>
+                        <x:String>four</x:String>
+                        <x:String>five</x:String>
+                        <x:String>six</x:String>
+                        <x:String>seven</x:String>
+                        <x:String>eight</x:String>
+                        <x:String>nine</x:String>
+                        <x:String>ten</x:String>
+                        <x:String>eleven</x:String>
+                        <x:String>twelve</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="PrepTime:"/>
+                    <Label Text="{Binding PrepTime}" />
+                    <Label Text="CookTime:"/>
+                    <Label Text="{Binding CookTime}" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    
-    </ContentPage.Content>
+        </ContentPage.Content>
 </ContentPage>

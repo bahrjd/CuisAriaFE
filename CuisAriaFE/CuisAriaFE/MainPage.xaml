@@ -9,10 +9,10 @@
         <!--<ToolbarItem Icon="{Binding User.Icon}" />
         <SearchBar x:Name="MainSearchBar" SearchButtonPressed="MainSearchBar_SearchButtonPressed"/>-->
         <ToolbarItem Text="Settings" Icon="icon_settings.png" Order="Secondary" Clicked="OnSettingsClicked"/>
-        <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="OnAdvancedClicked"/>
+        <!--<ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="OnAdvancedClicked"/>-->
         <ToolbarItem Text="Menu" Order="Secondary" Clicked="OnMenuClicked"/>
         <ToolbarItem Text="Shopping List" Order="Secondary" Clicked="OnShoppingClicked"/>
-        <ToolbarItem Text="Favorites" Order="Secondary" Clicked="OnFavoritesClicked"/>
+        <!--<ToolbarItem Text="Favorites" Order="Secondary" Clicked="OnFavoritesClicked"/>-->
         <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
     </TabbedPage.ToolbarItems>
     

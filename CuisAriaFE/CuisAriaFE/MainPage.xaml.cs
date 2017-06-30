@@ -40,7 +40,7 @@ namespace CuisAriaFE
         {
             await Navigation.PushAsync(new Pages.FavoritesPage());
         }
-        private async void OnLogOutClicked(object sender, EventArgs e)
+        public async void OnLogOutClicked(object sender, EventArgs e)
         {
             Data.CABEServices.UserDetails.Password = "";
             App.IsUserLoggedIn = false;
