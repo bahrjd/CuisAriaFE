@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CuisAriaFE" Title="CuisAria"
+             xmlns:local="clr-namespace:CuisAriaFE" Title="CuisAria"  Style="{DynamicResource TabColor}"
              xmlns:pages="clr-namespace:CuisAriaFE.Pages"
              x:Class="CuisAriaFE.MainPage">
 
     <TabbedPage.ToolbarItems>
-        <!--<ToolbarItem Icon="{Binding User.Icon}" />
+    
+    <!--<ToolbarItem Icon="{Binding User.Icon}" />
         <SearchBar x:Name="MainSearchBar" SearchButtonPressed="MainSearchBar_SearchButtonPressed"/>-->
         <ToolbarItem Text="Settings" Icon="icon_settings.png" Order="Secondary" Clicked="OnSettingsClicked"/>
         <!--<ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="OnAdvancedClicked"/>-->
@@ -17,8 +18,8 @@
     </TabbedPage.ToolbarItems>
     
     <TabbedPage.Children>
-        <pages:TestRecipesPage Title="Test"/>
-        <pages:MyRecipesPage Title="My Recipes"/>
+        <pages:TestRecipesPage Title="Test" />
+        <pages:MyRecipesPage Title="My Recipes" />
         <pages:SharedPage Title="Shared"/>
         <pages:FavoritesPage Title="Favorites"/>
     </TabbedPage.Children>

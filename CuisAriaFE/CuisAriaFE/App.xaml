@@ -3,8 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.App">
 	<Application.Resources>
+        <ResourceDictionary>
 
-		<!-- Application resource dictionary -->
-
-	</Application.Resources>
+            <Color x:Key="TabColor">#AA00A2</Color>
+            
+            
+            
+            
+            
+            
+            
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
