@@ -53,5 +53,9 @@ namespace CuisAriaFE.Pages
             return user.UserNameEntered == Data.CABEServices.UserDetails.UserName && user.PasswordEntered == Data.CABEServices.UserDetails.Password;
         }
 
+        private void OnGoToRegClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
+        }
     }
 }

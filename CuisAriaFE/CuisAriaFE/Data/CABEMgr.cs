@@ -61,5 +61,10 @@ namespace CuisAriaFE.Data
         {
             return restService.GetUserByNameAsync(userName);
         }
+
+        public Task<User> AddEditUserAsync(User user, bool isNew)
+        {
+            return restService.AddEditUserAsync(user, isNew);
+        }
     }
 }
