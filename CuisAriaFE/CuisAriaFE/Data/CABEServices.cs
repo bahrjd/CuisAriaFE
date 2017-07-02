@@ -156,36 +156,36 @@ namespace CuisAriaFE.Data
 
 
         public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
-    {
+        {
             // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
             var uri = new Uri(string.Format(Constants.RcpUrl, item.UserID));
 
-        try
-        {
-            var json = JsonConvert.SerializeObject(item);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = null;
-            if (isNewItem)
+            try
             {
-                response = await client.PostAsync(uri, content);
-            }
-            else
-            {
-                response = await client.PutAsync(uri, content);
-            }
+                var json = JsonConvert.SerializeObject(item);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            if (response.IsSuccessStatusCode)
-            {
-                Debug.WriteLine(@"				TodoItem successfully saved.");
-            }
+                HttpResponseMessage response = null;
+                if (isNewItem)
+                {
+                    response = await client.PostAsync(uri, content);
+                }
+                else
+                {
+                    response = await client.PutAsync(uri, content);
+                }
 
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				TodoItem successfully saved.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
         }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(@"				ERROR {0}", ex.Message);
-        }
-    }
 
         public async Task DeleteRecipeAsync(string ID)
         {
@@ -230,6 +230,46 @@ namespace CuisAriaFE.Data
 
             return UserDetails;
         }
-        
-}
+
+        public async Task<User> AddEditUserAsync(User user, bool isNewItem = false)
+        {
+            UserDetails = new User();
+            var uri = new Uri(string.Format(Constants.UserAddEditUrl));
+
+            try
+            {
+                var json = JsonConvert.SerializeObject(user);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                if (isNewItem)
+                {
+                    response = await client.PostAsync(uri, content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var newUser = await response.Content.ReadAsStringAsync();
+                        UserDetails = JsonConvert.DeserializeObject<User>(newUser);
+                    }
+
+                }
+                else
+                {
+                    response = await client.PutAsync(uri, content);
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				new user successfully saved.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+            return UserDetails;
+
+        }
+
+    }
 }

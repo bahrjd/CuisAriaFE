@@ -30,4 +30,14 @@ namespace CuisAriaFE.Models
 
         public string PasswordEntered { get; set; }
     }
+
+    public class UserRegistration
+    {
+        public string UserNameEntered { get; set; }
+
+        public string PasswordEntered { get; set; }
+
+        public string PasswordEntered2 { get; set; }
+
+    }
 }
