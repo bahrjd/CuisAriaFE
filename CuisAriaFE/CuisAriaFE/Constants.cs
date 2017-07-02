@@ -21,7 +21,7 @@ namespace CuisAriaFE
         public static string UserByNameUrl = BaseUrl + "GetUserByName/{0}";
 
         // URL for Add/Edit User // USAGE: Set Id = 0 to add a user // Set Id = userID to edit user data
-        public static string UserAddEditUrl = BaseUrl + "AddEditUser/{0}";
+        public static string UserAddEditUrl = BaseUrl + "AddEditUser";
 
         // URL to toggle shared recipes // USAGE: Passing a recipeID toggles bit
         public static string ToggleShareUrl = BaseUrl + "ShareRecipeToggle/{0}";
