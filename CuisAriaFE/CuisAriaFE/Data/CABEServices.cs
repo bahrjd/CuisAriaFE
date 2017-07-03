@@ -26,6 +26,9 @@ namespace CuisAriaFE.Data
 
         public static User UserDetails { get; private set; }
 
+        public List<MenuRecipe> menuRcpList { get; private set; }
+
+
 
         // Connection Service
         public CABEServices()
@@ -269,6 +272,29 @@ namespace CuisAriaFE.Data
             }
             return UserDetails;
 
+        }
+
+        public async Task<List<MenuRecipe>> RefreshMenuRcpAsync(string userID, string menuID)
+        {
+            menuRcpList = new List<MenuRecipe>();
+
+            var uri = new Uri(string.Format(Constants.MenuRcpUrl, userID, menuID));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    menuRcpList = JsonConvert.DeserializeObject<List<MenuRecipe>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+
+            return menuRcpList;
         }
 
     }

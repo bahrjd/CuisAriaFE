@@ -20,6 +20,9 @@ namespace CuisAriaFE
 
         public static string UserByNameUrl = BaseUrl + "GetUserByName/{0}";
 
+        // URL for GetMenu // USAGE: Set MenuID = 0 to get current menu or menuId to get specific menu
+        public static string MenuRcpUrl = BaseUrl + "GetMenu/{0}/{1}";
+
         // URL for Add/Edit User // USAGE: Set Id = 0 to add a user // Set Id = userID to edit user data
         public static string UserAddEditUrl = BaseUrl + "AddEditUser";
 
