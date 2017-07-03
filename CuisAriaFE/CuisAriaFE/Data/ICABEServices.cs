@@ -21,7 +21,7 @@ namespace CuisAriaFE.Data
 
         Task DeleteRecipeAsync(string id);
 
-        Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID);
+        Task<List<StepIngredients>> RefreshStepIngredientsAsync(string recipeID);
 
         Task<User> GetUserByNameAsync(string userName);
 

@@ -25,7 +25,7 @@ namespace CuisAriaFE.Data
 
         public List<Recipe> ItemsFavRcp { get; private set; }
 
-        public List<GetRecipeSteps> RecipeSteps { get; private set; }
+        public List<StepIngredients> RecipeSteps { get; private set; }
 
         public static User UserDetails { get; private set; }
 
@@ -192,9 +192,9 @@ namespace CuisAriaFE.Data
             }
         }
 
-        public async Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID)
+        public async Task<List<StepIngredients>> RefreshStepIngredientsAsync(string recipeID)
         {
-            RecipeSteps = new List<GetRecipeSteps>();
+            RecipeSteps = new List<StepIngredients>();
 
             var uri = new Uri(string.Format(Constants.RcpStepsUrl, recipeID));
 
@@ -204,7 +204,7 @@ namespace CuisAriaFE.Data
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    RecipeSteps = JsonConvert.DeserializeObject<List<GetRecipeSteps>>(content);
+                    RecipeSteps = JsonConvert.DeserializeObject<List<StepIngredients>>(content);
                 }
             }
             catch (Exception ex)

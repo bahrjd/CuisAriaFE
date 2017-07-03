@@ -41,7 +41,7 @@
             </StackLayout>
             <Label FontSize="Large" Text="Ingredients"/>
             <StackLayout>
-                    <ListView x:Name="rcpIngredTestLisView" HasUnevenRows="True">
+                    <ListView x:Name="rcpIngredLisView" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -57,7 +57,7 @@
             </StackLayout>
             <Label FontSize="Large" Text="Instructions"/>
             <StackLayout>
-                <ListView x:Name="rcpInstructTestListView" HasUnevenRows="True">
+                <ListView x:Name="rcpInstructionsListView" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
