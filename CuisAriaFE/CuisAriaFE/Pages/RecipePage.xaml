@@ -18,7 +18,8 @@
 
 
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
             <Label FontSize="Large" Text="{Binding RecipeName}" />
             <Label FontSize="Medium" Text="{Binding Description}" />
             <StackLayout Orientation="Horizontal">
@@ -42,37 +43,42 @@
                 <Label Text="Cook time"/>
             </StackLayout>
             <Label FontSize="Large" Text="Ingredients"/>
-            <ListView x:Name="rcpIngredTestLisView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredQty}" />
-                                <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredUnit}"/>
-                                <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredName}"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackLayout>
+                    <ListView x:Name="rcpIngredTestLisView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredQty}" />
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredUnit}"/>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredName}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
             <Label FontSize="Large" Text="Instructions"/>
-            <ListView x:Name="rcpInstructTestListView" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Label VerticalTextAlignment="Center" Text="{Binding StepID}" />
-                                <Label VerticalTextAlignment="Center" Text="{Binding Instruction}"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackLayout>
+                <ListView x:Name="rcpInstructTestListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label VerticalTextAlignment="Center" Text="{Binding StepNumber}" />
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Instruction}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
             <Label FontSize="Large" Text="Notes"/>
             <Label Text="{Binding Notes}"/>
             <Label FontSize="Large" Text="Keywords"/>
             <Label Text="{Binding Keywords}"/>
             <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
