@@ -13,6 +13,7 @@ namespace CuisAriaFE
         public static bool IsUserLoggedIn { get; set; }
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }
+        public static ViewModels.MenuViewModel MenuViewModel { get; set; }
 
         public App()
         {
