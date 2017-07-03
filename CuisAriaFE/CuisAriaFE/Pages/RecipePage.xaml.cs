@@ -17,7 +17,14 @@ namespace CuisAriaFE.Pages
             InitializeComponent();
         }
 
-        
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(Constants.RecipeTestID);
+            rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
+        }
+
         private async void EditRecipeClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());

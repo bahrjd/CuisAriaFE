@@ -17,33 +17,68 @@
 
 
 
-<ContentPage.Content>
-            <StackLayout>
-                <Label Text="{Binding RecipeName}" />
-                <Label Text="{Binding Description}" />
-                <Picker x:Name="srvgpicker">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Label FontSize="Large" Text="{Binding RecipeName}" />
+            <Label FontSize="Medium" Text="{Binding Description}" />
+            <StackLayout Orientation="Horizontal">
+                <Picker x:Name="servingsPicker">
                     <Picker.Items>
-                        <x:String>one</x:String>
-                        <x:String>two</x:String>
-                        <x:String>three</x:String>
-                        <x:String>four</x:String>
-                        <x:String>five</x:String>
-                        <x:String>six</x:String>
-                        <x:String>seven</x:String>
-                        <x:String>eight</x:String>
-                        <x:String>nine</x:String>
-                        <x:String>ten</x:String>
-                        <x:String>eleven</x:String>
-                        <x:String>twelve</x:String>
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
                     </Picker.Items>
                 </Picker>
-                <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
-                <StackLayout Orientation="Horizontal" >
-                    <Label Text="PrepTime:"/>
-                    <Label Text="{Binding PrepTime}" />
-                    <Label Text="CookTime:"/>
-                    <Label Text="{Binding CookTime}" />
-                </StackLayout>
+                <Label Text="Servings"/>
+                <Label Text ="{Binding PrepTime}"/>
+                <Label FontSize="Micro" Text="h"/>
+                <Label Text="{Binding PrepTime}" />
+                <Label FontSize="Micro" Text="m"/>
+                <Label Text="Prep time"/>
+                <Label Text="{Binding CookTime}" />
+                <Label FontSize="Micro" Text="h"/>
+                <Label Text="{Binding CookTime}" />
+                <Label FontSize="Micro" Text="m"/>
+                <Label Text="Cook time"/>
             </StackLayout>
-        </ContentPage.Content>
+            <Label FontSize="Large" Text="Ingredients"/>
+            <StackLayout>
+                    <ListView x:Name="rcpIngredTestLisView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredQty}" />
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredUnit}"/>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredName}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Label FontSize="Large" Text="Instructions"/>
+            <StackLayout>
+                <ListView x:Name="rcpInstructTestListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label VerticalTextAlignment="Center" Text="{Binding StepNumber}" />
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Instruction}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Label FontSize="Large" Text="Notes"/>
+            <Label Text="{Binding Notes}"/>
+            <Label FontSize="Large" Text="Keywords"/>
+            <Label Text="{Binding Keywords}"/>
+            <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
