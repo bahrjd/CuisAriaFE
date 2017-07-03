@@ -5,53 +5,38 @@
              x:Class="CuisAriaFE.Pages.CurrentMenuPage">
 
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MenuRcp}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <!--<Grid>
+                            <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
+                                <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                </Grid.RowDefinitions>-->
-                                <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
-                                <StackLayout>
-                                    <Label FontFamily="Verdana"  Text="{Binding RecipeName}"/>
-                                    <Label VerticalTextAlignment="Center" Text="{Binding Description}"/>
-                                    <Label FontFamily="Verdana"  Text="{Binding MenuServings}">Servings</Label>
-                                </StackLayout>
+                                </Grid.RowDefinitions>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
+                                            <Label Grid.Column="1" WidthRequest="260" VerticalTextAlignment="End" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding RecipeName}"/>
+                                            <Label Grid.Column="2" WidthRequest="30" VerticalTextAlignment="End" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding MenuServings}"/>
+                                            <Label Grid.Column="3" WidthRequest="70" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="Servings"/>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Center" Grid.Row="1">
+                                        <Label Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="{Binding Description}"/>
+                                    </StackLayout>    
+                                </Grid>
                             </StackLayout>
-                            <!--</Grid>-->
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 
 
-<!--<ContentPage.Content>
-    <StackLayout>
-        <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MenuRcp}">
-            --><!--<ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MenuRcp}" ItemSelected="OnItemSelected">--><!--
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                            <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
-                            <StackLayout>
-                                <Label FontFamily="Verdana"  Text="{Binding RecipeName}"/>
-                                <Label VerticalTextAlignment="Center" Text="{Binding Description}"/>
-                                <Label FontFamily="Verdana"  Text="{Binding MenuServings}">Servings</Label>
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
-</ContentPage.Content>-->
+
 
