@@ -5,12 +5,13 @@
 	<Application.Resources>
         <ResourceDictionary>
 
-            <Color x:Key="AccColor1">#AA00A2</Color>
-            <Color x:Key="AccColor2">#D435CD</Color>
-            <Color x:Key="AccColor3">#D460CF</Color>
-            <Color x:Key="AccColor4">#FFEF40</Color>
-            <Color x:Key="AccColor5">#FFF373</Color>
-            <Color x:Key="AccColor6">#9A6AD6</Color>
+            <Color x:Key="DarkPurple">#AA00A2</Color>
+            <Color x:Key="Pink">#D435CD</Color>
+            <Color x:Key="LightPink">#D460CF</Color>
+            <Color x:Key="Yellow">#FFEF40</Color>
+            <Color x:Key="LightYellow">#FFF373</Color>
+            <Color x:Key="BoldYellow">#FFE900</Color>
+            <Color x:Key="Violet">#9A6AD6</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
