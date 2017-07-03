@@ -21,7 +21,7 @@ namespace CuisAriaFE.Pages
         {
             base.OnAppearing();
 
-            rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(Constants.RecipeTestID);
+            rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(App.CurrentRecipeId);
             rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
         }
 

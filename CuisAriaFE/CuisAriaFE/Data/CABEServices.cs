@@ -12,6 +12,9 @@ namespace CuisAriaFE.Data
 {
 	public class CABEServices : ICABEServices
     {
+
+        #region Properties Declarations region
+
         HttpClient client;
 
         public Recipe ItemRcp { get; private set; }
@@ -28,7 +31,7 @@ namespace CuisAriaFE.Data
 
         public List<MenuRecipe> menuRcpList { get; private set; }
 
-
+        #endregion
 
         // Connection Service
         public CABEServices()
@@ -41,6 +44,8 @@ namespace CuisAriaFE.Data
         client.MaxResponseContentBufferSize = 256000;
         // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
         }
+
+        #region Recipe Operations region
 
         public async Task<Recipe> GetRcpAsync(string recipeID)
         {
@@ -134,30 +139,6 @@ namespace CuisAriaFE.Data
             return ItemsFavRcp;
         }
 
-        public async Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID)
-        {
-        RecipeSteps = new List<GetRecipeSteps>();
-
-            var uri = new Uri(string.Format(Constants.RcpStepsUrl, recipeID));
-
-        try
-        {
-            var response = await client.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                RecipeSteps = JsonConvert.DeserializeObject<List<GetRecipeSteps>>(content);
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(@"				ERROR {0}", ex.Message);
-        }
-
-        return RecipeSteps;
-        }
-
-
         public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
         {
             // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
@@ -211,6 +192,33 @@ namespace CuisAriaFE.Data
             }
         }
 
+        public async Task<List<GetRecipeSteps>> RefreshStepsAsync(string recipeID)
+        {
+            RecipeSteps = new List<GetRecipeSteps>();
+
+            var uri = new Uri(string.Format(Constants.RcpStepsUrl, recipeID));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    RecipeSteps = JsonConvert.DeserializeObject<List<GetRecipeSteps>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+
+            return RecipeSteps;
+        }
+
+        #endregion
+
+        #region User Operations region
+        
         public async Task<User> GetUserByNameAsync(string userName)
         {
             UserDetails = new User();
@@ -274,6 +282,10 @@ namespace CuisAriaFE.Data
 
         }
 
+        #endregion
+
+        #region Menu and Shopping Lists Operations region
+
         public async Task<List<MenuRecipe>> RefreshMenuRcpAsync(string userID, string menuID)
         {
             menuRcpList = new List<MenuRecipe>();
@@ -296,6 +308,8 @@ namespace CuisAriaFE.Data
 
             return menuRcpList;
         }
+
+        #endregion
 
     }
 }

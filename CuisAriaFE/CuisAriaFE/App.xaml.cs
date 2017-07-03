@@ -1,4 +1,5 @@
 ﻿using CuisAriaFE.Data;
+using CuisAriaFE.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +7,13 @@ using System.Text;
 
 using Xamarin.Forms;
 
+
 namespace CuisAriaFE
 {
     public partial class App : Application
     {
         public static bool IsUserLoggedIn { get; set; }
+        public static Recipe CurrentRecipe { get; set; }
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }
         public static ViewModels.MenuViewModel MenuViewModel { get; set; }
@@ -21,11 +24,11 @@ namespace CuisAriaFE
 
             if (!IsUserLoggedIn)
             {
-                MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#D460CF"), BarBackgroundColor = Color.FromHex("#D435CD") };
+                MainPage = new NavigationPage(new Pages.LoginPage()) { BarBackgroundColor = Color.FromHex("#D435CD") };
             }
             else
             {
-                MainPage = new NavigationPage(new MainPage()) { BackgroundColor = Color.FromHex("#D460CF"), BarBackgroundColor = Color.FromHex("#D435CD") };
+                MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.FromHex("#D435CD") };
             }
 
             cabeMgr = new CABEMgr(new CABEServices());        }

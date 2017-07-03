@@ -4,7 +4,6 @@
                 xmlns:pages="clr-namespace:CuisAriaFE.Pages"
                 x:Class="CuisAriaFE.Pages.RecipePage">
 
-
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="icon_addFavorite.png" Order="Primary"/>
         <ToolbarItem Icon="icon_addShared.png" Order="Primary"/>
@@ -14,8 +13,6 @@
         <ToolbarItem Text="Settings" Order="Secondary" Clicked="OnSettingsClicked"/>
         <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
     </ContentPage.ToolbarItems>
-
-
 
     <ContentPage.Content>
         <ScrollView>
