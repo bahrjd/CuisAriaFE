@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:CuisAriaFE" Title="CuisAria" 
+             xmlns:local="clr-namespace:CuisAriaFE" Title="CuisAria"  
              x:Class="CuisAriaFE.Pages.LoginPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
@@ -11,7 +11,7 @@
             <Button Text="Login" Clicked="OnLoginClicked" TextColor="{DynamicResource BoldYellow}" BackgroundColor="{DynamicResource Violet}"></Button>
             <Button Text="Register New User" Clicked="OnGoToRegClicked" TextColor="{DynamicResource BoldYellow}" BackgroundColor="{DynamicResource Violet}"></Button>
             <Label x:Name="messageLabel" />
-            <Image Source="https://s-media-cache-ak0.pinimg.com/originals/37/98/18/379818443d24af9f2b374fa93485d178.jpg" HorizontalOptions="Center"/>
+            <Image Source="http://imageresize.org/Output/5387cf36-59c1-40eb-827c-8fd8e19f0592.jpg" HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
