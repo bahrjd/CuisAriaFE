@@ -32,11 +32,17 @@ namespace CuisAriaFE
         // URL to toggle user favorite recipes // USAGE: Passing a userID and recipeID toggles bit
         public static string ToggleFavUrl = BaseUrl + "FavRecipeToggle/{0}/{1}";
 
+        // URL to get shopping list // USAGE: Passing a UserId retrieves shoppinglist
+        public static string ShopListUrl = BaseUrl + "GetShoppingList/{0}";
+
         // Credentials that are hard coded //
         public static string RecipeTestID = "47";
         public static string UserTestID = "48";
         // public static string UserTestID = Data.CABEServices.UserDetails.ID.ToString();
         public static string OwnerTestID = "48";
         // public static string OwnerTestID = Data.CABEServices.UserDetails.ID.ToString();
+
+        // Fraction conversion list
+        public static string[] FracList = { "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8" };
     }
 }

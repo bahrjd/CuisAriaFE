@@ -28,5 +28,8 @@ namespace CuisAriaFE.Data
         Task<User> AddEditUserAsync(User user, bool isNew);
 
         Task<List<MenuRecipe>> RefreshMenuRcpAsync(string userId, string menuID);
+
+        Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID);
+
     }
 }

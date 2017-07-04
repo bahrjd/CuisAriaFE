@@ -35,7 +35,7 @@ namespace CuisAriaFE.Data
         {
             return restService.GetRcpAsync(userID);
         }
-        
+
         public Task<List<GetRecipeSteps>> GetStepsAsync(string recipeID)
         {
             return restService.RefreshStepsAsync(recipeID);
@@ -44,6 +44,11 @@ namespace CuisAriaFE.Data
         public Task<List<MenuRecipe>> RefreshMenuRcpAsync(string userID, string menuID)
         {
             return restService.RefreshMenuRcpAsync(userID, menuID);
+        }
+
+        public Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID)
+        {
+            return restService.RefreshShopListItemAsync(userID);
         }
 
         public Task SaveTaskAsync(Recipe item, bool isNewItem = false)
