@@ -31,7 +31,14 @@ namespace CuisAriaFE.Data
 
         public List<MenuRecipe> menuRcpList { get; private set; }
 
-        #endregion
+        public ShoppingList shopList { get; private set; }
+
+        public List<ShopDispItem> shopItemList { get; private set; }
+
+        //public string shopListName { get; set; }
+
+				#endregion
+
 
         // Connection Service
         public CABEServices()
@@ -69,7 +76,7 @@ namespace CuisAriaFE.Data
 
             return ItemRcp;
         }
-        
+
         public async Task<List<Recipe>> RefreshMyRcpAsync(string ownerID)
     {
             ItemsMyRcp = new List<Recipe>();
@@ -219,7 +226,7 @@ namespace CuisAriaFE.Data
         #endregion
 
         #region User Operations region
-        
+
         public async Task<User> GetUserByNameAsync(string userName)
         {
             UserDetails = new User();
@@ -310,7 +317,52 @@ namespace CuisAriaFE.Data
             return menuRcpList;
         }
 
-        #endregion
+        public async Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID)
+        {
+            shopList = new ShoppingList();
+            shopItemList = new List<ShopDispItem>();
 
+            var uri = new Uri(string.Format(Constants.ShopListUrl, userID));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    shopList = JsonConvert.DeserializeObject<ShoppingList>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+            App.shopListName = shopList.ListName;
+            List<ShopListItemVM> tempShopItemList = new List<ShopListItemVM>();
+            tempShopItemList = shopList.Items;
+
+            // Convert decimal numbers to fractions for display
+            foreach (ShopListItemVM item in tempShopItemList)
+            {
+                var tempShopDispItem = new ShopDispItem();
+                var fracListIndex = (int)((8 * (item.ItemQty % 1)) - 1);
+                tempShopDispItem.ItemName  = item.ItemName;
+                tempShopDispItem.ItemUnit = item.ItemUnit;
+                tempShopDispItem.ItemQty = item.ItemQty;
+                tempShopDispItem.QtyInt  = Math.Truncate(item.ItemQty).ToString();
+                if (fracListIndex >= 0)
+                {
+                    tempShopDispItem.QtyFrac = Constants.FracList[fracListIndex];
+                } else
+                {
+                    tempShopDispItem.QtyFrac = " ";
+                }
+                shopItemList.Add(tempShopDispItem);
+            }
+
+            return shopItemList;
+        }
+
+				#endregion
     }
 }

@@ -53,6 +53,8 @@
     <Compile Include="Models\StepIngredients.cs" />
     <Compile Include="Models\MenuRecipe.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\ShopDispItem.cs" />
+    <Compile Include="Models\ShoppingList.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AddRecipePage.xaml.cs">
       <DependentUpon>AddRecipePage.xaml</DependentUpon>
@@ -104,6 +106,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\RecipeViewModel.cs" />
+    <Compile Include="ViewModels\ShopListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
