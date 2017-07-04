@@ -20,11 +20,11 @@ namespace CuisAriaFE
 
             if (!IsUserLoggedIn)
             {
-                MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#C0C0C0"), BarBackgroundColor = Color.FromHex("#9A6AD6"), BarTextColor = Color.FromHex("#FFE900") };
+                MainPage = new NavigationPage(new Pages.LoginPage()) { BackgroundColor = Color.FromHex("#FAF8FA"), BarBackgroundColor = Color.FromHex("#9A6AD6"), BarTextColor = Color.FromHex("#FFE900") };
             }
             else
             {
-                MainPage = new NavigationPage(new MainPage()) { BackgroundColor = Color.FromHex("#C0C0C0"), BarBackgroundColor = Color.FromHex("#9A6AD6"), BarTextColor = Color.FromHex("#FFE900") };
+                MainPage = new NavigationPage(new MainPage()) { BackgroundColor = Color.FromHex("#FAF8FA"), BarBackgroundColor = Color.FromHex("#9A6AD6"), BarTextColor = Color.FromHex("#FFE900") };
             }
 
             cabeMgr = new CABEMgr(new CABEServices());        }
