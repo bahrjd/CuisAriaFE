@@ -24,12 +24,12 @@ namespace CuisAriaFE.Pages
         {
             base.OnAppearing();
             
-            instructionsListView.ItemsSource = await App.cabeMgr.GetStepsAsync(Constants.RecipeTestID);
+            instructionsListView.ItemsSource = await App.cabeMgr.RefreshStepIngredientsAsync(App.CurrentRecipe.RecipeID);
         }
 
         private void OnInstructionSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var instructionItem = e.SelectedItem as GetRecipeSteps;
+            var instructionItem = e.SelectedItem as StepIngredients;
             var toSpeak = instructionItem.Instruction;
             var ts = new TTSpeech();
             ts.Speak(toSpeak);

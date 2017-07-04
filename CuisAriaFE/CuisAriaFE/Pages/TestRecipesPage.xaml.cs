@@ -48,10 +48,8 @@ namespace CuisAriaFE.Pages
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var recipeItem = e.SelectedItem as Recipe;
-            var recipePage = new RecipePage();
-            recipePage.BindingContext = recipeItem;
-            Navigation.PushAsync(recipePage);
+            App.CurrentRecipe = e.SelectedItem as Recipe;
+            Navigation.PushAsync(new Pages.RecipePage());
         }
     }
 }

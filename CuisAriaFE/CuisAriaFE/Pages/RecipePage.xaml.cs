@@ -17,12 +17,17 @@ namespace CuisAriaFE.Pages
             InitializeComponent();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
+            App.RecipeViewModel = new ViewModels.RecipeViewModel();
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
+            
+            BindingContext = App.RecipeViewModel;
+
             base.OnAppearing();
 
-            rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(Constants.RecipeTestID);
-            rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
+            // rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(App.CurrentRecipe.RecipeID);
+            // rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
         }
 
         private async void EditRecipeClicked(object sender, EventArgs e)

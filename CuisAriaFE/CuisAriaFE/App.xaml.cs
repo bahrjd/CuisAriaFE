@@ -1,4 +1,5 @@
 ﻿using CuisAriaFE.Data;
+using CuisAriaFE.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,14 +7,17 @@ using System.Text;
 
 using Xamarin.Forms;
 
+
 namespace CuisAriaFE
 {
     public partial class App : Application
     {
         public static bool IsUserLoggedIn { get; set; }
+        public static Recipe CurrentRecipe { get; set; }
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }
         public static ViewModels.MenuViewModel MenuViewModel { get; set; }
+        public static ViewModels.RecipeViewModel RecipeViewModel { get; set; }
         public static ViewModels.ShopListViewModel ShopListViewModel { get; set; }
         public static string shopListName { get; set; }
 

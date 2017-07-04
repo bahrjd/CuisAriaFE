@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label FontSize="Large" Text="My Recipes ListView goes here" />
-            <ListView  IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding TestRcp}" ItemSelected="OnItemSelected" Margin="10">
+            <ListView x:Name="testRcpListView" IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding TestRcp}" ItemSelected="OnItemSelected" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

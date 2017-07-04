@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Models
 {
-    public class GetRecipeSteps
+    public class StepIngredients
     {
         public string RecipeID { get; set; }
 
