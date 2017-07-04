@@ -19,8 +19,10 @@ namespace CuisAriaFE.Pages
 
         protected override void OnAppearing()
         {
-
-            this.BindingContext = App.RecipeViewModel;
+            App.RecipeViewModel = new ViewModels.RecipeViewModel();
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
+            
+            BindingContext = App.RecipeViewModel;
 
             base.OnAppearing();
 

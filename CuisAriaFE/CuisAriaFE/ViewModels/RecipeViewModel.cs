@@ -1,5 +1,5 @@
 ﻿using CuisAriaFE.Common;
-using CuisAriaFE.Data;
+using CuisAriaFE.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,60 +12,72 @@ namespace CuisAriaFE.ViewModels
     public class RecipeViewModel : ObservableBase
     {
         private string currentRecipeID = App.CurrentRecipe.RecipeID;
-        
+        public Recipe CurrentRcp;
+                
         public RecipeViewModel()
         {
-            this.CurrentRcp = new ObservableCollection<Models.Recipe>();
-            this.StepIngredRcp = new ObservableCollection<Models.StepIngredients>();
+            CurrentRcp = App.CurrentRecipe;
+            StepRcp = new ObservableCollection<StepIngredients>();
+            IngredRcp = new ObservableCollection<Ingredients>();
         }
 
-        private ObservableCollection<Models.Recipe> _currentRcp;
-        public ObservableCollection<Models.Recipe> CurrentRcp
+        //private Recipe _currentRcp;
+        //public Recipe CurrentRcp
+        //{
+        //    get { return _currentRcp; }
+        //    set { SetProperty(ref _currentRcp, value); }
+        //}
+
+        private ObservableCollection<StepIngredients> _stepRcp;
+        public ObservableCollection<StepIngredients> StepRcp
         {
-            get { return this._currentRcp; }
-            set { this.SetProperty(ref this._currentRcp, value); }
+            get { return _stepRcp; }
+            set { SetProperty(ref _stepRcp, value); }
         }
 
-        private ObservableCollection<Models.StepIngredients> _stepIngredRcp;
-        public ObservableCollection<Models.StepIngredients> StepIngredRcp
+        private ObservableCollection<Ingredients> _ingredRcp;
+        public ObservableCollection<Ingredients> IngredRcp
         {
-            get { return this._stepIngredRcp; }
-            set { this.SetProperty(ref this._stepIngredRcp, value); }
+            get { return _ingredRcp; }
+            set { SetProperty(ref _ingredRcp, value); }
         }
 
         private bool _isBusy;
         public bool IsBusy
         {
-            get { return this._isBusy; }
-            set { this.SetProperty(ref this._isBusy, value); }
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
         }
 
         public async void RefreshRcpDetailsAsync()
         {
-            this.IsBusy = true;
+            IsBusy = true;
 
-            await GetRcpAsync();
+            //GetRcpAsync();
             await RefreshStepIngredientsAsync();
 
-            this.IsBusy = false;
+            IsBusy = false;
         }
 
-        public async Task GetRcpAsync()
-        {
-            this.CurrentRcp.Clear();
-
-            // this.CurrentRcp = await App.cabeMgr.GetRcpAsync(currentRecipeID);                       
-        }
+        //public void GetRcpAsync()
+        //{
+        //    CurrentRcp = App.CurrentRecipe;
+        //}
 
         public async Task RefreshStepIngredientsAsync()
         {
-            this.StepIngredRcp.Clear();
+            StepRcp.Clear();
+            IngredRcp.Clear();
 
-            var rcpList = await App.cabeMgr.RefreshStepIngredientsAsync(currentRecipeID);
+            var stepList = await App.cabeMgr.RefreshStepIngredientsAsync(currentRecipeID);
 
-            foreach (var item in rcpList)
+            foreach (var item in stepList)
             {
-                this.StepIngredRcp.Add(item);
+                StepRcp.Add(item);
+                
+                //{
+                //    IngredRcp.Add(ingred);
+                //}
             }
         }
     }

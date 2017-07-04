@@ -212,6 +212,7 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
 
+            RecipeSteps.Sort((stepA, stepB) => string.Compare(stepA.StepNumber, stepB.StepNumber));
             return RecipeSteps;
         }
 

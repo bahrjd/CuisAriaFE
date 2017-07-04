@@ -16,39 +16,34 @@
 
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand">
             <Label FontSize="Large" Text="{Binding RecipeName}" />
             <Label FontSize="Medium" Text="{Binding Description}" />
+            <!--<Label Text=""-->
+            <Stepper x:Name="servingsStepper" Minimum="1" Maximum="12" Value="{Binding Servings}"/>
             <StackLayout Orientation="Horizontal">
-                <Picker x:Name="servingsPicker">
+                <!--<Picker x:Name="servingsPicker">
                     <Picker.Items>
                         <x:String>1</x:String>
                         <x:String>2</x:String>
                         <x:String>3</x:String>
                     </Picker.Items>
-                </Picker>
-                <Label Text="Servings"/>
-                <Label Text ="{Binding PrepTime}"/>
-                <Label FontSize="Micro" Text="h"/>
-                <Label Text="{Binding PrepTime}" />
-                <Label FontSize="Micro" Text="m"/>
-                <Label Text="Prep time"/>
-                <Label Text="{Binding CookTime}" />
-                <Label FontSize="Micro" Text="h"/>
-                <Label Text="{Binding CookTime}" />
-                <Label FontSize="Micro" Text="m"/>
-                <Label Text="Cook time"/>
+                </Picker>-->
+                
+                <Label VerticalTextAlignment="End" Text="Servings"/>
+                <TimePicker IsEnabled="False" Time="{Binding PrepTime}" Format="HH\h MM\m Prep" TextColor="Black"/>
+                <TimePicker IsEnabled="False" Time="{Binding CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>
             </StackLayout>
             <Label FontSize="Large" Text="Ingredients"/>
             <StackLayout>
-                    <ListView x:Name="rcpIngredLisView" HasUnevenRows="True">
+                    <ListView x:Name="rcpIngredListView" ItemsSource="{Binding IngredRcp}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredQty}" />
-                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredUnit}"/>
-                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredientList.IngredName}"/>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredQty}" />
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredUnit}"/>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding IngredName}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -57,7 +52,7 @@
             </StackLayout>
             <Label FontSize="Large" Text="Instructions"/>
             <StackLayout>
-                <ListView x:Name="rcpInstructionsListView" HasUnevenRows="True">
+                    <ListView x:Name="rcpInstructionsListView" ItemsSource="{Binding StepRcp}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
