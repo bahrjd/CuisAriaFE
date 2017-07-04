@@ -17,8 +17,8 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand">
-            <Label FontSize="Large" Text="{Binding RecipeName}" />
-            <Label FontSize="Medium" Text="{Binding Description}" />
+            <Entry x:Name="rcpNameLabel" FontSize="Large" Text="{Binding RecipeName}"/>
+            <Label x:Name="rcpDescLabel" FontSize="Medium" Text=""/>
             <!--<Label Text=""-->
             <Stepper x:Name="servingsStepper" Minimum="1" Maximum="12" Value="{Binding Servings}"/>
             <StackLayout Orientation="Horizontal">
