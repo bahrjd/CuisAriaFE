@@ -4,7 +4,6 @@
              x:Class="CuisAriaFE.Pages.MyRecipesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="My Recipes ListView goes here" />
             <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MyRcp}" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -12,8 +11,8 @@
                             <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                                 <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
                                 <StackLayout>
-                                    <Label FontFamily="Verdana"  Text="{Binding RecipeName}"/>
-                                    <Label VerticalTextAlignment="Center" Text="{Binding Description}"/>
+                                    <Label FontFamily="Verdana"  Text="{Binding RecipeName}"  FontAttributes="Bold"/>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Description}" FontAttributes="Italic"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

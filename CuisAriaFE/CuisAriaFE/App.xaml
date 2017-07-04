@@ -12,6 +12,7 @@
             <Color x:Key="LightYellow">#FFF373</Color>
             <Color x:Key="BoldYellow">#FFE900</Color>
             <Color x:Key="Violet">#9A6AD6</Color>
+            <Color x:Key="Blue">#504DD9</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
