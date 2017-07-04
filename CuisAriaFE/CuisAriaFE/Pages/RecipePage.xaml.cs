@@ -23,7 +23,7 @@ namespace CuisAriaFE.Pages
             App.RecipeViewModel.RefreshRcpDetailsAsync();
             
             BindingContext = App.RecipeViewModel;
-            rcpNameLabel.Text = App.CurrentRecipe.RecipeName;
+            //rcpNameLabel.Text = App.CurrentRecipe.RecipeName;
 
 
             base.OnAppearing();

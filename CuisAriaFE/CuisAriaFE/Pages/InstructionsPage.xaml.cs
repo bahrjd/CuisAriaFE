@@ -24,7 +24,7 @@ namespace CuisAriaFE.Pages
         {
             base.OnAppearing();
             
-            instructionsListView.ItemsSource = await App.cabeMgr.RefreshStepIngredientsAsync(App.CurrentRecipe.RecipeID);
+            instructionsListView.ItemsSource = await App.cabeMgr.RefreshStepsAsync(App.CurrentRecipe.RecipeID);
         }
 
         private void OnInstructionSelected(object sender, SelectedItemChangedEventArgs e)

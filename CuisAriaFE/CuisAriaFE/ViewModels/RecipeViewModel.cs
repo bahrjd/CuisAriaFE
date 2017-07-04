@@ -15,13 +15,13 @@ namespace CuisAriaFE.ViewModels
                         
         public RecipeViewModel()
         {
-            CurrentRcp = new Recipe()
-            {
-                RecipeName = App.CurrentRecipe;
-            };
+            //CurrentRcp = new Recipe()
+            //{
+            //    RecipeName = App.CurrentRecipe.RecipeName;
+            //};
   
-            StepRcp = new ObservableCollection<StepIngredients>();
-            IngredRcp = new ObservableCollection<Ingredients>();
+            StepRcp = new ObservableCollection<Step>();
+            IngredRcp = new ObservableCollection<Ingredient>();
         }
 
         private Recipe _currentrcp;
@@ -31,15 +31,15 @@ namespace CuisAriaFE.ViewModels
             set { SetProperty(ref _currentrcp, value); }
         }
 
-        private ObservableCollection<StepIngredients> _stepRcp;
-        public ObservableCollection<StepIngredients> StepRcp
+        private ObservableCollection<Step> _stepRcp;
+        public ObservableCollection<Step> StepRcp
         {
             get { return _stepRcp; }
             set { SetProperty(ref _stepRcp, value); }
         }
 
-        private ObservableCollection<Ingredients> _ingredRcp;
-        public ObservableCollection<Ingredients> IngredRcp
+        private ObservableCollection<Ingredient> _ingredRcp;
+        public ObservableCollection<Ingredient> IngredRcp
         {
             get { return _ingredRcp; }
             set { SetProperty(ref _ingredRcp, value); }
@@ -56,7 +56,7 @@ namespace CuisAriaFE.ViewModels
         {
             IsBusy = true;
 
-            GetRcpAsync();
+            // GetRcpAsync();
             await RefreshStepsAsync();
             await RefreshIngredientsAsync();
             
@@ -77,7 +77,6 @@ namespace CuisAriaFE.ViewModels
 
         public async Task RefreshIngredientsAsync()
         {
-            StepRcp.Clear();
             IngredRcp.Clear();
 
             var ingredList = await App.cabeMgr.RefreshIngredientsAsync(currentRecipeID);
