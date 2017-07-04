@@ -15,20 +15,33 @@ namespace CuisAriaFE.ViewModels
                         
         public RecipeViewModel()
         {
-            //CurrentRcp = new Recipe()
-            //{
-            //    RecipeName = App.CurrentRecipe.RecipeName;
-            //};
-  
             StepRcp = new ObservableCollection<Step>();
             IngredRcp = new ObservableCollection<Ingredient>();
+            CurrentRcp = new Recipe()
+            {
+                UserID = App.CurrentRecipe.UserID,
+                Favorite = App.CurrentRecipe.Favorite,
+                RecipeID = App.CurrentRecipe.RecipeID,
+                RecipeName = App.CurrentRecipe.RecipeName,
+                Description = App.CurrentRecipe.Description,
+                OwnerId = App.CurrentRecipe.OwnerId,
+                Shared = App.CurrentRecipe.Shared,
+                Notes = App.CurrentRecipe.Notes,
+                MyRating = App.CurrentRecipe.MyRating,
+                ShareRating = App.CurrentRecipe.ShareRating,
+                NumShareRatings = App.CurrentRecipe.NumShareRatings,
+                RecipePic = App.CurrentRecipe.RecipePic,
+                PrepTime = App.CurrentRecipe.PrepTime,
+                CookTime = App.CurrentRecipe.CookTime,
+                ServingSize = App.CurrentRecipe.ServingSize
+            };
         }
 
-        private Recipe _currentrcp;
+        private Recipe _currentRcp;
         public Recipe CurrentRcp
         {
-            get { return _currentrcp; }
-            set { SetProperty(ref _currentrcp, value); }
+            get { return _currentRcp; }
+            set { SetProperty(ref _currentRcp, value); }
         }
 
         private ObservableCollection<Step> _stepRcp;
@@ -56,7 +69,6 @@ namespace CuisAriaFE.ViewModels
         {
             IsBusy = true;
 
-            // GetRcpAsync();
             await RefreshStepsAsync();
             await RefreshIngredientsAsync();
             
