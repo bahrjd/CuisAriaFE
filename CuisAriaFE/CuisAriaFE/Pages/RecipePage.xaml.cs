@@ -25,6 +25,7 @@ namespace CuisAriaFE.Pages
             BindingContext = App.RecipeViewModel;
             rcpNameLabel.Text = App.CurrentRecipe.RecipeName;
 
+
             base.OnAppearing();
 
             // rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(App.CurrentRecipe.RecipeID);

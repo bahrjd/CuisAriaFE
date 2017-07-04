@@ -12,23 +12,24 @@ namespace CuisAriaFE.ViewModels
     public class RecipeViewModel : ObservableBase
     {
         private string currentRecipeID = App.CurrentRecipe.RecipeID;
-        public Recipe CurrentRcp;
-        public string RecipeName;
-                
+                        
         public RecipeViewModel()
         {
-            CurrentRcp = App.CurrentRecipe;
-            RecipeName = CurrentRcp.RecipeName;
+            CurrentRcp = new Recipe()
+            {
+                RecipeName = App.CurrentRecipe;
+            };
+  
             StepRcp = new ObservableCollection<StepIngredients>();
             IngredRcp = new ObservableCollection<Ingredients>();
         }
 
-        //private Recipe _currentRcp;
-        //public Recipe CurrentRcp
-        //{
-        //    get { return _currentRcp; }
-        //    set { SetProperty(ref _currentRcp, value); }
-        //}
+        private Recipe _currentrcp;
+        public Recipe CurrentRcp
+        {
+            get { return _currentrcp; }
+            set { SetProperty(ref _currentrcp, value); }
+        }
 
         private ObservableCollection<StepIngredients> _stepRcp;
         public ObservableCollection<StepIngredients> StepRcp
@@ -55,31 +56,35 @@ namespace CuisAriaFE.ViewModels
         {
             IsBusy = true;
 
-            //GetRcpAsync();
-            await RefreshStepIngredientsAsync();
-
+            GetRcpAsync();
+            await RefreshStepsAsync();
+            await RefreshIngredientsAsync();
+            
             IsBusy = false;
         }
 
-        //public void GetRcpAsync()
-        //{
-        //    CurrentRcp = App.CurrentRecipe;
-        //}
-
-        public async Task RefreshStepIngredientsAsync()
+        public async Task RefreshStepsAsync()
         {
             StepRcp.Clear();
-            IngredRcp.Clear();
 
-            var stepList = await App.cabeMgr.RefreshStepIngredientsAsync(currentRecipeID);
+            var stepList = await App.cabeMgr.RefreshStepsAsync(currentRecipeID);
 
             foreach (var item in stepList)
             {
                 StepRcp.Add(item);
-                
-                //{
-                //    IngredRcp.Add(ingred);
-                //}
+            }
+        }
+
+        public async Task RefreshIngredientsAsync()
+        {
+            StepRcp.Clear();
+            IngredRcp.Clear();
+
+            var ingredList = await App.cabeMgr.RefreshIngredientsAsync(currentRecipeID);
+
+            foreach (var item in ingredList)
+            {
+                IngredRcp.Add(item);
             }
         }
     }
