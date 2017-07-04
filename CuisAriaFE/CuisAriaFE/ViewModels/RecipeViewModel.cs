@@ -13,10 +13,12 @@ namespace CuisAriaFE.ViewModels
     {
         private string currentRecipeID = App.CurrentRecipe.RecipeID;
         public Recipe CurrentRcp;
+        public string RecipeName;
                 
         public RecipeViewModel()
         {
             CurrentRcp = App.CurrentRecipe;
+            RecipeName = CurrentRcp.RecipeName;
             StepRcp = new ObservableCollection<StepIngredients>();
             IngredRcp = new ObservableCollection<Ingredients>();
         }
