@@ -29,7 +29,7 @@ namespace CuisAriaFE.Pages
 
         private void OnInstructionSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var instructionItem = e.SelectedItem as StepIngredients;
+            var instructionItem = e.SelectedItem as Step;
             var toSpeak = instructionItem.Instruction;
             var ts = new TTSpeech();
             ts.Speak(toSpeak);

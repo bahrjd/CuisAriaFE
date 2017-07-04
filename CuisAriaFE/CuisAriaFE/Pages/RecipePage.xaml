@@ -17,10 +17,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand">
-            <Entry x:Name="rcpNameLabel" FontSize="Large" Text="{Binding RecipeName}"/>
-            <Label x:Name="rcpDescLabel" FontSize="Medium" Text=""/>
+            <Entry x:Name="rcpNameLabel" FontSize="Large" Text="{Binding CurrentRcp.RecipeName}"/>
+            <Label x:Name="rcpDescLabel" FontSize="Medium" Text="{Binding CurrentRcp.Description}"/>
             <!--<Label Text=""-->
-            <Stepper x:Name="servingsStepper" Minimum="1" Maximum="12" Value="{Binding Servings}"/>
+            <Stepper x:Name="servingsStepper" Minimum="1" Maximum="12" Value="{Binding CurrentRcp.Servings}"/>
             <StackLayout Orientation="Horizontal">
                 <!--<Picker x:Name="servingsPicker">
                     <Picker.Items>
@@ -31,8 +31,8 @@
                 </Picker>-->
                 
                 <Label VerticalTextAlignment="End" Text="Servings"/>
-                <TimePicker IsEnabled="False" Time="{Binding PrepTime}" Format="HH\h MM\m Prep" TextColor="Black"/>
-                <TimePicker IsEnabled="False" Time="{Binding CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>
+                <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.PrepTime}" Format="HH\h MM\m Prep" TextColor="Black"/>
+                <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>
             </StackLayout>
             <Label FontSize="Large" Text="Ingredients"/>
             <StackLayout>
