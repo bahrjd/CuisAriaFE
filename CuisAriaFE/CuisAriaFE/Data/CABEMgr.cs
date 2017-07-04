@@ -46,7 +46,10 @@ namespace CuisAriaFE.Data
             return restService.RefreshMenuRcpAsync(userID, menuID);
         }
 
-
+        public Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID)
+        {
+            return restService.RefreshShopListItemAsync(userID);
+        }
 
 
 

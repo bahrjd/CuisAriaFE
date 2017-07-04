@@ -14,6 +14,8 @@ namespace CuisAriaFE
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }
         public static ViewModels.MenuViewModel MenuViewModel { get; set; }
+        public static ViewModels.ShopListViewModel ShopListViewModel { get; set; }
+        public static string shopListName { get; set; }
 
         public App()
         {

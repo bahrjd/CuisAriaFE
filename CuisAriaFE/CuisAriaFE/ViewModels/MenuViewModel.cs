@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace CuisAriaFE.ViewModels
@@ -34,15 +33,6 @@ namespace CuisAriaFE.ViewModels
             get { return this._isBusy; }
             set { this.SetProperty(ref this._isBusy, value); }
         }
-
-        //public async void RefreshRcpAsync()
-        //{
-        //    this.IsBusy = true;
-
-        //    await RefreshMenuRcpAsync();
-
-        //    this.IsBusy = false;
-        //}
 
         public async void RefreshMenuAsync()
         {
