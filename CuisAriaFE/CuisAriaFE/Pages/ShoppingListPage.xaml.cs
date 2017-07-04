@@ -16,5 +16,31 @@ namespace CuisAriaFE.Pages
         {
             InitializeComponent();
         }
+
+        // Add hamburger?
+        // Checkbox onClick processing?
+
+        protected override void OnAppearing()
+        //protected async override void OnAppearing()
+        {
+            if (App.ShopListViewModel == null)
+            {
+                App.ShopListViewModel = new ViewModels.ShopListViewModel();
+                App.ShopListViewModel.RefreshShopListAsync();
+            }
+
+            this.BindingContext = App.ShopListViewModel;
+
+            base.OnAppearing();
+
+        }
+
+
+
+
+
+
+
+
     }
 }
