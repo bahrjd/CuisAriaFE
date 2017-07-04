@@ -50,11 +50,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\StepIngredients.cs" />
     <Compile Include="Models\MenuRecipe.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\ShopDispItem.cs" />
     <Compile Include="Models\ShoppingList.cs" />
+    <Compile Include="Models\Step.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AddRecipePage.xaml.cs">
       <DependentUpon>AddRecipePage.xaml</DependentUpon>

@@ -199,9 +199,10 @@ namespace CuisAriaFE.Data
             }
         }
 
-        public async Task<List<StepIngredients>> RefreshStepIngredientsAsync(string recipeID)
+        public async Task<List<Step>> RefreshStepsAsync(string recipeID)
         {
             RecipeSteps = new List<StepIngredients>();
+            List<Step> steps = new List<Step>();
 
             var uri = new Uri(string.Format(Constants.RcpStepsUrl, recipeID));
 
@@ -219,8 +220,61 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
 
-            RecipeSteps.Sort((stepA, stepB) => string.Compare(stepA.StepNumber, stepB.StepNumber));
-            return RecipeSteps;
+            // Pull steps out of RecipeSteps
+            foreach (StepIngredients step in RecipeSteps)
+            {
+                var tempStep = new Step();
+                tempStep.RecipeID = step.RecipeID;
+                tempStep.StepID = step.StepID;
+                tempStep.StepNumber = step.StepNumber;
+                tempStep.Instruction = step.Instruction;
+                steps.Add(tempStep);
+            }
+
+            steps.Sort((stepA, stepB) => string.Compare(stepA.StepNumber, stepB.StepNumber));
+
+            return steps;
+        }
+
+        public async Task<List<Ingredient>> RefreshIngredientsAsync(string recipeID)
+        {
+            RecipeSteps = new List<StepIngredients>();
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            var uri = new Uri(string.Format(Constants.RcpStepsUrl, recipeID));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    RecipeSteps = JsonConvert.DeserializeObject<List<StepIngredients>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+
+            // Pull steps out of RecipeSteps
+            foreach (StepIngredients step in RecipeSteps)
+            {
+                var tempStepIngred = new List<Ingredients>();
+                tempStepIngred = step.IngredientList;
+                foreach (Ingredients ingred in tempStepIngred)
+                {
+                    var tempIngred = new Ingredient();
+                    tempIngred.IngredientID = ingred.IngredientID;
+                    tempIngred.IngredName = ingred.IngredName;
+                    tempIngred.IngredQty = ingred.IngredQty;
+                    tempIngred.IngredUnit = ingred.IngredUnit;
+                    ingredients.Add(tempIngred);
+
+                }
+            }
+
+            return ingredients;
         }
 
         #endregion
