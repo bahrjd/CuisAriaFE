@@ -15,103 +15,103 @@ namespace CuisAriaFE.ViewModels
         
         public MainViewModel()
         {
-            this.TestRcp = new ObservableCollection<Models.Recipe>();
-            this.MyRcp = new ObservableCollection<Models.Recipe>();
-            this.SharedRcp = new ObservableCollection<Models.Recipe>();
-            this.FavRcp = new ObservableCollection<Models.Recipe>();     
+            //TestRcp = new ObservableCollection<Models.Recipe>();
+            MyRcp = new ObservableCollection<Models.Recipe>();
+            SharedRcp = new ObservableCollection<Models.Recipe>();
+            FavRcp = new ObservableCollection<Models.Recipe>();     
         }
 
-        private ObservableCollection<Models.Recipe> _testRcp;
-        public ObservableCollection<Models.Recipe> TestRcp
-        {
-            get { return this._testRcp; }
-            set { this.SetProperty(ref this._testRcp, value); }
-        }
+        //private ObservableCollection<Models.Recipe> _testRcp;
+        //public ObservableCollection<Models.Recipe> TestRcp
+        //{
+        //    get { return _testRcp; }
+        //    set { SetProperty(ref _testRcp, value); }
+        //}
 
         private ObservableCollection<Models.Recipe> _myRcp;
         public ObservableCollection<Models.Recipe> MyRcp
         {
-            get { return this._myRcp; }
-            set { this.SetProperty(ref this._myRcp, value); }
+            get { return _myRcp; }
+            set { SetProperty(ref _myRcp, value); }
         }
 
         private ObservableCollection<Models.Recipe> _sharedRcp;
         public ObservableCollection<Models.Recipe> SharedRcp
         {
-            get { return this._sharedRcp; }
-            set { this.SetProperty(ref this._sharedRcp, value); }
+            get { return _sharedRcp; }
+            set { SetProperty(ref _sharedRcp, value); }
         }
 
         private ObservableCollection<Models.Recipe> _favRcp;
         public ObservableCollection<Models.Recipe> FavRcp
         {
-            get { return this._favRcp; }
-            set { this.SetProperty(ref this._favRcp, value); }
+            get { return _favRcp; }
+            set { SetProperty(ref _favRcp, value); }
         }
 
         private bool _isBusy;
         public bool IsBusy
         {
-            get { return this._isBusy; }
-            set { this.SetProperty(ref this._isBusy, value); }
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
         }
 
         public async void RefreshRcpAsync()
         {
-            this.IsBusy = true;
+            IsBusy = true;
 
-            await RefreshTestRcpAsync();
+            //await RefreshTestRcpAsync();
             await RefreshMyRcpAsync();
             await RefreshSharedRcpAsync();
             await RefreshFavRcpAsync();
 
-            this.IsBusy = false;
+            IsBusy = false;
         }
 
-        public async Task RefreshTestRcpAsync()
-        {
-            this.TestRcp.Clear();
+        //public async Task RefreshTestRcpAsync()
+        //{
+        //    TestRcp.Clear();
 
-            var rcpList = await App.cabeMgr.RefreshMyRcpAsync(userDetailsID);
+        //    var rcpList = await App.cabeMgr.RefreshMyRcpAsync(userDetailsID);
 
-            foreach (var item in rcpList)
-            {
-                this.TestRcp.Add(item);
-            }
-        }
+        //    foreach (var item in rcpList)
+        //    {
+        //        TestRcp.Add(item);
+        //    }
+        //}
 
         public async Task RefreshMyRcpAsync()
         {
-            this.MyRcp.Clear();
+            MyRcp.Clear();
 
             var rcpList = await App.cabeMgr.RefreshMyRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {
-                this.MyRcp.Add(item);
+                MyRcp.Add(item);
             }
         }
         public async Task RefreshSharedRcpAsync()
         {
-            this.SharedRcp.Clear();
+            SharedRcp.Clear();
 
             var rcpList = await App.cabeMgr.RefreshSharedRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {
-                this.SharedRcp.Add(item);
+                SharedRcp.Add(item);
             }
         }
 
         public async Task RefreshFavRcpAsync()
         {
-            this.FavRcp.Clear();
+            FavRcp.Clear();
 
             var rcpList = await App.cabeMgr.RefreshFavRcpAsync(userDetailsID);
 
             foreach (var item in rcpList)
             {
-                this.FavRcp.Add(item);
+                FavRcp.Add(item);
             }
         }
 

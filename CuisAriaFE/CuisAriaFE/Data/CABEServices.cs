@@ -148,7 +148,6 @@ namespace CuisAriaFE.Data
 
         public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
         {
-            // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
             var uri = new Uri(string.Format(Constants.RcpUrl, item.UserID));
 
             try
@@ -180,7 +179,6 @@ namespace CuisAriaFE.Data
 
         public async Task DeleteRecipeAsync(string ID)
         {
-            // RestUrl = http://cuisariabe.azurewebsites.net/api/recipes
             var uri = new Uri(string.Format(Constants.RcpUrl, ID));
 
             try
@@ -277,6 +275,46 @@ namespace CuisAriaFE.Data
             return ingredients;
         }
 
+        public async Task ShareRecipeToggleAsync(string recipeID)
+        {
+            var uri = new Uri(string.Format(Constants.ToggleShareUrl, recipeID));
+
+            try
+            {
+                var response = await client.PostAsync(uri, null);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				Recipe successfully share toggled.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+        }
+        
+        public async Task FavRecipeToggleAsync(string userID, string recipeID)
+        {
+            var uri = new Uri(string.Format(Constants.ToggleFavUrl, userID, recipeID));
+
+            try
+            {
+                var response = await client.PostAsync(uri, null);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				Recipe successfully favorite toggled.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+        }
+        
         #endregion
 
         #region User Operations region

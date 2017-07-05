@@ -11,6 +11,10 @@ namespace CuisAriaFE.Data
     {
         Task<Recipe> GetRcpAsync(string recipeID);
 
+        Task ShareRecipeToggleAsync(string recipeID);
+
+        Task FavRecipeToggleAsync(string userID, string recipeID);
+
         Task<List<Recipe>> RefreshMyRcpAsync(string ownerID);
 
         Task<List<Recipe>> RefreshSharedRcpAsync(string userID);
@@ -24,8 +28,7 @@ namespace CuisAriaFE.Data
         Task<List<Step>> RefreshStepsAsync(string recipeID);
 
         Task<List<Ingredient>> RefreshIngredientsAsync(string recipeID);
-
-
+        
         Task<User> GetUserByNameAsync(string userName);
 
         Task<User> AddEditUserAsync(User user, bool isNew);

@@ -24,7 +24,7 @@ namespace CuisAriaFE.Pages
         //protected async override void OnAppearing()
         {
 
-            this.BindingContext = App.MainViewModel;
+            BindingContext = App.MainViewModel;
 
             base.OnAppearing();
 
