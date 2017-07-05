@@ -11,7 +11,7 @@
             <Button Text="Login" Clicked="OnLoginClicked" BackgroundColor="#EBC7EB"></Button>
             <Button Text="Register New User" Clicked="OnGoToRegClicked" BackgroundColor="#EBC7EB"></Button>
             <Label x:Name="messageLabel" />
-            <Image Source="http://prostokvashino.ru/upload/157.jpg" HorizontalOptions="Center" />
+            <Image Source="ChefHat.jpg" HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
