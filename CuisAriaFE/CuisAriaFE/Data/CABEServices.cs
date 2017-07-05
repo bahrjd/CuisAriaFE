@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Data
 {
-	public class CABEServices : ICABEServices
+    public class CABEServices : ICABEServices
     {
 
         #region Properties Declarations region
@@ -29,7 +29,9 @@ namespace CuisAriaFE.Data
 
         public static User UserDetails { get; private set; }
 
-        public List<MenuRecipe> menuRcpList { get; private set; }
+        public AddEditGetMenu PushRcpToMenu {get; private set; }
+
+        public static List<MenuRecipe> menuRcpList { get; private set; }
 
         public ShoppingList shopList { get; private set; }
 
@@ -37,7 +39,7 @@ namespace CuisAriaFE.Data
 
         //public string shopListName { get; set; }
 
-				#endregion
+		#endregion
 
 
         // Connection Service

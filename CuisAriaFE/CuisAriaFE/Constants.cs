@@ -41,6 +41,7 @@ namespace CuisAriaFE
         // public static string UserTestID = Data.CABEServices.UserDetails.ID.ToString();
         public static string OwnerTestID = "48";
         // public static string OwnerTestID = Data.CABEServices.UserDetails.ID.ToString();
+        public static string MenuId = "0";
 
         // Fraction conversion list
         public static string[] FracList = { "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8" };

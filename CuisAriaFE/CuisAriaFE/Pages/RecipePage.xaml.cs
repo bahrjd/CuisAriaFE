@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuisAriaFE.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,14 +56,41 @@ namespace CuisAriaFE.Pages
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
 
+        public AddEditGetMenu RcpToMenu { get; set; }
+        public string CurrentUserID = Data.CABEServices.UserDetails.ID.ToString();
+        
         private async void OnAddToMenuClicked(object sender, EventArgs e)
         {
-            
-            
-            //App.MenuViewModel = new ViewModels.MenuViewModel();
-            //App.MenuViewModel.RefreshMenuAsync();
+            if (App.CurrentMenu == null)
+            {
+                // Establish CurrentMenu items
+                await App.cabeMgr.RefreshMenuRcpAsync(CurrentUserID, Constants.MenuId);
+                App.CurrentMenu = Data.CABEServices.menuRcpList.FirstOrDefault();
+                AddRcpToMenu();
+            }
+            else
+            {
+                AddRcpToMenu();
+            }
+        }
+        
+        public void AddRcpToMenu()
+        {
+            RcpToMenu = new AddEditGetMenu()
+            {
+                MenuId = App.CurrentMenu.MenuId.ToString(),
+                RecipeId = App.RecipeViewModel.CurrentRcp.RecipeID,
+                MenuServings = App.RecipeViewModel.CurrentRcp.RecipeServings,
+                UserId = CurrentUserID,
+                MenuName = "Menu"
+            };
+
+
 
         }
+        
+        //App.MenuViewModel = new ViewModels.MenuViewModel();
+        //App.MenuViewModel.RefreshMenuAsync();
 
         private async void OnInstructionsClicked(object sender, EventArgs e)
         {
