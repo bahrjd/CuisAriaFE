@@ -16,7 +16,7 @@ namespace CuisAriaFE
         public static string FavRcpUrl = BaseUrl + "GetFavRecipes/{0}";
         public static string RcpUrl = BaseUrl + "GetRecipe/{0}";
         public static string RcpStepsUrl = BaseUrl + "GetRecipeSteps/{0}";
-        public static string RcpAddEditUrl = BaseUrl + "AddEditRecipe/{0}";
+        public static string RcpAddEditUrl = BaseUrl + "AddEditRecipe";
 
         public static string UserByNameUrl = BaseUrl + "GetUserByName/{0}";
 

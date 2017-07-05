@@ -33,23 +33,7 @@ namespace CuisAriaFE
         }
         private async void OnNewRecipeClicked(object sender, EventArgs e)
         {
-            //App.CurrentRecipe.Favorite = false;
-            //App.CurrentRecipe.RecipeID = "";
-            //App.CurrentRecipe.RecipeName = "";
-            //App.CurrentRecipe.Description = "";
-            //App.CurrentRecipe.OwnerId = "";
-            //App.CurrentRecipe.Shared = false;
-            //App.CurrentRecipe.Notes = "";
-            //App.CurrentRecipe.MyRating = 0;
-            //App.CurrentRecipe.ShareRating = 0m;
-            //App.CurrentRecipe.NumShareRatings = 0m;
-            //App.CurrentRecipe.RecipePic = "";
-            //App.CurrentRecipe.PrepTime = 0m;
-            //App.CurrentRecipe.CookTime = 0m;
-            //App.CurrentRecipe.RecipeServings = 0m;
-            //App.CurrentRecipe.ServingSize = "";
-
-            await Navigation.PushAsync(new Pages.RecipePage());
+            await Navigation.PushAsync(new Pages.AddRecipePage());
         }
         private async void OnAdvancedClicked(object sender, EventArgs e)
         {
@@ -71,9 +55,6 @@ namespace CuisAriaFE
             Navigation.InsertPageBefore(new Pages.LoginPage(), this);
             await Navigation.PopAsync();
         }
-        //{
-        //    await Navigation.PushAsync(new Pages.LoginPage());
-        //}
         private async void OnShoppingClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.ShoppingListPage());
