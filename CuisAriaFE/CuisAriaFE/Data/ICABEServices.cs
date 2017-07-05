@@ -21,7 +21,7 @@ namespace CuisAriaFE.Data
 
         Task<List<Recipe>> RefreshFavRcpAsync(string userID);
 
-        Task SaveRecipeAsync(Recipe item, bool isNewItem);
+        Task SaveRecipeAsync(AddEditRecipe item, bool isNewItem);
 
         Task DeleteRecipeAsync(string id);
 

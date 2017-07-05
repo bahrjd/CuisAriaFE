@@ -4,7 +4,6 @@
              x:Class="CuisAriaFE.Pages.SharedPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Shared Recipes ListView shows here" />
             <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding SharedRcp}" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
