@@ -32,6 +32,7 @@ namespace CuisAriaFE.Pages
             BindingContext = App.RecipeViewModel;
             //rcpNameLabel.Text = App.CurrentRecipe.RecipeName;
 
+            
 
             base.OnAppearing();
 
@@ -39,10 +40,25 @@ namespace CuisAriaFE.Pages
             // rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
         }
 
-        private async void EditRecipeClicked(object sender, EventArgs e)
+        private async void OnFavIconClicked(object sender, EventArgs e)
+        {
+            await App.cabeMgr.FavRecipeToggleAsync(Data.CABEServices.UserDetails.ID.ToString(), App.RecipeViewModel.CurrentRcp.RecipeID);
+        }
+
+        private async void OnShareIconClicked(object sender, EventArgs e)
+        {
+            await App.cabeMgr.ShareRecipeToggleAsync(App.RecipeViewModel.CurrentRcp.RecipeID);
+        }
+
+        private async void OnEditRecipeClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
+
+        //private void OnAddToMenuClicked(object sender, EventArgs e)
+        //{
+        //   TODO   TODO    TODO //    
+        //}
 
         private async void OnInstructionsClicked(object sender, EventArgs e)
         {
