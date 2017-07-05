@@ -148,9 +148,9 @@ namespace CuisAriaFE.Data
             return ItemsFavRcp;
         }
 
-        public async Task SaveRecipeAsync(Recipe item, bool isNewItem = false)
+        public async Task SaveRecipeAsync(AddEditRecipe item, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RcpUrl, item.UserID));
+            var uri = new Uri(string.Format(Constants.RcpAddEditUrl));
 
             try
             {
@@ -169,7 +169,13 @@ namespace CuisAriaFE.Data
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine(@"				TodoItem successfully saved.");
+                    Debug.WriteLine(@"				Recipe successfully saved.");
+                }
+                else
+                {
+                    Debug.WriteLine(@"      ******  Recipe write FAILED  ******");
+                    Debug.WriteLine(json);
+                    Debug.WriteLine(content);
                 }
 
             }
