@@ -7,7 +7,9 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
-            <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MenuRcp}">
+            <Entry x:Name="menuNameLabel" FontSize="Large" Text="{Binding CurMenu.MenuName}"/>
+
+                <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MenuRcp}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

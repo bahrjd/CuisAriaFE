@@ -24,9 +24,32 @@ namespace CuisAriaFE
             }
         }
 
-    private async void OnSettingsClicked(object sender, EventArgs e)
+        
+
+
+        private async void OnSettingsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.SettingsPage());
+        }
+        private async void OnNewRecipeClicked(object sender, EventArgs e)
+        {
+            //App.CurrentRecipe.Favorite = false;
+            //App.CurrentRecipe.RecipeID = "";
+            //App.CurrentRecipe.RecipeName = "";
+            //App.CurrentRecipe.Description = "";
+            //App.CurrentRecipe.OwnerId = "";
+            //App.CurrentRecipe.Shared = false;
+            //App.CurrentRecipe.Notes = "";
+            //App.CurrentRecipe.MyRating = 0;
+            //App.CurrentRecipe.ShareRating = 0m;
+            //App.CurrentRecipe.NumShareRatings = 0m;
+            //App.CurrentRecipe.RecipePic = "";
+            //App.CurrentRecipe.PrepTime = 0m;
+            //App.CurrentRecipe.CookTime = 0m;
+            //App.CurrentRecipe.RecipeServings = 0m;
+            //App.CurrentRecipe.ServingSize = "";
+
+            await Navigation.PushAsync(new Pages.RecipePage());
         }
         private async void OnAdvancedClicked(object sender, EventArgs e)
         {

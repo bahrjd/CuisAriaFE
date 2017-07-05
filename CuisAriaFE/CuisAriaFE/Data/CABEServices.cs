@@ -404,7 +404,11 @@ namespace CuisAriaFE.Data
                 tempShopDispItem.ItemUnit = item.ItemUnit;
                 tempShopDispItem.ItemQty = item.ItemQty;
                 tempShopDispItem.QtyInt  = Math.Truncate(item.ItemQty).ToString();
-                if (fracListIndex >= 0)
+                if (tempShopDispItem.QtyInt == "0")
+                {
+                    tempShopDispItem.QtyInt = " ";
+                }
+                    if (fracListIndex >= 0)
                 {
                     tempShopDispItem.QtyFrac = Constants.FracList[fracListIndex];
                 } else
