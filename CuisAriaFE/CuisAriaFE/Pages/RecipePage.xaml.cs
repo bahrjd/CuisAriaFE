@@ -55,10 +55,14 @@ namespace CuisAriaFE.Pages
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
 
-        //private void OnAddToMenuClicked(object sender, EventArgs e)
-        //{
-        //   TODO   TODO    TODO //    
-        //}
+        private async void OnAddToMenuClicked(object sender, EventArgs e)
+        {
+            
+            
+            //App.MenuViewModel = new ViewModels.MenuViewModel();
+            //App.MenuViewModel.RefreshMenuAsync();
+
+        }
 
         private async void OnInstructionsClicked(object sender, EventArgs e)
         {
