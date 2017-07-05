@@ -20,7 +20,14 @@ namespace CuisAriaFE.Pages
         protected override void OnAppearing()
         {
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
-            App.RecipeViewModel.RefreshRcpDetailsAsync();
+            //if (App.CurrentRecipe.RecipeID == "")
+            //{
+            //    // Instantiate local recipe variable?
+            //}
+            //else
+            //{
+                App.RecipeViewModel.RefreshRcpDetailsAsync();
+            //}
             
             BindingContext = App.RecipeViewModel;
             //rcpNameLabel.Text = App.CurrentRecipe.RecipeName;

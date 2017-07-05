@@ -1,5 +1,6 @@
 ﻿using CuisAriaFE.Common;
 using CuisAriaFE.Data;
+using CuisAriaFE.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,41 +18,54 @@ namespace CuisAriaFE.ViewModels
 
         public MenuViewModel()
         {
-            this.MenuRcp = new ObservableCollection<Models.MenuRecipe>();
+            //MenuRcp = new ObservableCollection<Models.MenuRecipe>();
+            MenuRcp = new ObservableCollection<MenuRecipe>();
+            //CurMenu = new MenuRecipe()
+            //{
+            //    MenuName = App.CurrentMenu.MenuName,
+            //    MenuId = App.CurrentMenu.MenuId
+            //};
         }
 
-        private ObservableCollection<Models.MenuRecipe> _menuRcp;
-        public ObservableCollection<Models.MenuRecipe> MenuRcp
+        private MenuRecipe _curMenu;
+        public MenuRecipe CurMenu
         {
-            get { return this._menuRcp; }
-            set { this.SetProperty(ref this._menuRcp, value); }
+            get { return _curMenu; }
+            set { SetProperty(ref _curMenu, value); }
+        }
+
+        private ObservableCollection<MenuRecipe> _menuRcp;
+        public ObservableCollection<MenuRecipe> MenuRcp
+        {
+            get { return _menuRcp; }
+            set { SetProperty(ref _menuRcp, value); }
         }
        
         private bool _isBusy;
         public bool IsBusy
         {
-            get { return this._isBusy; }
-            set { this.SetProperty(ref this._isBusy, value); }
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
         }
 
         public async void RefreshMenuAsync()
         {
-            this.IsBusy = true;
+            IsBusy = true;
 
             await RefreshMenuRcpAsync();
 
-            this.IsBusy = false;
+            IsBusy = false;
         }
 
         public async Task RefreshMenuRcpAsync()
         {
-            this.MenuRcp.Clear();
+            MenuRcp.Clear();
 
             var rcpList = await App.cabeMgr.RefreshMenuRcpAsync(userDetailsID, menuID);
 
             foreach (var item in rcpList)
             {
-                this.MenuRcp.Add(item);
+                MenuRcp.Add(item);
             }
         }
     }

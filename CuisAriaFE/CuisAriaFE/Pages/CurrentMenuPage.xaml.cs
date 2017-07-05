@@ -20,13 +20,14 @@ namespace CuisAriaFE.Pages
         protected override void OnAppearing()
         //protected async override void OnAppearing()
         {
-            if (App.MenuViewModel == null)
-            {
+            //if (App.MenuViewModel == null)
+            //{
                 App.MenuViewModel = new ViewModels.MenuViewModel();
                 App.MenuViewModel.RefreshMenuAsync();
-            }
+            //}
 
-            this.BindingContext = App.MenuViewModel;
+            //this.BindingContext = App.MenuViewModel;
+            BindingContext = App.MenuViewModel;
 
             base.OnAppearing();
 
