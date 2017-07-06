@@ -1,4 +1,5 @@
 ﻿using CuisAriaFE.Common;
+using CuisAriaFE.Data;
 using CuisAriaFE.Models;
 using System;
 using System.Collections.Generic;
@@ -12,55 +13,72 @@ namespace CuisAriaFE.ViewModels
 {
     public class AddRecipeViewModel : ObservableBase
     {
+        private int userDetailsID = CABEServices.UserDetails.ID;
+
         public AddRecipeViewModel()
         {
+            StepIngredients = new ObservableCollection<RecipeStepIngredientVM>();
+            IngredientsList = new ObservableCollection<IngredientListVM>();
+            Keywords = new ObservableCollection<Keyword>();
 
+            NewUserRcpFav = new UserRecipeFavorite()
+            {
+                UserId = userDetailsID,
+                Favorite = false,
+                RecipeId = 0
+            };
 
-            NewRcp = new ObservableCollection<AddEditRecipe>();
-
-
-            //StepRcp = new ObservableCollection<Step>();
-            //IngredRcp = new ObservableCollection<Ingredient>();
-            //CurrentRcp = new Recipe()
-            //{
-            //    UserID = App.CurrentRecipe.UserID,
-            //    Favorite = App.CurrentRecipe.Favorite,
-            //    RecipeID = App.CurrentRecipe.RecipeID,
-            //    RecipeName = App.CurrentRecipe.RecipeName,
-            //    Description = App.CurrentRecipe.Description,
-            //    OwnerId = App.CurrentRecipe.OwnerId,
-            //    Shared = App.CurrentRecipe.Shared,
-            //    Notes = App.CurrentRecipe.Notes,
-            //    MyRating = App.CurrentRecipe.MyRating,
-            //    ShareRating = App.CurrentRecipe.ShareRating,
-            //    NumShareRatings = App.CurrentRecipe.NumShareRatings,
-            //    RecipePic = App.CurrentRecipe.RecipePic,
-            //    PrepTime = App.CurrentRecipe.PrepTime,
-            //    CookTime = App.CurrentRecipe.CookTime,
-            //    ServingSize = App.CurrentRecipe.ServingSize
-            //};
+            NewRcp = new RecipeVM()
+            {
+                RecipeName = "",
+                Description = "",
+                OwnerId = userDetailsID,
+                Shared = false,
+                Notes = " ",
+                MyRating = 0,
+                ShareRating = 0,
+                NumShareRatings = 0,
+                RecipePic = " ",
+                PrepTime = 0,
+                CookTime = 0,
+                ServingSize = " "
+            };
         }
 
-        //private Recipe _currentRcp;
-        //public Recipe CurrentRcp
-        //{
-        //    get { return _currentRcp; }
-        //    set { SetProperty(ref _currentRcp, value); }
-        //}
+        private UserRecipeFavorite _newUserRcpFav;
+        public UserRecipeFavorite NewUserRcpFav
+        {
+            get { return _newUserRcpFav; }
+            set { SetProperty(ref _newUserRcpFav, value); }
+        }
 
-        private ObservableCollection<AddEditRecipe> _newRcp;
-        public ObservableCollection<AddEditRecipe> NewRcp
+        private RecipeVM _newRcp;
+        public RecipeVM NewRcp
         {
             get { return _newRcp; }
             set { SetProperty(ref _newRcp, value); }
         }
 
-        //private ObservableCollection<Ingredient> _ingredRcp;
-        //public ObservableCollection<Ingredient> IngredRcp
-        //{
-        //    get { return _ingredRcp; }
-        //    set { SetProperty(ref _ingredRcp, value); }
-        //}
+        private ObservableCollection<RecipeStepIngredientVM> _stepIngredients;
+        public ObservableCollection<RecipeStepIngredientVM> StepIngredients
+        {
+            get { return _stepIngredients; }
+            set { SetProperty(ref _stepIngredients, value); }
+        }
+
+        private ObservableCollection<IngredientListVM> _ingredientsList;
+        public ObservableCollection<IngredientListVM> IngredientsList
+        {
+            get { return _ingredientsList; }
+            set { SetProperty(ref _ingredientsList, value); }
+        }
+
+        private ObservableCollection<Keyword> _keywords;
+        public ObservableCollection<Keyword> Keywords
+        {
+            get { return _keywords; }
+            set { SetProperty(ref _keywords, value); }
+        }
 
         private bool _isBusy;
         public bool IsBusy

@@ -14,6 +14,8 @@ namespace CuisAriaFE
     {
         public static bool IsUserLoggedIn { get; set; }
         public static Recipe CurrentRecipe { get; set; }
+        public static UserRecipeFavorite NewUserRecipeFav { get; set; }
+        public static RecipeVM NewRecipe { get; set; }
         public static MenuRecipe CurrentMenu { get; set; }
         public static CABEMgr cabeMgr { get; private set; }
         public static ViewModels.MainViewModel MainViewModel { get; set; }

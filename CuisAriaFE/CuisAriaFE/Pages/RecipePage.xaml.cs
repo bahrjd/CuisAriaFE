@@ -20,24 +20,11 @@ namespace CuisAriaFE.Pages
         protected override void OnAppearing()
         {
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
-            //if (App.CurrentRecipe.RecipeID == "")
-            //{
-            //    // Instantiate local recipe variable?
-            //}
-            //else
-            //{
-                App.RecipeViewModel.RefreshRcpDetailsAsync();
-            //}
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
             
             BindingContext = App.RecipeViewModel;
-            //rcpNameLabel.Text = App.CurrentRecipe.RecipeName;
-
-            
 
             base.OnAppearing();
-
-            // rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(App.CurrentRecipe.RecipeID);
-            // rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
         }
 
         private async void OnFavIconClicked(object sender, EventArgs e)
@@ -54,11 +41,6 @@ namespace CuisAriaFE.Pages
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
-
-        //private void OnAddToMenuClicked(object sender, EventArgs e)
-        //{
-        //   TODO   TODO    TODO //    
-        //}
 
         private async void OnInstructionsClicked(object sender, EventArgs e)
         {
