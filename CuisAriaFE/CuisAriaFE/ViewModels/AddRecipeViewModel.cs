@@ -17,7 +17,7 @@ namespace CuisAriaFE.ViewModels
 
         public AddRecipeViewModel()
         {
-            StepIngredients = new ObservableCollection<RecipeStepIngredientVM>();
+            StepIngredList = new ObservableCollection<RecipeStepIngredientVM>();
             IngredientsList = new ObservableCollection<IngredientListVM>();
             Keywords = new ObservableCollection<Keyword>();
 
@@ -45,6 +45,9 @@ namespace CuisAriaFE.ViewModels
             };
         }
 
+       
+
+
         private UserRecipeFavorite _newUserRcpFav;
         public UserRecipeFavorite NewUserRcpFav
         {
@@ -59,11 +62,11 @@ namespace CuisAriaFE.ViewModels
             set { SetProperty(ref _newRcp, value); }
         }
 
-        private ObservableCollection<RecipeStepIngredientVM> _stepIngredients;
-        public ObservableCollection<RecipeStepIngredientVM> StepIngredients
-        {
-            get { return _stepIngredients; }
-            set { SetProperty(ref _stepIngredients, value); }
+        private ObservableCollection<RecipeStepIngredientVM> _stepIngredList;
+        public ObservableCollection<RecipeStepIngredientVM> StepIngredList
+         {
+            get { return _stepIngredList; }
+            set { SetProperty(ref _stepIngredList, value); }
         }
 
         private ObservableCollection<IngredientListVM> _ingredientsList;

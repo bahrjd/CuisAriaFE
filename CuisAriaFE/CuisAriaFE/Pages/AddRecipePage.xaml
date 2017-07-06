@@ -46,10 +46,10 @@
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
-                                                <Label Grid.Column="0" WidthRequest="25" VerticalTextAlignment="Center" Text="{Binding IngredQty}" />
-                                                <Label Grid.Column="1" WidthRequest="25" VerticalTextAlignment="Center" Text="{Binding IngredQtyFrac}" />
-                                                <Label Grid.Column="2" WidthRequest="90" VerticalTextAlignment="Center" Text="{Binding IngredUnit}"/>
-                                                <Label Grid.Column="3" WidthRequest="240" VerticalTextAlignment="Center" Text="{Binding IngredName}"/>
+                                                <Entry x:Name="inputIngredQty" Grid.Column="0" WidthRequest="25" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Entry x:Name="inputIngredFrac" Grid.Column="1" WidthRequest="25"  Placeholder="Fraction" Text="{Binding IngredQtyFrac}" />
+                                                <Entry x:Name="inputIngredUnit" Grid.Column="2" WidthRequest="90"  Placeholder="Units" Text="{Binding IngredUnit}"/>
+                                                <Entry x:Name="inputIngredName" Grid.Column="3" WidthRequest="240"  Placeholder="Name" Text="{Binding IngredName}"/>
                                             </StackLayout>
                                         </Grid>
                                     </StackLayout>
@@ -57,26 +57,35 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <Button x:Name="addIngredButton" Text="Add Ingredient" Clicked="OnAddIngredClicked"/>
+
                 </StackLayout>
+                
                 <Label FontSize="Large" Text="Instructions"/>
                 <StackLayout>
-                    <ListView x:Name="rcpInstructionsListView" ItemsSource="{Binding StepIngredients}" HasUnevenRows="True">
+                    <ListView x:Name="rcpStepsListView" ItemsSource="{Binding StepIngredList}" HasUnevenRows="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                        <Label VerticalTextAlignment="Center" Text="{Binding StepNumber}" />
-                                        <Label VerticalTextAlignment="Center" Text="{Binding Instruction}"/>
-                                    </StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Padding="5,0,0,0" Grid.Row="0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                            <Entry x:Name="inputStepNum" Grid.Column="0" WidthRequest="30" Placeholder="Step #" Text="{Binding StepNumber}" />
+                                            <Entry x:Name="inputInstruction" Grid.Column="1" MinimumWidthRequest="350" Placeholder="Instruction" Text="{Binding Instruction}"/>
+                                        </StackLayout>
+                                    </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                        <Button x:Name="addStepButton" Text="Add Instruction" Clicked="OnAddStepClicked"/>
                 </StackLayout>
                 <Label FontSize="Large" Text="Notes"/>
                 <Label Text="{Binding NewRcp.Notes}"/>
-                <Label FontSize="Large" Text="Keywords"/>
-                <Label Text="{Binding Keywords}"/>
+                <!--<Label FontSize="Large" Text="Keywords"/>
+                <Label Text="{Binding Keywords}"/>-->
                 <Button Text="Save" Clicked="OnSaveRecipeClicked"></Button>
             </StackLayout>
         </ScrollView>
