@@ -21,24 +21,11 @@ namespace CuisAriaFE.Pages
         protected override void OnAppearing()
         {
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
-            //if (App.CurrentRecipe.RecipeID == "")
-            //{
-            //    // Instantiate local recipe variable?
-            //}
-            //else
-            //{
-                App.RecipeViewModel.RefreshRcpDetailsAsync();
-            //}
-            
-            BindingContext = App.RecipeViewModel;
-            //rcpNameLabel.Text = App.CurrentRecipe.RecipeName;
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
 
-            
+            BindingContext = App.RecipeViewModel;
 
             base.OnAppearing();
-
-            // rcpIngredTestLisView.ItemsSource = await App.cabeMgr.GetStepsAsync(App.CurrentRecipe.RecipeID);
-            // rcpInstructTestListView.ItemsSource = rcpIngredTestLisView.ItemsSource;
         }
 
         private async void OnFavIconClicked(object sender, EventArgs e)
@@ -58,7 +45,7 @@ namespace CuisAriaFE.Pages
 
         public AddEditGetMenu RcpToMenu { get; set; }
         public string CurrentUserID = Data.CABEServices.UserDetails.ID.ToString();
-        
+
         private async void OnAddToMenuClicked(object sender, EventArgs e)
         {
             if (App.CurrentMenu == null)
@@ -75,7 +62,7 @@ namespace CuisAriaFE.Pages
 
             await Navigation.PushAsync(new Pages.CurrentMenuPage());
         }
-        
+
         public async void AddRcpToMenu()
         {
             RcpToMenu = new AddEditGetMenu()
@@ -88,7 +75,7 @@ namespace CuisAriaFE.Pages
             };
             await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
         }
-        
+
         //App.MenuViewModel = new ViewModels.MenuViewModel();
         //App.MenuViewModel.RefreshMenuAsync();
 
