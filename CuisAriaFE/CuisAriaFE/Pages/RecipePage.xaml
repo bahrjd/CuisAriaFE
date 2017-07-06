@@ -2,16 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:pages="clr-namespace:CuisAriaFE.Pages"
+                xmlns:control="clr-namespace:CuisAriaFE.Controls"
                 x:Class="CuisAriaFE.Pages.RecipePage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="favIcon" Icon="icon_addFavorite.png" Order="Primary" Clicked="OnFavIconClicked" Priority="1"/>
-        <ToolbarItem Icon="icon_addShared.png" Order="Primary"  Clicked="OnShareIconClicked" Priority="2"/>
-        <ToolbarItem Icon="icon_edit.png" Order="Primary" Clicked="OnEditRecipeClicked" Priority="3"/>
-        <ToolbarItem Icon="icon_addToMenu.png" Order="Primary" Clicked="OnAddToMenuClicked" Priority="4"/>
-        <ToolbarItem Icon="icon_blankSpace.png" Order="Primary" Priority="5"/>
+        <control:BindableToolbarItem x:Name="isFavIcon" Icon="icon_isFavorite.png" Order="Primary" Clicked="OnFavIconClicked" Priority="1" IsVisible="{Binding IsFavVisible}"/>
+        <control:BindableToolbarItem x:Name="addFavIcon" Icon="icon_addFavorite.png" Order="Primary" Clicked="OnFavIconClicked" Priority="1" IsVisible="{Binding AddFavVisible}"/>
+        <control:BindableToolbarItem Icon="icon_addShared.png" Order="Primary"  Clicked="OnShareIconClicked" Priority="2"/>
+        <control:BindableToolbarItem Icon="icon_edit.png" Order="Primary" Clicked="OnEditRecipeClicked" Priority="3"/>
+        <control:BindableToolbarItem Icon="icon_addToMenu.png" Order="Primary" Clicked="OnAddToMenuClicked" Priority="4"/>
+        <control:BindableToolbarItem Icon="icon_blankSpace.png" Order="Primary" Priority="5"/>
         <!--<ToolbarItem Text="Settings" Order="Secondary" Clicked="OnSettingsClicked"/>-->
-        <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
+        <control:BindableToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

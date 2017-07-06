@@ -12,9 +12,25 @@ namespace CuisAriaFE.ViewModels
     public class RecipeViewModel : ObservableBase
     {
         private string currentRecipeID = App.CurrentRecipe.RecipeID;
-                        
+                                
         public RecipeViewModel()
         {
+            IsFavVisible = true;
+            AddFavVisible = true;
+
+            FavCheck = new bool();
+
+            // TODO: This needs to actually check the curent favorite value
+            FavCheck = true;
+            if (FavCheck)
+            {
+                AddFavVisible = false;
+            }
+            else
+            {
+                IsFavVisible = false;
+            }
+
             StepRcp = new ObservableCollection<Step>();
             IngredRcp = new ObservableCollection<Ingredient>();
             CurrentRcp = new Recipe()
@@ -56,6 +72,29 @@ namespace CuisAriaFE.ViewModels
         {
             get { return _ingredRcp; }
             set { SetProperty(ref _ingredRcp, value); }
+        }
+
+        // Toolbar Icon Visibility Toggles
+
+        private bool _favCheck;
+        public bool FavCheck
+        {
+            get { return _favCheck; }
+            set { SetProperty(ref _favCheck, value); }
+        }
+
+        private bool _isFavVisible;
+        public bool IsFavVisible
+        {
+            get { return _isFavVisible; }
+            set { SetProperty(ref _isFavVisible, value); }
+        }
+
+        private bool _addFavVisible;
+        public bool AddFavVisible
+        {
+            get { return _addFavVisible; }
+            set { SetProperty(ref _addFavVisible, value); }
         }
 
         private bool _isBusy;
