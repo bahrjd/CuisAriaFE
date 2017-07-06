@@ -51,10 +51,9 @@ namespace CuisAriaFE.Pages
         {
             var test = App.AddRecipeViewModel.NewRcp.RecipeName;
 
-
-            //NewRcp = new RecipeVM()
+            //var AddRcp = new RecipeVM()
             //{
-            //    RecipeName = "",
+            //    RecipeName = App.AddRecipeViewModel.NewRcp.RecipeName,
             //    Description = "",
             //    OwnerId = userDetailsID,
             //    Shared = false,
@@ -67,57 +66,68 @@ namespace CuisAriaFE.Pages
             //    CookTime = 0,
             //    ServingSize = " "
             //};
-            //}
 
 
-            //    var newRecipe = new AddEditRecipe();
-            //    var isNewRecipe = true;
-            //    //var response = "";
-            //    var newUserRecFav = new UserRecipeFavorite();
-            //    newUserRecFav.UserId = userDetailsID;
-            //    newUserRecFav.RecipeId = 0;
-            //    newUserRecFav.Favorite = false;
-            //    newRecipe.userRecipeFavorite = newUserRecFav;
+            var newRecipe = new AddEditRecipe();
+            var isNewRecipe = true;
+            var newUserRecFav = new UserRecipeFavorite();
+            newUserRecFav.UserId = userDetailsID;
+            newUserRecFav.RecipeId = 0;
+            newUserRecFav.Favorite = false;
+            newRecipe.userRecipeFavorite = newUserRecFav;
 
-            //    var tempRecipe = new RecipeVM();
-            //    tempRecipe.OwnerId = userDetailsID;
-            //    tempRecipe.RecipeName = "New Recipe Test 1";
-            //    tempRecipe.Shared = false;
-            //    tempRecipe.MyRating = 0;
-            //    tempRecipe.ShareRating = 0;
-            //    tempRecipe.NumShareRatings = 0;
-            //    tempRecipe.PrepTime = 0;
-            //    tempRecipe.CookTime = 0;
-            //    tempRecipe.RecipeServings = 1;
-            //    newRecipe.recipe = tempRecipe;
+            var tempRecipe = new RecipeVM();
+            tempRecipe.OwnerId = userDetailsID;
+            tempRecipe.RecipeName = App.AddRecipeViewModel.NewRcp.RecipeName;
+            tempRecipe.Description = App.AddRecipeViewModel.NewRcp.Description;
+            tempRecipe.Shared = false;
+            tempRecipe.MyRating = 0;
+            tempRecipe.ShareRating = 0m;
+            tempRecipe.NumShareRatings = 0m;
+            tempRecipe.PrepTime = App.AddRecipeViewModel.NewRcp.PrepTime;
+            tempRecipe.CookTime = App.AddRecipeViewModel.NewRcp.CookTime;
+            tempRecipe.RecipeServings = App.AddRecipeViewModel.NewRcp.RecipeServings;
+            tempRecipe.RecipePic = App.AddRecipeViewModel.NewRcp.RecipePic;
 
-            //    var ingred = new IngredientListVM();
-            //    ingred.IngredName = "Flour";
-            //    ingred.IngredQty = 1;
-            //    ingred.IngredUnit = "cup";
-            //    List<IngredientListVM> ingredientList = new List<IngredientListVM>();
-            //    ingredientList.Add(ingred);
+            newRecipe.recipe = tempRecipe;
 
+            List<IngredientListVM> ingredientList = new List<IngredientListVM>();
+            foreach (IngredientListVM tempIngred in App.AddRecipeViewModel.IngredientsList)
+            {
+                var ingred = new IngredientListVM();
+                ingred.IngredName = tempIngred.IngredName;
+                ingred.IngredQty = tempIngred.IngredQty;
+                ingred.IngredUnit = tempIngred.IngredUnit;
+                ingredientList.Add(ingred);
+            }
 
-            //    var step = new RecipeStepIngredientVM();
-            //    step.StepNumber = 1;
-            //    step.Instruction = "Test step instruction 1.";
-            //    step.IngredientList = ingredientList;
-            //    List<RecipeStepIngredientVM> stepList = new List<RecipeStepIngredientVM>();
-            //    stepList.Add(step);
-            //    newRecipe.RecipeStepIngredients = stepList;
+            List<RecipeStepIngredientVM> stepList = new List<RecipeStepIngredientVM>();
+            foreach (RecipeStepIngredientVM tempStep in App.AddRecipeViewModel.StepIngredList)
+            {
+                var step = new RecipeStepIngredientVM();
+                List<IngredientListVM> emptyList = new List<IngredientListVM>();
+                step.StepNumber = tempStep.StepNumber;
+                step.Instruction = tempStep.Instruction;
+                if (step.StepNumber == 1)
+                {
+                    step.IngredientList = ingredientList;
+                }
+                else
+                {
+                    step.IngredientList = emptyList;
+                }
+                stepList.Add(step);
+            }
+            newRecipe.RecipeStepIngredients = stepList;
 
-            //    var keyword = new Keyword();
-            //    keyword.SearchWord = "test";
-            //    List<Keyword> keywords = new List<Keyword>();
-            //    keywords.Add(keyword);
+            var keyword = new Keyword();
+            keyword.SearchWord = " ";
+            List<Keyword> keywords = new List<Keyword>();
+            keywords.Add(keyword);
 
-            //    newRecipe.Keywords = keywords;
+            newRecipe.Keywords = keywords;
 
-
-            //await App.cabeMgr.SaveRecipeAsync(newRecipe, isNewRecipe);
-
-
+            await App.cabeMgr.SaveRecipeAsync(newRecipe, isNewRecipe);
         }
 
 
