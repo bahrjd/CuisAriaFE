@@ -85,5 +85,10 @@ namespace CuisAriaFE.Data
         {
             return restService.AddEditUserAsync(user, isNew);
         }
+
+        public Task<AddEditGetMenu> AddEditGetMenuAsync(AddEditGetMenu rcpToMenu, bool isNew = true)
+        {
+            return restService.AddEditGetMenuAsync(rcpToMenu, isNew);
+        }
     }
 }

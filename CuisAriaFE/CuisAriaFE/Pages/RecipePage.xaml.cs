@@ -72,21 +72,21 @@ namespace CuisAriaFE.Pages
             {
                 AddRcpToMenu();
             }
+
+            await Navigation.PushAsync(new Pages.CurrentMenuPage());
         }
         
-        public void AddRcpToMenu()
+        public async void AddRcpToMenu()
         {
             RcpToMenu = new AddEditGetMenu()
             {
-                MenuId = App.CurrentMenu.MenuId.ToString(),
-                RecipeId = App.RecipeViewModel.CurrentRcp.RecipeID,
-                MenuServings = App.RecipeViewModel.CurrentRcp.RecipeServings,
-                UserId = CurrentUserID,
+                MenuId = App.CurrentMenu.MenuId,
+                RecipeId = Convert.ToInt32(App.RecipeViewModel.CurrentRcp.RecipeID),
+                MenuServings = 4m,
+                UserId = Data.CABEServices.UserDetails.ID,
                 MenuName = "Menu"
             };
-
-
-
+            await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
         }
         
         //App.MenuViewModel = new ViewModels.MenuViewModel();
