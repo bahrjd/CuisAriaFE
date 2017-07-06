@@ -35,6 +35,8 @@ namespace CuisAriaFE.Data
 
         Task<List<MenuRecipe>> RefreshMenuRcpAsync(string userId, string menuID);
 
+        Task<AddEditGetMenu> AddEditGetMenuAsync(AddEditGetMenu rcpToMenu, bool isNew);
+
         Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID);
 
     }

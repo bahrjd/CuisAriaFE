@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuisAriaFE.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace CuisAriaFE.Pages
         {
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
             App.RecipeViewModel.RefreshRcpDetailsAsync();
-            
+
             BindingContext = App.RecipeViewModel;
 
             base.OnAppearing();
@@ -41,6 +42,42 @@ namespace CuisAriaFE.Pages
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
+
+        public AddEditGetMenu RcpToMenu { get; set; }
+        public string CurrentUserID = Data.CABEServices.UserDetails.ID.ToString();
+
+        private async void OnAddToMenuClicked(object sender, EventArgs e)
+        {
+            if (App.CurrentMenu == null)
+            {
+                // Establish CurrentMenu items
+                await App.cabeMgr.RefreshMenuRcpAsync(CurrentUserID, Constants.MenuId);
+                App.CurrentMenu = Data.CABEServices.menuRcpList.FirstOrDefault();
+                AddRcpToMenu();
+            }
+            else
+            {
+                AddRcpToMenu();
+            }
+
+            await Navigation.PushAsync(new Pages.CurrentMenuPage());
+        }
+
+        public async void AddRcpToMenu()
+        {
+            RcpToMenu = new AddEditGetMenu()
+            {
+                MenuId = App.CurrentMenu.MenuId,
+                RecipeId = Convert.ToInt32(App.RecipeViewModel.CurrentRcp.RecipeID),
+                MenuServings = 4m,
+                UserId = Data.CABEServices.UserDetails.ID,
+                MenuName = "Menu"
+            };
+            await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
+        }
+
+        //App.MenuViewModel = new ViewModels.MenuViewModel();
+        //App.MenuViewModel.RefreshMenuAsync();
 
         private async void OnInstructionsClicked(object sender, EventArgs e)
         {

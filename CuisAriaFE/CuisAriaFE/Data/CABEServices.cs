@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CuisAriaFE.Data
 {
-	public class CABEServices : ICABEServices
+    public class CABEServices : ICABEServices
     {
 
         #region Properties Declarations region
@@ -29,7 +29,9 @@ namespace CuisAriaFE.Data
 
         public static User UserDetails { get; private set; }
 
-        public List<MenuRecipe> menuRcpList { get; private set; }
+        public AddEditGetMenu PushRcpToMenu {get; private set; }
+
+        public static List<MenuRecipe> menuRcpList { get; private set; }
 
         public ShoppingList shopList { get; private set; }
 
@@ -37,7 +39,7 @@ namespace CuisAriaFE.Data
 
         //public string shopListName { get; set; }
 
-				#endregion
+		#endregion
 
 
         // Connection Service
@@ -78,27 +80,27 @@ namespace CuisAriaFE.Data
         }
 
         public async Task<List<Recipe>> RefreshMyRcpAsync(string ownerID)
-    {
+        {
             ItemsMyRcp = new List<Recipe>();
 
             var uri = new Uri(string.Format(Constants.MyRcpUrl, ownerID));
 
-        try
-        {
-            var response = await client.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var content = await response.Content.ReadAsStringAsync();
-                ItemsMyRcp = JsonConvert.DeserializeObject<List<Recipe>>(content);
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    ItemsMyRcp = JsonConvert.DeserializeObject<List<Recipe>>(content);
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(@"				ERROR {0}", ex.Message);
-        }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
 
-        return ItemsMyRcp;
-    }
+            return ItemsMyRcp;
+        }
 
         public async Task<List<Recipe>> RefreshSharedRcpAsync(string userID)
         {
@@ -414,6 +416,51 @@ namespace CuisAriaFE.Data
 
             return menuRcpList;
         }
+
+        // WIP //
+
+        public async Task<AddEditGetMenu> AddEditGetMenuAsync(AddEditGetMenu rcpToMenu, bool isNew = true)
+        {
+            PushRcpToMenu = new AddEditGetMenu();
+            var uri = new Uri(string.Format(Constants.AddEditMenuUrl));
+
+            try
+            {
+                var json = JsonConvert.SerializeObject(rcpToMenu);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                if (isNew)
+                {
+                    response = await client.PostAsync(uri, content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var addRcp = await response.Content.ReadAsStringAsync();
+                        PushRcpToMenu = JsonConvert.DeserializeObject<AddEditGetMenu>(addRcp);
+                    }
+                }
+                else
+                {
+                    response = await client.PutAsync(uri, content);
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				recipe successfully saved to menu.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+            return PushRcpToMenu;
+
+        }
+
+
+
+        // WIP //
 
         public async Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID)
         {
