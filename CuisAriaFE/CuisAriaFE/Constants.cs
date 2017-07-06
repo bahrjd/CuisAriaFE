@@ -23,6 +23,9 @@ namespace CuisAriaFE
         // URL for GetMenu // USAGE: Set MenuID = 0 to get current menu or menuId to get specific menu
         public static string MenuRcpUrl = BaseUrl + "GetMenu/{0}/{1}";
 
+        // URL for AddEditMenu // USAGE: Pass a JSON object of type AddEditGetMenu
+        public static string AddEditMenuUrl = BaseUrl + "AddMenuRecipe";
+
         // URL for Add/Edit User // USAGE: Set Id = 0 to add a user // Set Id = userID to edit user data
         public static string UserAddEditUrl = BaseUrl + "AddEditUser";
 
@@ -41,6 +44,7 @@ namespace CuisAriaFE
         // public static string UserTestID = Data.CABEServices.UserDetails.ID.ToString();
         public static string OwnerTestID = "48";
         // public static string OwnerTestID = Data.CABEServices.UserDetails.ID.ToString();
+        public static string MenuId = "0";
 
         // Fraction conversion list
         public static string[] FracList = { "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8" };
