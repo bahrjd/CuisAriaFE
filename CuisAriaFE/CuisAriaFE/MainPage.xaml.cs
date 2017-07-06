@@ -17,11 +17,11 @@ namespace CuisAriaFE
 
         protected override void OnAppearing()
         {
-            if (App.MainViewModel == null)
-            {                               
+            //if (App.MainViewModel == null)
+            //{                               
                 App.MainViewModel = new ViewModels.MainViewModel();
                 App.MainViewModel.RefreshRcpAsync();
-            }
+            //}
         }
 
         
