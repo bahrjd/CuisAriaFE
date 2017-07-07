@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace CuisAriaFE.Common.Converters
 {
-    public class Decimal2Frac : IValueConverter
+    public sealed class DecimalToFrac : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

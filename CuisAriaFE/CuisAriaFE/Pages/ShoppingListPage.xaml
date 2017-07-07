@@ -24,11 +24,11 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
-                                        <!--<Label Grid.Column="0" WidthRequest="40" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" FontFamily="Verdana"  Text=""/>-->
-                                        <Label Grid.Column="1" WidthRequest="25" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding QtyInt}"/>
-                                        <Label Grid.Column="2" WidthRequest="25" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding QtyFrac}"/>
+                                        <Label Grid.Column="0" WidthRequest="10" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" FontFamily="Verdana"  Text=""/> 
+                                        <Label Grid.Column="1" WidthRequest="70" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemQty, Converter={StaticResource DecimalToFrac}"/>
+                                        <!--<Label Grid.Column="2" WidthRequest="25" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding QtyFrac}"/>-->
                                         <Label Grid.Column="3" WidthRequest="90" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemUnit}"/>
-                                        <Label Grid.Column="4" WidthRequest="240" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemName}"/>
+                                        <Label Grid.Column="4" WidthRequest="185" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemName}"/>
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>
