@@ -49,25 +49,6 @@ namespace CuisAriaFE.Pages
         }
         async void OnSaveRecipeClicked(object sender, EventArgs e)
         {
-            var test = App.AddRecipeViewModel.NewRcp.RecipeName;
-
-            //var AddRcp = new RecipeVM()
-            //{
-            //    RecipeName = App.AddRecipeViewModel.NewRcp.RecipeName,
-            //    Description = "",
-            //    OwnerId = userDetailsID,
-            //    Shared = false,
-            //    Notes = " ",
-            //    MyRating = 0,
-            //    ShareRating = 0,
-            //    NumShareRatings = 0,
-            //    RecipePic = " ",
-            //    PrepTime = 0,
-            //    CookTime = 0,
-            //    ServingSize = " "
-            //};
-
-
             var newRecipe = new AddEditRecipe();
             var isNewRecipe = true;
             var newUserRecFav = new UserRecipeFavorite();
@@ -128,6 +109,7 @@ namespace CuisAriaFE.Pages
             newRecipe.Keywords = keywords;
 
             await App.cabeMgr.SaveRecipeAsync(newRecipe, isNewRecipe);
+            await Navigation.PopAsync();
         }
 
 
@@ -198,6 +180,17 @@ namespace CuisAriaFE.Pages
                 Instruction = ""
             };
             App.AddRecipeViewModel.StepIngredList.Add(Steps2List);
+        }
+
+        private void OnUnitsPickerChanged(object sender, EventArgs e)
+        {
+            Picker picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex == -1)
+                return;
+
+            Ingred2List.IngredUnit = picker.Items[selectedIndex];
         }
     }
 }
