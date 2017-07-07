@@ -4,6 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.Pages.CurrentMenuPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Recipes Home" Order="Secondary" Clicked="OnRecipesHomeClicked"/>
+        <ToolbarItem Text="New Recipe" Order="Secondary" Clicked="OnNewRecipeClicked"/>
+        <ToolbarItem Text="Shopping List" Order="Secondary" Clicked="OnShoppingClicked"/>
+        <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

@@ -23,6 +23,7 @@ namespace CuisAriaFE.Pages
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
             App.RecipeViewModel.RefreshRcpDetailsAsync();
             App.RecipeViewModel.FavCheck(App.RecipeViewModel.CurrentRcp.Favorite);
+            App.RecipeViewModel.ShareCheck(App.RecipeViewModel.CurrentRcp.Shared);
 
             BindingContext = App.RecipeViewModel;
 
@@ -38,13 +39,15 @@ namespace CuisAriaFE.Pages
         private async void OnFavIconClicked(object sender, EventArgs e)
         {
             await App.cabeMgr.FavRecipeToggleAsync(Data.CABEServices.UserDetails.ID.ToString(), App.RecipeViewModel.CurrentRcp.RecipeID);
-            App.RecipeViewModel.RefreshRcpDetailsAsync();
             App.RecipeViewModel.FavCheck(App.RecipeViewModel.CurrentRcp.Favorite);
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
         }
 
         private async void OnShareIconClicked(object sender, EventArgs e)
         {
             await App.cabeMgr.ShareRecipeToggleAsync(App.RecipeViewModel.CurrentRcp.RecipeID);
+            App.RecipeViewModel.ShareCheck(App.RecipeViewModel.CurrentRcp.Shared);
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
         }
 
         private async void OnEditRecipeClicked(object sender, EventArgs e)
@@ -93,9 +96,24 @@ namespace CuisAriaFE.Pages
             await Navigation.PushAsync(new Pages.InstructionsPage());
         }
 
-        private async void OnSettingsClicked(object sender, EventArgs e)
+        //private async void OnSettingsClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new SettingsPage());
+        //}
+
+        private async void OnNewRecipeClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SettingsPage());
+            await Navigation.PushAsync(new Pages.AddRecipePage());
+        }
+
+        private async void OnMenuClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.CurrentMenuPage());
+        }
+
+        private async void OnShoppingClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.ShoppingListPage());
         }
 
         private async void OnLogOutClicked(object sender, EventArgs e)

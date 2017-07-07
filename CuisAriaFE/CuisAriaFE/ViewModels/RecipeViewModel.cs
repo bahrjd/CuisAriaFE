@@ -83,6 +83,27 @@ namespace CuisAriaFE.ViewModels
             set { SetProperty(ref _addFavVisible, value); }
         }
 
+        private bool _isShared;
+        public bool IsShared
+        {
+            get { return _isShared; }
+            set { SetProperty(ref _isShared, value); }
+        }
+
+        private bool _isSharedVisible;
+        public bool IsSharedVisible
+        {
+            get { return _isSharedVisible; }
+            set { SetProperty(ref _isSharedVisible, value); }
+        }
+
+        private bool _addSharedVisible;
+        public bool AddSharedVisible
+        {
+            get { return _addSharedVisible; }
+            set { SetProperty(ref _addSharedVisible, value); }
+        }
+
         private bool _isBusy;
         public bool IsBusy
         {
@@ -136,6 +157,29 @@ namespace CuisAriaFE.ViewModels
                 IsFavVisible = false;
                 AddFavVisible = true;
             }
+        }
+
+        public void ShareCheck(bool IsShared)
+        {
+            if (Data.CABEServices.UserDetails.ID.ToString() == CurrentRcp.OwnerId)
+            {
+                if (IsShared)
+                {
+                    IsSharedVisible = true;
+                    AddSharedVisible = false;
+                }
+                else
+                {
+                    IsSharedVisible = false;
+                    AddSharedVisible = true;
+                }
+            }
+            else
+            {
+                IsSharedVisible = false;
+                AddSharedVisible = false;
+            }
+
         }
     }
 }

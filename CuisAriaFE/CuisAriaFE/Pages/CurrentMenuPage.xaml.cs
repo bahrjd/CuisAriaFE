@@ -50,7 +50,31 @@ namespace CuisAriaFE.Pages
             await App.cabeMgr.AddEditShopListAsync(Data.CABEServices.UserDetails.ID, App.CurrentMenu.MenuId);
             await Navigation.PushAsync(new ShoppingListPage());
 
-        }        
+        }
+
+        private async void OnRecipesHomeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
+        }
+
+        private async void OnNewRecipeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.AddRecipePage());
+        }
+
+        private async void OnShoppingClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.ShoppingListPage());
+        }
+
+        public async void OnLogOutClicked(object sender, EventArgs e)
+        {
+            Data.CABEServices.UserDetails.Password = "";
+            App.IsUserLoggedIn = false;
+            App.MainViewModel = null;
+            Navigation.InsertPageBefore(new Pages.LoginPage(), this);
+            await Navigation.PopAsync();
+        }
 
         //void OnAddItemClicked(object sender, EventArgs e)
         //{
@@ -75,5 +99,6 @@ namespace CuisAriaFE.Pages
         //{
 
         //}
+
     }
 }

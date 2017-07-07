@@ -11,6 +11,9 @@
         <!--<ToolbarItem Icon="icon_addToMenu.png" Order="Primary" Priority="4"/>
         <ToolbarItem Icon="icon_blankSpace.png" Order="Primary" Priority="5"/>-->
         <!--<ToolbarItem Text="Settings" Order="Secondary" Clicked="OnSettingsClicked"/>-->
+        <ToolbarItem Text="Recipes Home" Order="Secondary" Clicked="OnRecipesHomeClicked"/>
+        <ToolbarItem Text="Menu" Order="Secondary" Clicked="OnMenuClicked"/>
+        <ToolbarItem Text="Shopping List" Order="Secondary" Clicked="OnShoppingClicked"/>
         <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
     </ContentPage.ToolbarItems>
 

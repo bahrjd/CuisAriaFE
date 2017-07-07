@@ -27,25 +27,25 @@ namespace CuisAriaFE
         
 
 
-        private async void OnSettingsClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Pages.SettingsPage());
-        }
+        //private async void OnSettingsClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new Pages.SettingsPage());
+        //}
+        //private async void OnAdvancedClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new Pages.AdvSearchPage());
+        //}
+        //private async void OnFavoritesClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new Pages.FavoritesPage());
+        //}
         private async void OnNewRecipeClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.AddRecipePage());
         }
-        private async void OnAdvancedClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Pages.AdvSearchPage());
-        }
         private async void OnMenuClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.CurrentMenuPage());
-        }
-        private async void OnFavoritesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Pages.FavoritesPage());
         }
         public async void OnLogOutClicked(object sender, EventArgs e)
         {

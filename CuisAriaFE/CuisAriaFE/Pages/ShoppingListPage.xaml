@@ -3,6 +3,14 @@
              xmlns:local="clr-namespace:CuisAriaFE" Title="Shopping List" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CuisAriaFE.Pages.ShoppingListPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Recipes Home" Order="Secondary" Clicked="OnRecipesHomeClicked"/>
+        <ToolbarItem Text="New Recipe" Order="Secondary" Clicked="OnNewRecipeClicked"/>
+        <ToolbarItem Text="Menu" Order="Secondary" Clicked="OnMenuClicked"/>
+        <ToolbarItem Text="LogOut" Order="Secondary" Clicked="OnLogOutClicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <Label FontFamily="Verdana" FontSize="Large" FontAttributes="Bold" Text="{Binding App.shopListName}"/>
