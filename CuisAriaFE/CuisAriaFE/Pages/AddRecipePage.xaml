@@ -16,27 +16,43 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout >
                 <Entry x:Name="rcpNameLabel" FontSize="Large" Text="{Binding NewRcp.RecipeName}" Placeholder="Recipe name"/>
                 <Entry x:Name="rcpDescLabel" FontSize="Medium" Text="{Binding NewRcp.Description}" Placeholder="Description"/>
-                <!--<Label Text=""-->
-                <!--<Stepper x:Name="servingsStepper" Minimum="1" Maximum="12" Value="{Binding NewRcp.Servings}"/>-->
+                <Entry x:Name="rcpPic" FontSize="Medium" Text="{Binding NewRcp.RecipePic}" Placeholder="Recipe picture link"/>
                 <StackLayout Orientation="Horizontal">
-                    <Picker x:Name="servingsPicker">
+                    <!--<Picker x:Name="servingsPicker">
                         <Picker.Items>
                             <x:String>1</x:String>
                             <x:String>2</x:String>
                             <x:String>3</x:String>
                         </Picker.Items>
-                    </Picker>
-
-                    <Label VerticalTextAlignment="End" Text="Servings"/>
+                    </Picker>-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
+                            <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="25" Text=" "/>
+                            <Entry x:Name="inputRcpServings" Grid.Column="1" WidthRequest="100" Placeholder="Servings" Text="{Binding RecipeServings}" />
+                            <Entry x:Name="inputPrepTime" Grid.Column="2" WidthRequest="100"  Placeholder="Prep Time" Text="{Binding PrepTime}" />
+                            <Entry x:Name="inputCookTime" Grid.Column="3" WidthRequest="100"  Placeholder="Cook Time" Text="{Binding CookTime}"/>
+                        </StackLayout>
+                        <!--<StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="1">
+                            <Label Grid.Column="0" WidthRequest="25" Text=" " FontSize="Small"/>
+                            <Label Grid.Column="1" WidthRequest="85" Text="Servings " FontSize="Small"/>
+                            <Label Grid.Column="2" WidthRequest="100" Text="Prep Time" FontSize="Small"/>
+                            <Label Grid.Column="3" WidthRequest="100" Text="Cook Time" FontSize="Small"/>
+                        </StackLayout>-->
+                    </Grid>
+                    <!--<Label VerticalTextAlignment="End" Text="Servings"/>
                     <TimePicker IsEnabled="False" Time="{Binding NewRcp.PrepTime}" Format="HH\h MM\m Prep" TextColor="Black"/>
-                    <TimePicker IsEnabled="False" Time="{Binding NewRcp.CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>
+                    <TimePicker IsEnabled="False" Time="{Binding NewRcp.CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>-->
                 </StackLayout>
                 <Label FontSize="Large" Text="Ingredients"/>
                 <StackLayout>
-                    <ListView x:Name="rcpIngredListView" ItemsSource="{Binding IngredientsList}" HasUnevenRows="True">
+                    <ListView x:Name="rcpIngredListView" ItemsSource="{Binding IngredientsList}" HasUnevenRows="True" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -46,10 +62,10 @@
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
-                                                <Entry x:Name="inputIngredQty" Grid.Column="0" WidthRequest="25" Placeholder="Qty" Text="{Binding IngredQty}" />
-                                                <Entry x:Name="inputIngredFrac" Grid.Column="1" WidthRequest="25"  Placeholder="Fraction" Text="{Binding IngredQtyFrac}" />
-                                                <Entry x:Name="inputIngredUnit" Grid.Column="2" WidthRequest="90"  Placeholder="Units" Text="{Binding IngredUnit}"/>
-                                                <Entry x:Name="inputIngredName" Grid.Column="3" WidthRequest="240"  Placeholder="Name" Text="{Binding IngredName}"/>
+                                                <Entry x:Name="inputIngredQty" Grid.Column="0" FontSize="Small" WidthRequest="35" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Entry x:Name="inputIngredFrac" Grid.Column="1" FontSize="Small" WidthRequest="25"  Placeholder="Fraction" Text="{Binding IngredQtyFrac}" />
+                                                <Entry x:Name="inputIngredUnit" Grid.Column="2" FontSize="Small" WidthRequest="90"  Placeholder="Units" Text="{Binding IngredUnit}"/>
+                                                <Entry x:Name="inputIngredName" Grid.Column="3" FontSize="Small" WidthRequest="240"  Placeholder="Name" Text="{Binding IngredName}"/>
                                             </StackLayout>
                                         </Grid>
                                     </StackLayout>
@@ -57,7 +73,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button x:Name="addIngredButton" Text="Add Ingredient" Clicked="OnAddIngredClicked"/>
+                    <Button x:Name="addIngredButton" Text="Add Ingredient" Clicked="OnAddIngredClicked" Margin="10"/>
 
                 </StackLayout>
                 
@@ -73,7 +89,7 @@
                                         </Grid.RowDefinitions>
                                         <StackLayout Padding="5,0,0,0" Grid.Row="0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                                             <Entry x:Name="inputStepNum" Grid.Column="0" WidthRequest="30" Placeholder="Step #" Text="{Binding StepNumber}" />
-                                            <Entry x:Name="inputInstruction" Grid.Column="1" MinimumWidthRequest="350" Placeholder="Instruction" Text="{Binding Instruction}"/>
+                                            <Entry x:Name="inputInstruction" Grid.Column="1" FontSize="Small" MinimumWidthRequest="350" Placeholder="Instruction                      " Text="{Binding Instruction}"/>
                                         </StackLayout>
                                     </Grid>
                                 </ViewCell>
