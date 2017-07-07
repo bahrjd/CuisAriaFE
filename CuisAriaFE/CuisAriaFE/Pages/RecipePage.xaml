@@ -22,27 +22,45 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout VerticalOptions="FillAndExpand">
-                <Entry x:Name="rcpNameLabel" FontSize="Large" Text="{Binding CurrentRcp.RecipeName}"/>
+            <StackLayout >
+                <Label x:Name="rcpNameLabel" FontSize="Large" Text="{Binding CurrentRcp.RecipeName}"/>
                 <Label x:Name="rcpDescLabel" FontSize="Medium" Text="{Binding CurrentRcp.Description}"/>
-                <!--<Label Text=""-->
-                <!--<Stepper x:Name="servingsStepper" Minimum="1" Maximum="12" Value="{Binding CurrentRcp.Servings}"/>-->
-                <StackLayout Orientation="Horizontal">
+                <!--<StackLayout Orientation="Horizontal">
                     <Picker x:Name="servingsPicker">
                     <Picker.Items>
                         <x:String>1</x:String>
                         <x:String>2</x:String>
                         <x:String>3</x:String>
                     </Picker.Items>
-                </Picker>
-                    <Entry x:Name="rcpServings" FontSize="Large" Text="{Binding CurrentRcp.RecipeServings}"/>
+                </Picker>-->
+                    <!--<Entry x:Name="rcpServings" FontSize="Large" Text="{Binding CurrentRcp.RecipeServings}"/>
                     <Label VerticalTextAlignment="End" Text="Servings"/>
                     <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.PrepTime}" Format="HH\h MM\m Prep" TextColor="Black"/>
-                    <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>
-                </StackLayout>
-                <Label FontSize="Large" Text="Ingredients"/>
+                    <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>-->
+                <!--</StackLayout>-->
+            <StackLayout Orientation="Horizontal" HeightRequest="80">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
+                        <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="15" Text=" "/>
+                            <Label x:Name="dispRcpServings" Grid.Column="1" WidthRequest="80" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.RecipeServings}" />
+                            <Label x:Name="dispPrepTime" Grid.Column="2" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.PrepTime}" />
+                            <Label x:Name="dispCookTime" Grid.Column="3" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.CookTime}"/>
+                    </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="1" >
+                            <Label x:Name="inputSpacer2" Grid.Column="0" WidthRequest="15" Text=" "/>
+                            <Label x:Name="lableRcpServings" Grid.Column="1" WidthRequest="80" HeightRequest="20" HorizontalTextAlignment="Center" FontSize="Small"  Text="Servings" />
+                            <Label x:Name="labelPrepTime" Grid.Column="2" WidthRequest="100" HeightRequest="20" HorizontalTextAlignment="Center" FontSize="Small"  Text="Prep Time" />
+                            <Label x:Name="labelCookTime" Grid.Column="3" WidthRequest="100" HeightRequest="20" HorizontalTextAlignment="Center" FontSize="Small"  Text="Cook Time"/>
+                        </StackLayout>
+                    </Grid>
+            </StackLayout>
+            <Label FontSize="Large" Text="Ingredients"/>
                 <StackLayout>
-                    <ListView x:Name="rcpIngredListView" ItemsSource="{Binding IngredRcp}" HasUnevenRows="True">
+                    <ListView x:Name="rcpIngredListView" ItemsSource="{Binding IngredRcp}" HasUnevenRows="True" HeightRequest="200">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -53,7 +71,7 @@
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
                                                 <Label Grid.Column="0" WidthRequest="25" VerticalTextAlignment="Center" Text="{Binding IngredQty}" />
-                                                <Label Grid.Column="1" WidthRequest="25" VerticalTextAlignment="Center" Text="{Binding IngredQtyFrac}" />
+                                                <!--<Label Grid.Column="1" WidthRequest="25" VerticalTextAlignment="Center" Text="{Binding IngredQtyFrac}" />-->
                                                 <Label Grid.Column="2" WidthRequest="90" VerticalTextAlignment="Center" Text="{Binding IngredUnit}"/>
                                                 <Label Grid.Column="3" WidthRequest="240" VerticalTextAlignment="Center" Text="{Binding IngredName}"/>
                                             </StackLayout>
@@ -66,11 +84,11 @@
                 </StackLayout>
                 <Label FontSize="Large" Text="Instructions"/>
                 <StackLayout>
-                    <ListView x:Name="rcpInstructionsListView" ItemsSource="{Binding StepRcp}" HasUnevenRows="True">
+                    <ListView x:Name="rcpInstructionsListView" ItemsSource="{Binding StepRcp}" HasUnevenRows="True" HeightRequest="200">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <StackLayout Padding="15,0,15,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                                         <Label VerticalTextAlignment="Center" Text="{Binding StepNumber}" />
                                         <Label VerticalTextAlignment="Center" Text="{Binding Instruction}"/>
                                     </StackLayout>
@@ -79,10 +97,10 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-                <Label FontSize="Large" Text="Notes"/>
+                <!--<Label FontSize="Large" Text="Notes"/>
                 <Label Text="{Binding Notes}"/>
                 <Label FontSize="Large" Text="Keywords"/>
-                <Label Text="{Binding Keywords}"/>
+                <Label Text="{Binding Keywords}"/>-->
                 <Button Text="Instructions" Clicked="OnInstructionsClicked"></Button>
             </StackLayout>
         </ScrollView>
