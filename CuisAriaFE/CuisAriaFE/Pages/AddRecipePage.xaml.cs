@@ -181,5 +181,16 @@ namespace CuisAriaFE.Pages
             };
             App.AddRecipeViewModel.StepIngredList.Add(Steps2List);
         }
+
+        private void OnUnitsPickerChanged(object sender, EventArgs e)
+        {
+            Picker picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex == -1)
+                return;
+
+            Ingred2List.IngredUnit = picker.Items[selectedIndex];
+        }
     }
 }

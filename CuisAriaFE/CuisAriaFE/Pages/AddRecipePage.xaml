@@ -34,8 +34,8 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
-                            <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="25" Text=" "/>
-                            <Entry x:Name="inputRcpServings" Grid.Column="1" WidthRequest="100" Placeholder="Servings" Text="{Binding RecipeServings}" />
+                            <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="5" Text=" "/>
+                            <Entry x:Name="inputRcpServings" Grid.Column="1" WidthRequest="80" Placeholder="Servings" Text="{Binding RecipeServings}" />
                             <Entry x:Name="inputPrepTime" Grid.Column="2" WidthRequest="100"  Placeholder="Prep Time" Text="{Binding PrepTime}" />
                             <Entry x:Name="inputCookTime" Grid.Column="3" WidthRequest="100"  Placeholder="Cook Time" Text="{Binding CookTime}"/>
                         </StackLayout>
@@ -62,9 +62,28 @@
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
-                                                <Entry x:Name="inputIngredQty" Grid.Column="0" FontSize="Small" WidthRequest="35" Placeholder="Qty" Text="{Binding IngredQty}" />
-                                                <Entry x:Name="inputIngredFrac" Grid.Column="1" FontSize="Small" WidthRequest="25"  Placeholder="Fraction" Text="{Binding IngredQtyFrac}" />
-                                                <Entry x:Name="inputIngredUnit" Grid.Column="2" FontSize="Small" WidthRequest="90"  Placeholder="Units" Text="{Binding IngredUnit}"/>
+                                                <Entry x:Name="inputIngredQty" Grid.Column="0" FontSize="Small" WidthRequest="60" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Picker Title="Ingredient Units" SelectedIndexChanged="OnUnitsPickerChanged" WidthRequest="90" >
+                                                    <Picker.Items>
+                                                        <x:String>  ---  </x:String>
+                                                        <x:String>teaspoon</x:String>
+                                                        <x:String>tablespoon</x:String>
+                                                        <x:String>cup</x:String>
+                                                        <x:String>pint</x:String>
+                                                        <x:String>quart</x:String>
+                                                        <x:String>gallon</x:String>
+                                                        <x:String>ounce</x:String>
+                                                        <x:String>fluid ounce</x:String>
+                                                        <x:String>pound</x:String>
+                                                        <x:String>gram</x:String>
+                                                        <x:String>kilogram</x:String>
+                                                        <x:String>milliliter</x:String>
+                                                        <x:String>deciliter</x:String>
+                                                        <x:String>liter</x:String>
+                                                        <x:String>dash</x:String>
+                                                        <x:String>pinch</x:String>
+                                                    </Picker.Items>
+                                                </Picker>
                                                 <Entry x:Name="inputIngredName" Grid.Column="3" FontSize="Small" WidthRequest="240"  Placeholder="Name" Text="{Binding IngredName}"/>
                                             </StackLayout>
                                         </Grid>
