@@ -20,7 +20,7 @@ namespace CuisAriaFE.ViewModels
         {
             //MenuRcp = new ObservableCollection<Models.MenuRecipe>();
             MenuRcp = new ObservableCollection<MenuRecipe>();
-            //CurMenu = new MenuRecipe()
+            CurMenu = App.CurrentMenu;
             //{
             //    MenuName = App.CurrentMenu.MenuName,
             //    MenuId = App.CurrentMenu.MenuId
