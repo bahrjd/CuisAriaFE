@@ -23,13 +23,13 @@ namespace CuisAriaFE.Pages
         protected override void OnAppearing()
         //protected async override void OnAppearing()
         {
-            if (App.ShopListViewModel == null)
-            {
+        //    if (App.ShopListViewModel == null)
+            //{
                 App.ShopListViewModel = new ViewModels.ShopListViewModel();
                 App.ShopListViewModel.RefreshShopListAsync();
-            }
+            //}
 
-            this.BindingContext = App.ShopListViewModel;
+            BindingContext = App.ShopListViewModel;
 
             base.OnAppearing();
 

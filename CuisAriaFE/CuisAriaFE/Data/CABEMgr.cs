@@ -66,6 +66,11 @@ namespace CuisAriaFE.Data
             return restService.RefreshShopListItemAsync(userID);
         }
 
+        public Task AddEditShopListAsync(int userID, int menuID)
+        {
+            return restService.AddEditShopListAsync(userID, menuID);
+        }
+
         public Task SaveRecipeAsync(AddEditRecipe item, bool isNewItem = false)
         {
             return restService.SaveRecipeAsync(item, isNewItem);

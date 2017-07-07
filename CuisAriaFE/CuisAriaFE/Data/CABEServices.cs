@@ -417,8 +417,6 @@ namespace CuisAriaFE.Data
             return menuRcpList;
         }
 
-        // WIP //
-
         public async Task<AddEditGetMenu> AddEditGetMenuAsync(AddEditGetMenu rcpToMenu, bool isNew = true)
         {
             PushRcpToMenu = new AddEditGetMenu();
@@ -457,10 +455,6 @@ namespace CuisAriaFE.Data
             return PushRcpToMenu;
 
         }
-
-
-
-        // WIP //
 
         public async Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID)
         {
@@ -512,6 +506,26 @@ namespace CuisAriaFE.Data
             return shopItemList;
         }
 
-		#endregion
+        public async Task AddEditShopListAsync(int userID, int menuID)
+        {
+            var uri = new Uri(string.Format(Constants.AddEditShopListUrl, userID, menuID));
+
+            try
+            {
+                var response = await client.PostAsync(uri, null);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"				Menu successfully added to shopping list.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+        }
+
+        #endregion
     }
 }

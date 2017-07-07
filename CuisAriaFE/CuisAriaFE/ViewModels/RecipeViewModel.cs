@@ -15,21 +15,6 @@ namespace CuisAriaFE.ViewModels
                                 
         public RecipeViewModel()
         {
-            IsFavVisible = true;
-            AddFavVisible = true;
-
-            FavCheck = new bool();
-
-            // TODO: This needs to actually check the curent favorite value
-            FavCheck = true;
-            if (FavCheck)
-            {
-                AddFavVisible = false;
-            }
-            else
-            {
-                IsFavVisible = false;
-            }
 
             StepRcp = new ObservableCollection<Step>();
             IngredRcp = new ObservableCollection<Ingredient>();
@@ -49,6 +34,7 @@ namespace CuisAriaFE.ViewModels
                 RecipePic = App.CurrentRecipe.RecipePic,
                 PrepTime = App.CurrentRecipe.PrepTime,
                 CookTime = App.CurrentRecipe.CookTime,
+                RecipeServings = App.CurrentRecipe.RecipeServings,
                 ServingSize = App.CurrentRecipe.ServingSize
             };
         }
@@ -76,11 +62,11 @@ namespace CuisAriaFE.ViewModels
 
         // Toolbar Icon Visibility Toggles
 
-        private bool _favCheck;
-        public bool FavCheck
+        private bool _isFav;
+        public bool IsFav
         {
-            get { return _favCheck; }
-            set { SetProperty(ref _favCheck, value); }
+            get { return _isFav; }
+            set { SetProperty(ref _isFav, value); }
         }
 
         private bool _isFavVisible;
@@ -135,6 +121,20 @@ namespace CuisAriaFE.ViewModels
             foreach (var item in ingredList)
             {
                 IngredRcp.Add(item);
+            }
+        }
+
+        public void FavCheck(bool IsFav)
+        {
+            if (IsFav)
+            {
+                IsFavVisible = true;
+                AddFavVisible = false;
+            }
+            else
+            {
+                IsFavVisible = false;
+                AddFavVisible = true;
             }
         }
     }

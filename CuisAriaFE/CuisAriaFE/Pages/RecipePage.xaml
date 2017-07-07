@@ -31,7 +31,7 @@
                         <x:String>3</x:String>
                     </Picker.Items>
                 </Picker>
-
+                    <Entry x:Name="rcpServings" FontSize="Large" Text="{Binding CurrentRcp.RecipeServings}"/>
                     <Label VerticalTextAlignment="End" Text="Servings"/>
                     <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.PrepTime}" Format="HH\h MM\m Prep" TextColor="Black"/>
                     <TimePicker IsEnabled="False" Time="{Binding CurrentRcp.CookTime}" Format="HH\h MM\m Cook" TextColor="Black"/>

@@ -38,6 +38,9 @@ namespace CuisAriaFE
         // URL to get shopping list // USAGE: Passing a UserId retrieves shoppinglist
         public static string ShopListUrl = BaseUrl + "GetShoppingList/{0}";
 
+        // URL to add a shopping list // USAGE: Pass /UserId/Menu to add a Menu to a ShoppingList
+        public static string AddEditShopListUrl = BaseUrl + "AddEditShoppingList/{0}/{1}";
+
         // Credentials that are hard coded //
         public static string RecipeTestID = "47";
         public static string UserTestID = "48";

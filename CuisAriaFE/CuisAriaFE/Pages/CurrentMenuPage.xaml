@@ -6,35 +6,35 @@
 
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout>
-            <Entry x:Name="menuNameLabel" FontSize="Large" Text="{Binding CurMenu.MenuName}"/>
-
+            <StackLayout>
+                <Entry x:Name="menuNameLabel" FontSize="Large" Text="{Binding CurMenu.MenuName}"/>
                 <ListView IsRefreshing="{Binding IsBusy}" ItemsSource="{Binding MenuRcp}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
-                                <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Image WidthRequest="40"  HeightRequest="40" Source="{Binding RecipePic}" Aspect="AspectFill" />
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
                                             <Label Grid.Column="1" WidthRequest="260" VerticalTextAlignment="End" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding RecipeName}"/>
                                             <Label Grid.Column="2" WidthRequest="30" VerticalTextAlignment="End" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding MenuServings}"/>
                                             <Label Grid.Column="3" WidthRequest="70" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="Servings"/>
-                                    </StackLayout>
-                                    <StackLayout VerticalOptions="Center" Grid.Row="1">
-                                        <Label Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="{Binding Description}"/>
-                                    </StackLayout>    
-                                </Grid>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Center" Grid.Row="1">
+                                            <Label Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="{Binding Description}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Create Shopping List" Clicked="OnCreateShoppingListClicked" />
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
