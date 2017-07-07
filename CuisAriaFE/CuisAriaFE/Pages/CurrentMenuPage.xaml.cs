@@ -37,6 +37,21 @@ namespace CuisAriaFE.Pages
 
         }
 
+        private async void OnCreateShoppingListClicked(object sender, EventArgs e)
+        {
+            if (App.CurrentMenu == null)
+            {
+
+                // Establish CurrentMenu items                
+                await App.cabeMgr.RefreshMenuRcpAsync(Data.CABEServices.UserDetails.ID.ToString(), Constants.MenuId);
+                App.CurrentMenu = Data.CABEServices.menuRcpList.FirstOrDefault();
+            }
+
+            await App.cabeMgr.AddEditShopListAsync(Data.CABEServices.UserDetails.ID, App.CurrentMenu.MenuId);
+            await Navigation.PushAsync(new ShoppingListPage());
+
+        }        
+
         //void OnAddItemClicked(object sender, EventArgs e)
         //{
         //    var user = new User()
