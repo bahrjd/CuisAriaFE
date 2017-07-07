@@ -22,15 +22,24 @@ namespace CuisAriaFE.Pages
         {
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
             App.RecipeViewModel.RefreshRcpDetailsAsync();
+            App.RecipeViewModel.FavCheck(App.RecipeViewModel.CurrentRcp.Favorite);
 
             BindingContext = App.RecipeViewModel;
 
             base.OnAppearing();
         }
 
+        protected override void OnDisappearing()
+        {
+
+            base.OnDisappearing();
+        }
+
         private async void OnFavIconClicked(object sender, EventArgs e)
         {
             await App.cabeMgr.FavRecipeToggleAsync(Data.CABEServices.UserDetails.ID.ToString(), App.RecipeViewModel.CurrentRcp.RecipeID);
+            App.RecipeViewModel.RefreshRcpDetailsAsync();
+            App.RecipeViewModel.FavCheck(App.RecipeViewModel.CurrentRcp.Favorite);
         }
 
         private async void OnShareIconClicked(object sender, EventArgs e)
@@ -69,9 +78,9 @@ namespace CuisAriaFE.Pages
             {
                 MenuId = App.CurrentMenu.MenuId,
                 RecipeId = Convert.ToInt32(App.RecipeViewModel.CurrentRcp.RecipeID),
-                MenuServings = 4m,
+                MenuServings = App.RecipeViewModel.CurrentRcp.RecipeServings,
                 UserId = Data.CABEServices.UserDetails.ID,
-                MenuName = "Menu"
+                MenuName = App.CurrentMenu.MenuName
             };
             await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
         }
