@@ -112,7 +112,21 @@ namespace CuisAriaFE.Pages
             await Navigation.PopAsync();
         }
 
+        private async void OnRecipesHomeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
+        }
 
+        private async void OnMenuClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.CurrentMenuPage());
+        }
+
+        private async void OnShoppingClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pages.ShoppingListPage());
+        }
+        
         public async void OnLogOutClicked(object sender, EventArgs e)
         {
             Data.CABEServices.UserDetails.Password = "";
@@ -120,16 +134,6 @@ namespace CuisAriaFE.Pages
             App.MainViewModel = null;
             Navigation.InsertPageBefore(new Pages.LoginPage(), this);
             await Navigation.PopAsync();
-        }
-
-        private async void OnFavIconClicked(object sender, EventArgs e)
-        {
-            await App.cabeMgr.FavRecipeToggleAsync(Data.CABEServices.UserDetails.ID.ToString(), App.RecipeViewModel.CurrentRcp.RecipeID);
-        }
-
-        private async void OnShareIconClicked(object sender, EventArgs e)
-        {
-            await App.cabeMgr.ShareRecipeToggleAsync(App.RecipeViewModel.CurrentRcp.RecipeID);
         }
 
         private void Delete_Clicked(object sender, EventArgs e)
