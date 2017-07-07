@@ -34,14 +34,14 @@ namespace CuisAriaFE.ViewModels
                 Description = "",
                 OwnerId = userDetailsID,
                 Shared = false,
-                Notes = " ",
-                MyRating = 0,
-                ShareRating = 0,
-                NumShareRatings = 0,
-                RecipePic = " ",
-                PrepTime = 0,
-                CookTime = 0,
-                ServingSize = " "
+                Notes = "",
+                //MyRating = 0,
+                //ShareRating = 0,
+                //NumShareRatings = 0,
+                RecipePic = "",
+                //PrepTime = 0,
+                //CookTime = 0,
+                ServingSize = ""
             };
         }
 
