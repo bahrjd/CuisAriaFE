@@ -17,11 +17,11 @@ namespace CuisAriaFE.ViewModels
 
         public ShopListViewModel()
         {
-            this.ShoppingList = new ObservableCollection<Models.ShopDispItem>();
+            this.ShoppingList = new ObservableCollection<Models.ShopListItemVM>();
         }
 
-        private ObservableCollection<Models.ShopDispItem> _shoppingList;
-        public ObservableCollection<Models.ShopDispItem> ShoppingList
+        private ObservableCollection<Models.ShopListItemVM> _shoppingList;
+        public ObservableCollection<Models.ShopListItemVM> ShoppingList
         {
             get { return this._shoppingList; }
             set { this.SetProperty(ref this._shoppingList, value); }
