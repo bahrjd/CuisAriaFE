@@ -13,6 +13,7 @@ namespace CuisAriaFE
     public partial class App : Application
     {
         public static bool IsUserLoggedIn { get; set; }
+        public static decimal OriginalServings { get; set; }
         public static Recipe CurrentRecipe { get; set; }
         public static UserRecipeFavorite NewUserRecipeFav { get; set; }
         public static RecipeVM NewRecipe { get; set; }

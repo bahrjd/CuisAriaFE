@@ -12,6 +12,7 @@ namespace CuisAriaFE.ViewModels
     public class RecipeViewModel : ObservableBase
     {
         private string currentRecipeID = App.CurrentRecipe.RecipeID;
+        private static decimal baseRecipeServings = App.OriginalServings;
                                 
         public RecipeViewModel()
         {
@@ -103,7 +104,7 @@ namespace CuisAriaFE.ViewModels
             get { return _addSharedVisible; }
             set { SetProperty(ref _addSharedVisible, value); }
         }
-
+                        
         private bool _isBusy;
         public bool IsBusy
         {
@@ -138,7 +139,7 @@ namespace CuisAriaFE.ViewModels
             IngredRcp.Clear();
 
             var ingredList = await App.cabeMgr.RefreshIngredientsAsync(currentRecipeID);
-
+            
             foreach (var item in ingredList)
             {
                 IngredRcp.Add(item);
@@ -181,5 +182,16 @@ namespace CuisAriaFE.ViewModels
             }
 
         }
+
+        public void ScaleIngredients()
+        {
+            ScaleFactor = baseRecipeServings / entry.Text;
+
+            foreach (var item in IngredRcp)
+            {
+                item.IngredQty *= ScaleFactor;
+            }            
+        }
+
     }
 }

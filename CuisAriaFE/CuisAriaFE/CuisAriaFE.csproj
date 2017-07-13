@@ -45,6 +45,7 @@
     <Compile Include="Common\ObservableBase.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controls\BindableToolbarItem.cs" />
+    <Compile Include="Controls\EntryTriggerAction.cs" />
     <Compile Include="Data\ICABEServices.cs" />
     <Compile Include="Data\CABEMgr.cs" />
     <Compile Include="Data\CABEServices.cs" />
