@@ -17,7 +17,7 @@ namespace CuisAriaFE.Pages
             InitializeComponent();
         }
 
-        // Nee to add checkboxes and checkbox onClick processing
+        // Need to add checkboxes and checkbox onClick processing
 
         protected override void OnAppearing()
         //protected async override void OnAppearing()
