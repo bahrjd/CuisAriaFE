@@ -55,7 +55,21 @@
                                                 <RowDefinition />
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
-                                                <Entry x:Name="inputIngredQty" Grid.Column="0" FontSize="Small" WidthRequest="60" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Entry x:Name="inputIngredQty" Grid.Column="0" FontSize="Small" WidthRequest="30" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Picker Title="Frac" SelectedIndexChanged="OnQtyFracPickerChanged" WidthRequest="40" >
+                                                    <Picker.Items>
+                                                        <x:String>   </x:String>
+                                                        <x:String>1/8</x:String>
+                                                        <x:String>1/4</x:String>
+                                                        <x:String>1/3</x:String>
+                                                        <x:String>3/8</x:String>
+                                                        <x:String>1/2</x:String>
+                                                        <x:String>5/8</x:String>
+                                                        <x:String>2/3</x:String>
+                                                        <x:String>3/4</x:String>
+                                                        <x:String>7/8</x:String>
+                                                    </Picker.Items>
+                                                </Picker>
                                                 <Picker Title="Units" SelectedIndexChanged="OnUnitsPickerChanged" WidthRequest="90" >
                                                     <Picker.Items>
                                                         <x:String>  ---  </x:String>

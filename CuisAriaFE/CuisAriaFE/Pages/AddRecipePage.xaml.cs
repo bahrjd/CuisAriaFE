@@ -16,6 +16,8 @@ namespace CuisAriaFE.Pages
         private int userDetailsID = CABEServices.UserDetails.ID;
         public IngredientListVM Ingred2List { get; set; }
         public RecipeStepIngredientVM Steps2List { get; set; }
+        public int tempStepNumber { get; set; }
+        public decimal tempQtyFrac { get; set; }
 
         public AddRecipePage()
         {
@@ -29,7 +31,10 @@ namespace CuisAriaFE.Pages
 
             BindingContext = App.AddRecipeViewModel;
 
-            Ingred2List = new IngredientListVM()
+            tempStepNumber = 1;
+            tempQtyFrac = 0m;
+
+        Ingred2List = new IngredientListVM()
             {
                 IngredName = "",
                 IngredQty = 0m,
@@ -39,7 +44,7 @@ namespace CuisAriaFE.Pages
 
             Steps2List = new RecipeStepIngredientVM()
             {
-                StepNumber = 1,
+                StepNumber = tempStepNumber,
                 Instruction = ""
             };
             App.AddRecipeViewModel.StepIngredList.Add(Steps2List);
@@ -71,6 +76,8 @@ namespace CuisAriaFE.Pages
             tempRecipe.RecipePic = App.AddRecipeViewModel.NewRcp.RecipePic;
 
             newRecipe.recipe = tempRecipe;
+
+            App.AddRecipeViewModel.IngredientsList.Last().IngredQty += tempQtyFrac;
 
             List<IngredientListVM> ingredientList = new List<IngredientListVM>();
             foreach (IngredientListVM tempIngred in App.AddRecipeViewModel.IngredientsList)
@@ -136,21 +143,24 @@ namespace CuisAriaFE.Pages
             await Navigation.PopAsync();
         }
 
-        private void Delete_Clicked(object sender, EventArgs e)
-        {
+        //private void Delete_Clicked(object sender, EventArgs e)
+        //{
 
-        }
-        private void On_Saved(object sender, EventArgs e)
-        {
+        //}
+        //private void On_Saved(object sender, EventArgs e)
+        //{
 
-        }
-        private void Button_Clicked(object sender, EventArgs e)
-        {
+        //}
+        //private void Button_Clicked(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void OnAddIngredClicked(object sender, EventArgs e)
         {
+            Ingred2List.IngredQty += tempQtyFrac;
+            //tempIngredQty = "";
+            tempQtyFrac = 0m;
             Ingred2List = new IngredientListVM()
             {
                 IngredName = "",
@@ -178,9 +188,10 @@ namespace CuisAriaFE.Pages
 
         private void OnAddStepClicked(object sender, EventArgs e)
         {
+            tempStepNumber++;
             Steps2List = new RecipeStepIngredientVM()
             {
-                StepNumber = 1,
+                StepNumber = tempStepNumber,
                 Instruction = ""
             };
             App.AddRecipeViewModel.StepIngredList.Add(Steps2List);
@@ -195,6 +206,17 @@ namespace CuisAriaFE.Pages
                 return;
 
             Ingred2List.IngredUnit = picker.Items[selectedIndex];
+        }
+
+        private void OnQtyFracPickerChanged(object sender, EventArgs e)
+        {
+            Picker picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex == -1)
+                return;
+
+            tempQtyFrac = Constants.FracDecimals[selectedIndex];
         }
     }
 }

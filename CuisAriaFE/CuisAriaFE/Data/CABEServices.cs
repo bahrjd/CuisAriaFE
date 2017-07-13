@@ -35,7 +35,7 @@ namespace CuisAriaFE.Data
 
         public ShoppingList shopList { get; private set; }
 
-        public List<ShopDispItem> shopItemList { get; private set; }
+        public List<ShopListItemVM> shopItemList { get; private set; }
 
         //public string shopListName { get; set; }
 
@@ -456,10 +456,10 @@ namespace CuisAriaFE.Data
 
         }
 
-        public async Task<List<ShopDispItem>> RefreshShopListItemAsync(string userID)
+        public async Task<List<ShopListItemVM>> RefreshShopListItemAsync(string userID)
         {
             shopList = new ShoppingList();
-            shopItemList = new List<ShopDispItem>();
+            shopItemList = new List<ShopListItemVM>();
 
             var uri = new Uri(string.Format(Constants.ShopListUrl, userID));
 
@@ -477,33 +477,34 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
             App.shopListName = shopList.ListName;
-            List<ShopListItemVM> tempShopItemList = new List<ShopListItemVM>();
-            tempShopItemList = shopList.Items;
+            //List<ShopListItemVM> tempShopItemList = new List<ShopListItemVM>();
+            //shopItemList = shopList.Items;
+            return shopList.Items;
 
             // Convert decimal numbers to fractions for display
-            foreach (ShopListItemVM item in tempShopItemList)
-            {
-                var tempShopDispItem = new ShopDispItem();
-                var fracListIndex = (int)((8 * (item.ItemQty % 1)) - 1);
-                tempShopDispItem.ItemName  = item.ItemName;
-                tempShopDispItem.ItemUnit = item.ItemUnit;
-                tempShopDispItem.ItemQty = item.ItemQty;
-                tempShopDispItem.QtyInt  = Math.Truncate(item.ItemQty).ToString();
-                if (tempShopDispItem.QtyInt == "0")
-                {
-                    tempShopDispItem.QtyInt = " ";
-                }
-                    if (fracListIndex >= 0)
-                {
-                    tempShopDispItem.QtyFrac = Constants.FracList[fracListIndex];
-                } else
-                {
-                    tempShopDispItem.QtyFrac = " ";
-                }
-                shopItemList.Add(tempShopDispItem);
-            }
+            //foreach (ShopListItemVM item in tempShopItemList)
+            //{
+            //    var tempShopDispItem = new ShopDispItem();
+            //    var fracListIndex = (int)((8 * (item.ItemQty % 1)) - 1);
+            //    tempShopDispItem.ItemName  = item.ItemName;
+            //    tempShopDispItem.ItemUnit = item.ItemUnit;
+            //    tempShopDispItem.ItemQty = item.ItemQty;
+            //    tempShopDispItem.QtyInt  = Math.Truncate(item.ItemQty).ToString();
+            //    if (tempShopDispItem.QtyInt == "0")
+            //    {
+            //        tempShopDispItem.QtyInt = " ";
+            //    }
+            //        if (fracListIndex >= 0)
+            //    {
+            //        tempShopDispItem.QtyFrac = Constants.FracList[fracListIndex];
+            //    } else
+            //    {
+            //        tempShopDispItem.QtyFrac = " ";
+            //    }
+            //    shopItemList.Add(tempShopDispItem);
+            //}
 
-            return shopItemList;
+            //return shopItemList;
         }
 
         public async Task AddEditShopListAsync(int userID, int menuID)
