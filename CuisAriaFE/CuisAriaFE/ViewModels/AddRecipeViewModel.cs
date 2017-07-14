@@ -45,9 +45,6 @@ namespace CuisAriaFE.ViewModels
             };
         }
 
-       
-
-
         private UserRecipeFavorite _newUserRcpFav;
         public UserRecipeFavorite NewUserRcpFav
         {
@@ -60,6 +57,20 @@ namespace CuisAriaFE.ViewModels
         {
             get { return _newRcp; }
             set { SetProperty(ref _newRcp, value); }
+        }
+
+        private int _ingredHeight;
+        public int IngredHeight
+        {
+            get { return _ingredHeight; }
+            set { SetProperty(ref _ingredHeight, value); }
+        }
+
+        private int _stepHeight;
+        public int StepHeight
+        {
+            get { return _stepHeight; }
+            set { SetProperty(ref _stepHeight, value); }
         }
 
         private ObservableCollection<RecipeStepIngredientVM> _stepIngredList;
