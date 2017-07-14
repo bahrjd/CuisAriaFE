@@ -57,5 +57,7 @@ namespace CuisAriaFE
         public static string[] FracList = { "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8" };
         //public static string[] FracList = { "   ", "1/8", "1/4", "1/3", "3/8", "1/2", "5/8", "2/3", "3/4", "7/8" };
         public static decimal[] FracDecimals = { 0m, 0.125m, 025m, 0.333m, 0.375m, 0.5m, 0.625m, 0.666m, 0.75m, 0.875m };
+
+        public static int dispRowHeight = 41;
     }
 }

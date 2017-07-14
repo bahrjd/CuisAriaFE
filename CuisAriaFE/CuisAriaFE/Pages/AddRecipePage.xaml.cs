@@ -18,6 +18,8 @@ namespace CuisAriaFE.Pages
         public RecipeStepIngredientVM Steps2List { get; set; }
         public int tempStepNumber { get; set; }
         public decimal tempQtyFrac { get; set; }
+        public int ingredHeight { get; set; }
+        public int stepHeight { get; set; }
 
         public AddRecipePage()
         {
@@ -33,6 +35,8 @@ namespace CuisAriaFE.Pages
 
             tempStepNumber = 1;
             tempQtyFrac = 0m;
+            App.AddRecipeViewModel.IngredHeight = 50;
+            App.AddRecipeViewModel.StepHeight = 50;
 
         Ingred2List = new IngredientListVM()
             {
@@ -168,6 +172,7 @@ namespace CuisAriaFE.Pages
                 IngredUnit = " "
             };
             App.AddRecipeViewModel.IngredientsList.Add(Ingred2List);
+            App.AddRecipeViewModel.IngredHeight += Constants.dispRowHeight;
         }
 
         void OnSelection(object sender, SelectedItemChangedEventArgs e)
@@ -195,6 +200,7 @@ namespace CuisAriaFE.Pages
                 Instruction = ""
             };
             App.AddRecipeViewModel.StepIngredList.Add(Steps2List);
+            App.AddRecipeViewModel.StepHeight += Constants.dispRowHeight;
         }
 
         private void OnUnitsPickerChanged(object sender, EventArgs e)
