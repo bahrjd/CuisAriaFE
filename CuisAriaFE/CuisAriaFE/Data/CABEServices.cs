@@ -17,7 +17,7 @@ namespace CuisAriaFE.Data
 
         HttpClient client;
 
-        public Recipe ItemRcp { get; private set; }
+        public static Recipe ItemRcp { get; private set; }
 
         public List<Recipe> ItemsMyRcp { get; private set; }
 
@@ -76,7 +76,7 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
 
-            return ItemRcp;
+            return ItemRcp;            
         }
 
         public async Task<List<Recipe>> RefreshMyRcpAsync(string ownerID)
