@@ -95,5 +95,11 @@ namespace CuisAriaFE.Data
         {
             return restService.AddEditGetMenuAsync(rcpToMenu, isNew);
         }
+
+        public Task<List<Menu>> GetSavedMenusAsync(int userId)
+        {
+            return restService.GetSavedMenusAsync(userId);
+        }
+
     }
 }

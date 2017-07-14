@@ -24,6 +24,9 @@ namespace CuisAriaFE
         // URL for GetMenu // USAGE: Set MenuID = 0 to get current menu or menuId to get specific menu
         public static string MenuRcpUrl = BaseUrl + "GetMenu/{0}/{1}";
 
+        // URL for GetSavedMenus // Input UserId. Returns list of user menus.
+        public static string SavedMenusUrl = BaseUrl + "GetSavedMenus/{0}";
+
         // URL for AddEditMenu // USAGE: Pass a JSON object of type AddEditGetMenu
         public static string AddEditMenuUrl = BaseUrl + "AddMenuRecipe";
 

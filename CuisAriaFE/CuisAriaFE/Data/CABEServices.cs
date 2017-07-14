@@ -29,7 +29,7 @@ namespace CuisAriaFE.Data
 
         public static User UserDetails { get; private set; }
 
-        public AddEditGetMenu PushRcpToMenu {get; private set; }
+        public AddEditGetMenu PushRcpToMenu { get; private set; }
 
         public static List<MenuRecipe> menuRcpList { get; private set; }
 
@@ -39,19 +39,19 @@ namespace CuisAriaFE.Data
 
         //public string shopListName { get; set; }
 
-		#endregion
+        #endregion
 
 
         // Connection Service
         public CABEServices()
         {
-        // Values for BasicAuth
-        // var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
-        // var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+            // Values for BasicAuth
+            // var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
+            // var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
 
-        client = new HttpClient();
-        client.MaxResponseContentBufferSize = 256000;
-        // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+            client = new HttpClient();
+            client.MaxResponseContentBufferSize = 256000;
+            // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
         }
 
         #region Recipe Operations region
@@ -302,7 +302,7 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
         }
-        
+
         public async Task FavRecipeToggleAsync(string userID, string recipeID)
         {
             var uri = new Uri(string.Format(Constants.ToggleFavUrl, userID, recipeID));
@@ -322,7 +322,7 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
         }
-        
+
         #endregion
 
         #region User Operations region
@@ -392,7 +392,7 @@ namespace CuisAriaFE.Data
 
         #endregion
 
-        #region Menu and Shopping Lists Operations region
+        #region Menu Operations region
 
         public async Task<List<MenuRecipe>> RefreshMenuRcpAsync(string userID, string menuID)
         {
@@ -456,6 +456,30 @@ namespace CuisAriaFE.Data
 
         }
 
+        public async Task<List<Menu>> GetSavedMenusAsync(int userId)
+        {
+            List<Menu> menuList = new List<Menu>();
+            var uri = new Uri(string.Format(Constants.SavedMenusUrl, userId.ToString()));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    menuList = JsonConvert.DeserializeObject<List<Menu>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+            }
+            return menuList;
+        }
+        #endregion
+
+        #region Shopping List Operations region
+
         public async Task<List<ShopListItemVM>> RefreshShopListItemAsync(string userID)
         {
             shopList = new ShoppingList();
@@ -477,34 +501,8 @@ namespace CuisAriaFE.Data
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
             App.shopListName = shopList.ListName;
-            //List<ShopListItemVM> tempShopItemList = new List<ShopListItemVM>();
-            //shopItemList = shopList.Items;
+
             return shopList.Items;
-
-            // Convert decimal numbers to fractions for display
-            //foreach (ShopListItemVM item in tempShopItemList)
-            //{
-            //    var tempShopDispItem = new ShopDispItem();
-            //    var fracListIndex = (int)((8 * (item.ItemQty % 1)) - 1);
-            //    tempShopDispItem.ItemName  = item.ItemName;
-            //    tempShopDispItem.ItemUnit = item.ItemUnit;
-            //    tempShopDispItem.ItemQty = item.ItemQty;
-            //    tempShopDispItem.QtyInt  = Math.Truncate(item.ItemQty).ToString();
-            //    if (tempShopDispItem.QtyInt == "0")
-            //    {
-            //        tempShopDispItem.QtyInt = " ";
-            //    }
-            //        if (fracListIndex >= 0)
-            //    {
-            //        tempShopDispItem.QtyFrac = Constants.FracList[fracListIndex];
-            //    } else
-            //    {
-            //        tempShopDispItem.QtyFrac = " ";
-            //    }
-            //    shopItemList.Add(tempShopDispItem);
-            //}
-
-            //return shopItemList;
         }
 
         public async Task AddEditShopListAsync(int userID, int menuID)
