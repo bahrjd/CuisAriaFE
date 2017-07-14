@@ -55,6 +55,7 @@
     <Compile Include="Models\AddEditGetMenu.cs" />
     <Compile Include="Models\AddEditRecipe.cs" />
     <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\StepIngredients.cs" />
     <Compile Include="Models\MenuRecipe.cs" />
     <Compile Include="Models\Recipe.cs" />

@@ -40,5 +40,7 @@ namespace CuisAriaFE.Data
         Task<List<ShopListItemVM>> RefreshShopListItemAsync(string userID);
 
         Task AddEditShopListAsync(int userID, int menuID);
+
+        Task<List<Menu>> GetSavedMenusAsync(int userId);
     }
 }

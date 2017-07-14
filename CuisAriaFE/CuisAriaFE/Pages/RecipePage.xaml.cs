@@ -56,40 +56,54 @@ namespace CuisAriaFE.Pages
         }
 
         public AddEditGetMenu RcpToMenu { get; set; }
-        public string CurrentUserID = Data.CABEServices.UserDetails.ID.ToString();
+        public int CurrentUserID = Data.CABEServices.UserDetails.ID;
 
         private async void OnAddToMenuClicked(object sender, EventArgs e)
         {
+            RcpToMenu = new AddEditGetMenu()
+            {
+                RecipeId = Convert.ToInt32(App.RecipeViewModel.CurrentRcp.RecipeID),
+                MenuServings = App.RecipeViewModel.CurrentRcp.RecipeServings,
+                UserId = Data.CABEServices.UserDetails.ID,
+            };
             if (App.CurrentMenu == null)
             {
-                // Establish CurrentMenu items
-                await App.cabeMgr.RefreshMenuRcpAsync(CurrentUserID, Constants.MenuId);
-                App.CurrentMenu = Data.CABEServices.menuRcpList.FirstOrDefault();
-                AddRcpToMenu();
+                var tempMenuId = 0;
+                var tempMenuName = "";
+
+                // Establish CurrentMenu
+                var menuList = await App.cabeMgr.GetSavedMenusAsync(CurrentUserID);
+                if (menuList.Count > 0)
+                {
+                    foreach (Menu menu in menuList)
+                    {
+                        if (menu.CurrentMenu == true)
+                        {
+                            tempMenuId = menu.Id;
+                            tempMenuName = menu.MenuName;
+                        }
+                    }
+                }
+                RcpToMenu.MenuId = tempMenuId;
+                RcpToMenu.MenuName = tempMenuName;
+                if (tempMenuId != 0)
+                {
+                    var tempCurrentMenu = new MenuRecipe();
+                    tempCurrentMenu.MenuId = tempMenuId;
+                    tempCurrentMenu.MenuName = tempMenuName;
+                    App.CurrentMenu = tempCurrentMenu;
+                }
+                await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
             }
             else
             {
-                AddRcpToMenu();
+                RcpToMenu.MenuName = App.CurrentMenu.MenuName;
+                RcpToMenu.MenuId = App.CurrentMenu.MenuId;
+                await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
             }
 
             await Navigation.PushAsync(new Pages.CurrentMenuPage());
         }
-
-        public async void AddRcpToMenu()
-        {
-            RcpToMenu = new AddEditGetMenu()
-            {
-                MenuId = App.CurrentMenu.MenuId,
-                RecipeId = Convert.ToInt32(App.RecipeViewModel.CurrentRcp.RecipeID),
-                MenuServings = App.RecipeViewModel.CurrentRcp.RecipeServings,
-                UserId = Data.CABEServices.UserDetails.ID,
-                MenuName = App.CurrentMenu.MenuName
-            };
-            await App.cabeMgr.AddEditGetMenuAsync(RcpToMenu);
-        }
-
-        //App.MenuViewModel = new ViewModels.MenuViewModel();
-        //App.MenuViewModel.RefreshMenuAsync();
 
         private async void OnInstructionsClicked(object sender, EventArgs e)
         {
