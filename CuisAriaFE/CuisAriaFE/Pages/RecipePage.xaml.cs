@@ -138,5 +138,19 @@ namespace CuisAriaFE.Pages
             Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
         }
+
+        public decimal ScaleFactor { get; set; }
+
+        //private void OnServingsChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    var currentVal = Decimal.Parse(e.NewTextValue);
+        //    ScaleFactor = App.OriginalServings / currentVal;
+
+        //    foreach (var item in App.RecipeViewModel.IngredRcp)
+        //    {
+        //        item.IngredQty *= ScaleFactor;
+        //    }
+        //}
+
     }
 }

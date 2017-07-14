@@ -103,7 +103,7 @@ namespace CuisAriaFE.ViewModels
             get { return _addSharedVisible; }
             set { SetProperty(ref _addSharedVisible, value); }
         }
-
+                        
         private bool _isBusy;
         public bool IsBusy
         {
@@ -138,7 +138,7 @@ namespace CuisAriaFE.ViewModels
             IngredRcp.Clear();
 
             var ingredList = await App.cabeMgr.RefreshIngredientsAsync(currentRecipeID);
-
+            
             foreach (var item in ingredList)
             {
                 IngredRcp.Add(item);
@@ -181,5 +181,6 @@ namespace CuisAriaFE.ViewModels
             }
 
         }
+ 
     }
 }

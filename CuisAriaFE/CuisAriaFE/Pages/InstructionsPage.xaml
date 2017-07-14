@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CuisAriaFE" Title="Instructions" Style="{DynamicResource AccColor1}"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="CuisAriaFE.Pages.InstructionsPage">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Instructions"/>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--<Label Text="Instructions"/>
             <ListView x:Name="instructionsListView" ItemSelected="OnInstructionSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -17,9 +27,60 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
+            <controls:CarouselViewControl x:Name="stepCarousel"
+                                          Grid.Row="0"
+                                          Grid.Column="0"
+                                          Orientation="Horizontal"
+                                          InterPageSpacing="10"
+                                          Position="0"
+                                          ItemsSource="{Binding StepRcp}"
+                                          VerticalOptions="FillAndExpand"
+                                          HorizontalOptions="FillAndExpand">
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="15,0,15,0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                            <!--<Label FontSize="48" VerticalTextAlignment="Center" FormattedText="{Binding StepNumber}" />-->
+                            <Label FontSize="24" VerticalTextAlignment="Center" Text="{Binding Instruction}"/>
+                        </StackLayout>                  
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
 
-        </StackLayout>
+
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              BackgroundColor="Silver"
+              Padding="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="prevBtn"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalTextAlignment="Start"
+                   Text="Prev"
+                   VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label x:Name="nextBtn"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   HorizontalTextAlignment="End"
+                   Text="Next"
+                   VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </Grid>
         <!--<StackLayout Orientation="Horizontal">
             <Button Image="" Clicked="On_Pause"/>
             <Button Image="" Clicked="On_Backup"/>

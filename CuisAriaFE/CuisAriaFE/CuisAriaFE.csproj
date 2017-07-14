@@ -45,6 +45,7 @@
     <Compile Include="Common\ObservableBase.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controls\BindableToolbarItem.cs" />
+    <Compile Include="Controls\EntryTriggerAction.cs" />
     <Compile Include="Data\ICABEServices.cs" />
     <Compile Include="Data\CABEMgr.cs" />
     <Compile Include="Data\CABEServices.cs" />
@@ -127,6 +128,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CarouselView.FormsPlugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CarouselView.FormsPlugin.4.4.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10\CarouselView.FormsPlugin.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="ImageCircle.Forms.Plugin.Abstractions, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\portable-net45+wp80+win8+wpa81\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
     </Reference>

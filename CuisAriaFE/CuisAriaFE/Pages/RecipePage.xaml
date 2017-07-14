@@ -4,6 +4,7 @@
                 xmlns:pages="clr-namespace:CuisAriaFE.Pages"
                 xmlns:control="clr-namespace:CuisAriaFE.Controls"
                 x:Class="CuisAriaFE.Pages.RecipePage">
+                <!--xmlns:local="clr-namespace:CuisAriaFE;assembly=clr-namespace:CuisAriaFE"-->
 
     <ContentPage.ToolbarItems>
         <control:BindableToolbarItem x:Name="isFavIcon" Icon="icon_isFavorite.png" Order="Primary" Clicked="OnFavIconClicked" Priority="1" IsVisible="{Binding IsFavVisible}"/>
@@ -46,7 +47,13 @@
                     </Grid.RowDefinitions>
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
                         <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="15" Text=" "/>
-                            <Label x:Name="dispRcpServings" Grid.Column="1" WidthRequest="80" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.RecipeServings}" />
+                            <Entry x:Name="dispRcpServings" Grid.Column="1" WidthRequest="80" HorizontalTextAlignment="Center" FontSize="Small" Text="{Binding CurrentRcp.RecipeServings}">
+                                <!--<Entry.Triggers>
+                                    <EventTrigger Event="TextChanged">
+                                        <control:EntryTriggerAction />
+                                    </EventTrigger>
+                                </Entry.Triggers>-->
+                            </Entry>
                             <Label x:Name="dispPrepTime" Grid.Column="2" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.PrepTime}" />
                             <Label x:Name="dispCookTime" Grid.Column="3" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.CookTime}"/>
                     </StackLayout>
