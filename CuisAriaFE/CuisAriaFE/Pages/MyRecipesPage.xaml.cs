@@ -45,6 +45,7 @@ namespace CuisAriaFE.Pages
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             App.CurrentRecipe = e.SelectedItem as Recipe;
+            App.OriginalServings = App.CurrentRecipe.RecipeServings;
             Navigation.PushAsync(new Pages.RecipePage());
         }
     }

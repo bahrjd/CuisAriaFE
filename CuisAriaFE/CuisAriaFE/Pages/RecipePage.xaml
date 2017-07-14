@@ -48,11 +48,11 @@
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
                         <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="15" Text=" "/>
                             <Entry x:Name="dispRcpServings" Grid.Column="1" WidthRequest="80" HorizontalTextAlignment="Center" FontSize="Small" TextChanged="OnServingsChanged" Text="{Binding CurrentRcp.RecipeServings}">
-                                <Entry.Triggers>
+                                <!--<Entry.Triggers>
                                     <EventTrigger Event="TextChanged">
                                         <control:EntryTriggerAction />
                                     </EventTrigger>
-                                </Entry.Triggers>
+                                </Entry.Triggers>-->
                             </Entry>
                             <Label x:Name="dispPrepTime" Grid.Column="2" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.PrepTime}" />
                             <Label x:Name="dispCookTime" Grid.Column="3" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="Small"  Text="{Binding CurrentRcp.CookTime}"/>

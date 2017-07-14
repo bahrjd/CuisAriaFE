@@ -22,7 +22,6 @@ namespace CuisAriaFE.Pages
         {
             App.RecipeViewModel = new ViewModels.RecipeViewModel();
             App.RecipeViewModel.RefreshRcpDetailsAsync();
-            App.OriginalServings = Data.CABEServices.ItemRcp.RecipeServings;
             App.RecipeViewModel.FavCheck(App.RecipeViewModel.CurrentRcp.Favorite);
             App.RecipeViewModel.ShareCheck(App.RecipeViewModel.CurrentRcp.Shared);
 
@@ -147,16 +146,11 @@ namespace CuisAriaFE.Pages
             var currentVal = Decimal.Parse(e.NewTextValue);
             ScaleFactor = App.OriginalServings / currentVal;
 
-            foreach (var item in IngredRcp)
+            foreach (var item in App.RecipeViewModel.IngredRcp)
             {
                 item.IngredQty *= ScaleFactor;
             }
         }
-
-        //private void OnServingsChanged(object sender, PropertyChangingEventArgs e)
-        //{
-        //    App.RecipeViewModel.ScaleIngredients();
-        //}
 
     }
 }

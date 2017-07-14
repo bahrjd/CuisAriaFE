@@ -12,7 +12,6 @@ namespace CuisAriaFE.ViewModels
     public class RecipeViewModel : ObservableBase
     {
         private string currentRecipeID = App.CurrentRecipe.RecipeID;
-        private static decimal baseRecipeServings = App.OriginalServings;
                                 
         public RecipeViewModel()
         {
@@ -182,16 +181,6 @@ namespace CuisAriaFE.ViewModels
             }
 
         }
-
-        public void ScaleIngredients()
-        {
-            ScaleFactor = baseRecipeServings / entry.Text;
-
-            foreach (var item in IngredRcp)
-            {
-                item.IngredQty *= ScaleFactor;
-            }            
-        }
-
+ 
     }
 }
