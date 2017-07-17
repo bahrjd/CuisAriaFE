@@ -240,7 +240,7 @@ Global
 		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.AppStore|x86.ActiveCfg = AppStore|iPhone
-		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
 		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{D3D12FED-8C2C-4901-B4A7-1BF6466A9339}.Debug|iPhone.Build.0 = Debug|iPhone
