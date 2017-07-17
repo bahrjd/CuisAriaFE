@@ -60,6 +60,20 @@ namespace CuisAriaFE.ViewModels
             set { SetProperty(ref _ingredRcp, value); }
         }
 
+        private int _ingredHeight;
+        public int IngredHeight
+        {
+            get { return _ingredHeight; }
+            set { SetProperty(ref _ingredHeight, value); }
+        }
+
+        private int _stepHeight;
+        public int StepHeight
+        {
+            get { return _stepHeight; }
+            set { SetProperty(ref _stepHeight, value); }
+        }
+
         // Toolbar Icon Visibility Toggles
 
         private bool _isFav;
@@ -124,24 +138,28 @@ namespace CuisAriaFE.ViewModels
         public async Task RefreshStepsAsync()
         {
             StepRcp.Clear();
+            StepHeight = 15;
 
             var stepList = await App.cabeMgr.RefreshStepsAsync(currentRecipeID);
 
             foreach (var item in stepList)
             {
                 StepRcp.Add(item);
+                StepHeight += (Constants.rcpDispRowHeight * ((item.Instruction.Length / Constants.rcpStepCharsPerLine) + 1) + 10); 
             }
         }
 
         public async Task RefreshIngredientsAsync()
         {
             IngredRcp.Clear();
+            IngredHeight = 30;
 
             var ingredList = await App.cabeMgr.RefreshIngredientsAsync(currentRecipeID);
             
             foreach (var item in ingredList)
             {
                 IngredRcp.Add(item);
+                IngredHeight += Constants.rcpDispRowHeight * ((item.IngredName.Length / Constants.rcpIngredCharsPerLine) + 1);
             }
         }
 

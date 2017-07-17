@@ -172,7 +172,7 @@ namespace CuisAriaFE.Pages
                 IngredUnit = " "
             };
             App.AddRecipeViewModel.IngredientsList.Add(Ingred2List);
-            App.AddRecipeViewModel.IngredHeight += Constants.dispRowHeight;
+            App.AddRecipeViewModel.IngredHeight += Constants.addRcpDispRowHeight;
         }
 
         void OnSelection(object sender, SelectedItemChangedEventArgs e)
@@ -200,7 +200,7 @@ namespace CuisAriaFE.Pages
                 Instruction = ""
             };
             App.AddRecipeViewModel.StepIngredList.Add(Steps2List);
-            App.AddRecipeViewModel.StepHeight += Constants.dispRowHeight;
+            App.AddRecipeViewModel.StepHeight += Constants.addRcpDispRowHeight;
         }
 
         private void OnUnitsPickerChanged(object sender, EventArgs e)
