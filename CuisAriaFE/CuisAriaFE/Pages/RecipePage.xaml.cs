@@ -13,6 +13,9 @@ namespace CuisAriaFE.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipePage : ContentPage
     {
+        public int ingredHeight { get; set; }
+        public int stepHeight { get; set; }
+
         public RecipePage()
         {
             InitializeComponent();
@@ -26,6 +29,11 @@ namespace CuisAriaFE.Pages
             App.RecipeViewModel.ShareCheck(App.RecipeViewModel.CurrentRcp.Shared);
 
             BindingContext = App.RecipeViewModel;
+
+            ingredHeight = App.RecipeViewModel.IngredHeight;
+            //App.RecipeViewModel.StepHeight = 50;
+
+
 
             base.OnAppearing();
         }

@@ -34,10 +34,17 @@ namespace CuisAriaFE.Common.Converters
             var qtyInt = Math.Truncate((decimal)value).ToString();
             if (qtyInt == "0")
             {
-                qtyInt = " ";
+                qtyInt = "      ";
             }
-
-            return qtyInt + " " + qtyFrac;
+            if (qtyInt.Length == 1)
+            {
+                qtyInt = "    " + qtyInt;
+            }
+            if (qtyInt.Length == 2)
+            {
+                qtyInt = "  " + qtyInt;
+            }
+            return qtyInt + "  " + qtyFrac;
 
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

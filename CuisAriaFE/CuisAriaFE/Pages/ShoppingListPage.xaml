@@ -18,16 +18,16 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
+                            <StackLayout Padding="5,0,5,0">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0">
-                                        <Label Grid.Column="0" WidthRequest="10" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" FontFamily="Verdana"  Text=""/> 
-                                        <Label Grid.Column="1" WidthRequest="70" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemQty, Converter={StaticResource DecimalToFrac}"/>
-                                        <Label Grid.Column="3" WidthRequest="90" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemUnit}"/>
-                                        <Label Grid.Column="4" WidthRequest="185" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="Verdana"  Text="{Binding ItemName}"/>
+                                        <!--<Label Grid.Column="0" WidthRequest="10" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" FontSize="Small" FontFamily="Verdana"  Text=""/>-->
+                                        <Label Grid.Column="0" WidthRequest="55" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="Small" FontFamily="Verdana"  Text="{Binding ItemQty, Converter={StaticResource DecimalToFrac}"/>
+                                        <Label Grid.Column="1" WidthRequest="80" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="Small" FontFamily="Verdana"  Text="{Binding ItemUnit}"/>
+                                        <Label Grid.Column="2" WidthRequest="215" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="Small" FontFamily="Verdana"  Text="{Binding ItemName}"/>
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>
