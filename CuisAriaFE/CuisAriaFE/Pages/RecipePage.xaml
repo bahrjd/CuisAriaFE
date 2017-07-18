@@ -32,6 +32,7 @@
                     <StackLayout Orientation="Vertical" Padding="5,12,0,5" Margin="0" Spacing="3">
                         <Frame Padding="1,1,1,1" OutlineColor="Blue" BackgroundColor="LightCyan" WidthRequest="80">
                             <Entry x:Name="enterRcpServings" 
+                                   Keyboard="Numeric"
                                    WidthRequest="78" 
                                    HorizontalTextAlignment="Center" 
                                    FontSize="Small" 
