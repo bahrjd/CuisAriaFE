@@ -36,11 +36,15 @@
                                           Position="0"
                                           ItemsSource="{Binding StepRcp}"
                                           VerticalOptions="FillAndExpand"
-                                          HorizontalOptions="FillAndExpand">
+                                          HorizontalOptions="FillAndExpand"
+                                          ShowIndicators="True">
                 <controls:CarouselViewControl.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="15,0,15,0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical">
-                            <!--<Label FontSize="48" VerticalTextAlignment="Center" FormattedText="{Binding StepNumber}" />-->
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Label FontFamily="Verdana" FontAttributes="Bold" FontSize="24" VerticalTextAlignment="Center" TextColor="Blue" Text="Step" />
+                                <Label FontFamily="Verdana" FontAttributes="Bold" FontSize="24" VerticalTextAlignment="Center" TextColor="Blue" Text="{Binding StepNumber}" />
+                            </StackLayout>
                             <Label x:Name="instructionLabel" FontSize="24" VerticalTextAlignment="Center" IsEnabled="True" TextColor="Blue"  Text="{Binding Instruction}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnPlay" />
@@ -54,7 +58,7 @@
 
         <Grid Grid.Row="1"
               Grid.Column="0"
-              BackgroundColor="{StaticResource PrimaryMainColor}"
+              BackgroundColor="{StaticResource PrimaryDarkestColor}"
               Padding="12,0,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -68,7 +72,7 @@
                    Grid.Row="0"
                    Grid.Column="0"
                    HorizontalTextAlignment="Start"
-                   Text="Previous"
+                   Text=""
                    VerticalTextAlignment="Center">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer  />
@@ -78,17 +82,17 @@
                    Grid.Row="0"
                    Grid.Column="1"
                    HorizontalTextAlignment="Center"
-                   Text="Play"
+                   Text=""
                    VerticalTextAlignment="Center">
-                <Label.GestureRecognizers>
+                <!--<Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnPlay" />
-                </Label.GestureRecognizers>
+                </Label.GestureRecognizers>-->
             </Label>
             <Label x:Name="nextBtn"
                    Grid.Row="0"
                    Grid.Column="2"
                    HorizontalTextAlignment="End"
-                   Text="Next"
+                   Text=""
                    VerticalTextAlignment="Center">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer  />
