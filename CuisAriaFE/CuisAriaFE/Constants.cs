@@ -68,7 +68,5 @@ namespace CuisAriaFE
         public static int rcpIngredCharsPerLine = 27;
         public static int rcpStepCharsPerLine = 52;
 
-        // Recipe servings array
-        //public static int[] rcpServingsArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 25, 26 };
     }
 }
