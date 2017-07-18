@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuisAriaFE.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,14 +27,6 @@ namespace CuisAriaFE.Pages
             // instructionsListView.ItemsSource = await App.cabeMgr.RefreshStepsAsync(App.CurrentRecipe.RecipeID);
         }
 
-        //private void OnInstructionSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    var instructionItem = e.SelectedItem as Step;
-        //    var toSpeak = instructionItem.Instruction;
-        //    var ts = new TTSpeech();
-        //    ts.Speak(toSpeak);
-        //}
-
         //void ConfigureButtons()
         //{
         //    prevBtn.IsVisible = App.RecipeViewModel.Position > 0;
@@ -53,10 +46,15 @@ namespace CuisAriaFE.Pages
         //        stepCarousel.Position--;
         //}
 
-        //public void OnNext(object sender, TappedEventArgs e)
-        //{
-        //    if (stepCarousel.Position < stepCarousel.ItemsSource?.Count - 1)
-        //        stepCarousel.Position++;
-        //}
-    }
+        public void OnPlay(object sender, TappedEventArgs e)
+        {
+
+            var instructionItem = sender as Label;
+            var toSpeak = instructionItem.Text;
+            var ts = new TTSpeech();
+            ts.Speak(toSpeak);
+
+        }
+
+    }   
 }
