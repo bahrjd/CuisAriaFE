@@ -31,9 +31,9 @@
                         </Grid.RowDefinitions>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
                             <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="15" Text=" "/>
-                            <Entry x:Name="inputRcpServings" Grid.Column="1" BackgroundColor="LightCyan" WidthRequest="80" FontSize="Small" Placeholder="Servings" HorizontalTextAlignment="Center" Text="{Binding NewRcp.RecipeServings}" />
-                            <Entry x:Name="inputPrepTime" Grid.Column="2" BackgroundColor="LightCyan" WidthRequest="100" FontSize="Small" Placeholder="Prep Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.PrepTime}" />
-                            <Entry x:Name="inputCookTime" Grid.Column="3" BackgroundColor="LightCyan" WidthRequest="100" FontSize="Small" Placeholder="Cook Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.CookTime}"/>
+                            <Entry x:Name="inputRcpServings" Grid.Column="1" Keyboard="Numeric" BackgroundColor="LightCyan" WidthRequest="80" FontSize="Small" Placeholder="Servings" HorizontalTextAlignment="Center" Text="{Binding NewRcp.RecipeServings}" />
+                            <Entry x:Name="inputPrepTime" Grid.Column="2" Keyboard="Numeric" BackgroundColor="LightCyan" WidthRequest="100" FontSize="Small" Placeholder="Prep Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.PrepTime}" />
+                            <Entry x:Name="inputCookTime" Grid.Column="3" Keyboard="Numeric" BackgroundColor="LightCyan" WidthRequest="100" FontSize="Small" Placeholder="Cook Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.CookTime}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="1" >
                             <Label x:Name="inputSpacer2" Grid.Column="0" WidthRequest="15" Text=" "/>
@@ -55,7 +55,7 @@
                                                 <RowDefinition />
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
-                                                <Entry x:Name="inputIngredQty" BackgroundColor="LightCyan" Grid.Column="0" FontSize="Small" WidthRequest="30" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Entry x:Name="inputIngredQty" Keyboard="Numeric" BackgroundColor="LightCyan" Grid.Column="0" FontSize="Small" WidthRequest="30" Placeholder="Qty" Text="{Binding IngredQty}" />
                                                 <Picker Title="Frac" BackgroundColor="LightCyan" SelectedIndexChanged="OnQtyFracPickerChanged" WidthRequest="40" >
                                                     <Picker.Items>
                                                         <x:String>   </x:String>
@@ -114,7 +114,7 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
                                         <StackLayout Padding="5,0,0,0" Grid.Row="0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                            <Entry x:Name="inputStepNum" BackgroundColor="LightCyan" Grid.Column="0" WidthRequest="30" Placeholder="Step #" Text="{Binding StepNumber}" />
+                                            <Entry x:Name="inputStepNum" Keyboard="Numeric" BackgroundColor="LightCyan" Grid.Column="0" WidthRequest="30" Placeholder="Step #" Text="{Binding StepNumber}" />
                                             <Entry x:Name="inputInstruction" BackgroundColor="LightCyan" Grid.Column="1" FontSize="Small" WidthRequest="310" Placeholder="Instruction                      " Text="{Binding Instruction}"/>
                                         </StackLayout>
                                     </Grid>
