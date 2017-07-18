@@ -13,9 +13,6 @@ namespace CuisAriaFE.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipePage : ContentPage
     {
-        public int ingredHeight { get; set; }
-        public int stepHeight { get; set; }
-
         public RecipePage()
         {
             InitializeComponent();
@@ -28,14 +25,14 @@ namespace CuisAriaFE.Pages
             App.RecipeViewModel.FavCheck(App.RecipeViewModel.CurrentRcp.Favorite);
             App.RecipeViewModel.ShareCheck(App.RecipeViewModel.CurrentRcp.Shared);
 
+            App.RecipeViewModel.RcpScaleFactor = 1m;
+            App.RecipeViewModel.RcpServings = App.RecipeViewModel.CurrentRcp.RecipeServings;
+
             BindingContext = App.RecipeViewModel;
-
-            ingredHeight = App.RecipeViewModel.IngredHeight;
-            //App.RecipeViewModel.StepHeight = 50;
-
-
+            rcpIngredListView.ItemsSource = App.RecipeViewModel.IngredRcp;
 
             base.OnAppearing();
+            
         }
 
         protected override void OnDisappearing()
@@ -147,18 +144,33 @@ namespace CuisAriaFE.Pages
             await Navigation.PopAsync();
         }
 
-        public decimal ScaleFactor { get; set; }
+        private async void OnRcpServingsEntry(object sender, EventArgs e)
+        {
+            if (App.CurrentRecipe.RecipeServings > 0)
+            {
+                App.RecipeViewModel.RcpScaleFactor = App.RecipeViewModel.RcpServings / App.RecipeViewModel.CurrentRcp.RecipeServings;
+            }
 
-        //private void OnServingsChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    var currentVal = Decimal.Parse(e.NewTextValue);
-        //    ScaleFactor = App.OriginalServings / currentVal;
+            // Update ingredient qtys
+            foreach (Ingredient ingred in App.RecipeViewModel.IngredRcp)
+            {
+                ingred.IngredQty = ingred.IngredQty * App.RecipeViewModel.RcpScaleFactor;
+            }
+            rcpIngredListView.ItemsSource = null;
+            rcpIngredListView.ItemsSource = App.RecipeViewModel.IngredRcp;
+            App.RecipeViewModel.CurrentRcp.RecipeServings = App.RecipeViewModel.RcpServings;
+        }
 
-        //    foreach (var item in App.RecipeViewModel.IngredRcp)
-        //    {
-        //        item.IngredQty *= ScaleFactor;
-        //    }
-        //}
+        private void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+            }
+            ((ListView)sender).SelectedItem = null;
+        }
+
+        
 
     }
 }
