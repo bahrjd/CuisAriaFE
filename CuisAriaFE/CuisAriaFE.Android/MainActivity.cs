@@ -25,6 +25,8 @@ namespace CuisAriaFE.Droid
             CarouselViewRenderer.Init();
 
             LoadApplication(new App());
+
+            Window.SetStatusBarColor(Android.Graphics.Color.Argb(255, 52, 5, 112));
         }
     }
 }
