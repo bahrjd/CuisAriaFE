@@ -74,6 +74,20 @@ namespace CuisAriaFE.ViewModels
             set { SetProperty(ref _stepHeight, value); }
         }
 
+        private decimal _rcpServings;
+        public decimal RcpServings
+        {
+            get { return _rcpServings; }
+            set { SetProperty(ref _rcpServings, value); }
+        }
+
+        private decimal _rcpScaleFactor;
+        public decimal RcpScaleFactor
+        {
+            get { return _rcpScaleFactor; }
+            set { SetProperty(ref _rcpScaleFactor, value); }
+        }
+
         // Toolbar Icon Visibility Toggles
 
         private bool _isFav;
