@@ -20,9 +20,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout >
-                <Entry x:Name="rcpNameLabel" FontSize="Large" Text="{Binding NewRcp.RecipeName}" Placeholder="Recipe name"/>
-                <Entry x:Name="rcpDescLabel" FontSize="Medium" Text="{Binding NewRcp.Description}" Placeholder="Description"/>
-                <Entry x:Name="rcpPic" FontSize="Medium" Text="{Binding NewRcp.RecipePic}" Placeholder="Recipe picture link"/>
+                <Entry x:Name="rcpNameLabel" FontSize="Large" TextColor="Blue" BackgroundColor="LightCyan" FontFamily="Verdana" FontAttributes="Bold" Text="{Binding NewRcp.RecipeName}" Placeholder="Recipe name"/>
+                <Entry x:Name="rcpDescLabel" FontSize="Medium" TextColor="LightSteelBlue" BackgroundColor="LightCyan" FontAttributes="Italic" Text="{Binding NewRcp.Description}" Placeholder="Description"/>
+                <Entry x:Name="rcpPic" FontSize="Medium" BackgroundColor="LightCyan" Text="{Binding NewRcp.RecipePic}" Placeholder="Recipe picture link"/>
                 <StackLayout Orientation="Horizontal" HeightRequest="80">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -31,9 +31,9 @@
                         </Grid.RowDefinitions>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
                             <Label x:Name="inputSpacer1" Grid.Column="0" WidthRequest="15" Text=" "/>
-                            <Entry x:Name="inputRcpServings" Grid.Column="1" WidthRequest="80" FontSize="Small" Placeholder="Servings" HorizontalTextAlignment="Center" Text="{Binding NewRcp.RecipeServings}" />
-                            <Entry x:Name="inputPrepTime" Grid.Column="2" WidthRequest="100" FontSize="Small" Placeholder="Prep Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.PrepTime}" />
-                            <Entry x:Name="inputCookTime" Grid.Column="3" WidthRequest="100" FontSize="Small" Placeholder="Cook Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.CookTime}"/>
+                            <Entry x:Name="inputRcpServings" Grid.Column="1" BackgroundColor="LightCyan" WidthRequest="80" FontSize="Small" Placeholder="Servings" HorizontalTextAlignment="Center" Text="{Binding NewRcp.RecipeServings}" />
+                            <Entry x:Name="inputPrepTime" Grid.Column="2" BackgroundColor="LightCyan" WidthRequest="100" FontSize="Small" Placeholder="Prep Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.PrepTime}" />
+                            <Entry x:Name="inputCookTime" Grid.Column="3" BackgroundColor="LightCyan" WidthRequest="100" FontSize="Small" Placeholder="Cook Time" HorizontalTextAlignment="Center" Text="{Binding NewRcp.CookTime}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="1" >
                             <Label x:Name="inputSpacer2" Grid.Column="0" WidthRequest="15" Text=" "/>
@@ -43,7 +43,7 @@
                         </StackLayout>
                     </Grid>
                 </StackLayout>
-                <Label FontSize="Large" Text="Ingredients" Margin="5"/>
+                <Label FontSize="Large" Text="Ingredients" Margin="5" TextColor="BlueViolet"/>
                 <StackLayout >
                     <ListView x:Name="rcpIngredListView" ItemsSource="{Binding IngredientsList}" HasUnevenRows="True" HeightRequest="{Binding IngredHeight}" >
                         <ListView.ItemTemplate >
@@ -55,8 +55,8 @@
                                                 <RowDefinition />
                                             </Grid.RowDefinitions>
                                             <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Grid.Row="0" >
-                                                <Entry x:Name="inputIngredQty" Grid.Column="0" FontSize="Small" WidthRequest="30" Placeholder="Qty" Text="{Binding IngredQty}" />
-                                                <Picker Title="Frac" SelectedIndexChanged="OnQtyFracPickerChanged" WidthRequest="40" >
+                                                <Entry x:Name="inputIngredQty" BackgroundColor="LightCyan" Grid.Column="0" FontSize="Small" WidthRequest="30" Placeholder="Qty" Text="{Binding IngredQty}" />
+                                                <Picker Title="Frac" BackgroundColor="LightCyan" SelectedIndexChanged="OnQtyFracPickerChanged" WidthRequest="40" >
                                                     <Picker.Items>
                                                         <x:String>   </x:String>
                                                         <x:String>1/8</x:String>
@@ -70,7 +70,7 @@
                                                         <x:String>7/8</x:String>
                                                     </Picker.Items>
                                                 </Picker>
-                                                <Picker Title="Units" SelectedIndexChanged="OnUnitsPickerChanged" WidthRequest="90" >
+                                                <Picker Title="Units" BackgroundColor="LightCyan" SelectedIndexChanged="OnUnitsPickerChanged" WidthRequest="90" >
                                                     <Picker.Items>
                                                         <x:String>  ---  </x:String>
                                                         <x:String>teaspoon</x:String>
@@ -91,7 +91,7 @@
                                                         <x:String>pinch</x:String>
                                                     </Picker.Items>
                                                 </Picker>
-                                                <Entry x:Name="inputIngredName" Grid.Column="3" FontSize="Small" WidthRequest="180"  Placeholder="Name" Text="{Binding IngredName}"/>
+                                                <Entry x:Name="inputIngredName" BackgroundColor="LightCyan" Grid.Column="3" FontSize="Small" WidthRequest="180"  Placeholder="Name" Text="{Binding IngredName}"/>
                                             </StackLayout>
                                         </Grid>
                                     </StackLayout>
@@ -99,11 +99,11 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button x:Name="addIngredButton" Text="Add Ingredient" Clicked="OnAddIngredClicked" Margin="5"/>
+                    <Button x:Name="addIngredButton" Text="Add Ingredient" Clicked="OnAddIngredClicked" Margin="5" BackgroundColor="LightSteelBlue"/>
 
                 </StackLayout>
-                
-                <Label FontSize="Large" Text="Instructions" Margin="5"/>
+
+                <Label FontSize="Large" Text="Instructions" Margin="5" TextColor="BlueViolet"/>
                 <StackLayout >
                     <ListView x:Name="rcpStepsListView" ItemsSource="{Binding StepIngredList}" Margin="5" HasUnevenRows="True" HeightRequest="{Binding StepHeight}">
                         <ListView.ItemTemplate>
@@ -114,21 +114,21 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
                                         <StackLayout Padding="5,0,0,0" Grid.Row="0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                            <Entry x:Name="inputStepNum" Grid.Column="0" WidthRequest="30" Placeholder="Step #" Text="{Binding StepNumber}" />
-                                            <Entry x:Name="inputInstruction" Grid.Column="1" FontSize="Small" WidthRequest="310" Placeholder="Instruction                      " Text="{Binding Instruction}"/>
+                                            <Entry x:Name="inputStepNum" BackgroundColor="LightCyan" Grid.Column="0" WidthRequest="30" Placeholder="Step #" Text="{Binding StepNumber}" />
+                                            <Entry x:Name="inputInstruction" BackgroundColor="LightCyan" Grid.Column="1" FontSize="Small" WidthRequest="310" Placeholder="Instruction                      " Text="{Binding Instruction}"/>
                                         </StackLayout>
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                        <Button x:Name="addStepButton" Text="Add Instruction" Clicked="OnAddStepClicked" Margin="5"/>
+                    <Button x:Name="addStepButton" Text="Add Instruction" Clicked="OnAddStepClicked" Margin="5" BackgroundColor="LightSteelBlue"/>
                 </StackLayout>
                 <!--<Label FontSize="Large" Text="Notes"/>
                 <Label Text="{Binding NewRcp.Notes}"/>-->
                 <!--<Label FontSize="Large" Text="Keywords"/>
                 <Label Text="{Binding Keywords}"/>-->
-                <Button Text="Save" Clicked="OnSaveRecipeClicked" Margin="5"></Button>
+                <Button Text="Save" Clicked="OnSaveRecipeClicked" Margin="5" BackgroundColor="LightGreen"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
