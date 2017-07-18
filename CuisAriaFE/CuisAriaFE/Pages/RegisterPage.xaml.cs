@@ -65,6 +65,7 @@ namespace CuisAriaFE.Pages
 
         async void OnGoToLoginClicked(object sender, EventArgs e)
         {
+            Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
         }
     }
