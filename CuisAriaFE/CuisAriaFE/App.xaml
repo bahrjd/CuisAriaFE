@@ -14,6 +14,12 @@
             <Color x:Key="PrimaryDarkestColor">#340570</Color>
             <Color x:Key="PrimaryLightColor">#540EAD</Color>
             <Color x:Key="PrimaryLightestColor">#9A6AD6</Color>
+            <Color x:Key="PrimaryButtonColor">LightSteelBlue</Color>
+            <Color x:Key="AffirmativeButtonColor">LightGreen</Color>
+            <Color x:Key="HeadingTextColor">Blue</Color>
+            <Color x:Key="EntryBackgroundColor">LightCyan</Color>
+            <!--<Color x:Key="HeadingTextColor">#0A0874</Color>-->
+            
 
             <Color x:Key="DarkPurple">#AA00A2</Color>
             <Color x:Key="Pink">#D435CD</Color>
@@ -21,8 +27,15 @@
             <Color x:Key="Yellow">#FFEF40</Color>
             <Color x:Key="LightYellow">#FFF373</Color>
             <Color x:Key="BoldYellow">#FFE900</Color>
-            <Color x:Key="Blue">#504DD9</Color>
-            
+
+            <Style x:Key="MainHeadingStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+            </Style>
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
