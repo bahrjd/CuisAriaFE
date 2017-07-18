@@ -4,13 +4,13 @@
              x:Class="CuisAriaFE.Pages.RegisterPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="CuisAria" Font="Arial" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="New User Registration" Font="Arial" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
-            <Entry x:Name="userNameEntry" Placeholder="Enter User Name" HorizontalOptions="FillAndExpand" />
-            <Entry x:Name="passwordEntry" Placeholder="Enter Password" HorizontalOptions="FillAndExpand" IsPassword="true" />
-            <Entry x:Name="passwordEntry2" Placeholder="Re-enter Password" HorizontalOptions="FillAndExpand" IsPassword="true" />
-            <Button Text="Register" Clicked="OnRegisterClicked"></Button>
-            <Button Text="Return to Login" Clicked="OnGoToLoginClicked"></Button>
+            <Label Text="CuisAria" Style="{StaticResource MainHeadingStyle}" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="New User Registration" Style="{StaticResource MainHeadingStyle}" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="userNameEntry" BackgroundColor="{StaticResource EntryBackgroundColor}" Placeholder="Enter User Name" HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="passwordEntry" BackgroundColor="{StaticResource EntryBackgroundColor}" Placeholder="Enter Password" HorizontalOptions="FillAndExpand" IsPassword="true" />
+            <Entry x:Name="passwordEntry2" BackgroundColor="{StaticResource EntryBackgroundColor}" Placeholder="Re-enter Password" HorizontalOptions="FillAndExpand" IsPassword="true" />
+            <Button Text="Register" BackgroundColor="{StaticResource AffirmativeButtonColor}" Clicked="OnRegisterClicked"></Button>
+            <Button Text="Return to Login" BackgroundColor="{StaticResource PrimaryButtonColor}" Clicked="OnGoToLoginClicked"></Button>
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>
